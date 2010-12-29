@@ -1,0 +1,105 @@
+<html>
+
+<!-- Mirrored from arachnide.sourceforge.net/formats/map/index.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:12 GMT -->
+<head>
+  <link href="../../standard.css" rel=stylesheet type="text/css">
+</head>
+<body background="../../background/paperback.jpg">
+<br>
+<br>
+<center><font face="arial, helvetica" size="+2">Map</font></center>
+<br>
+<br>
+<ul>
+ <table>
+  <tr valign="top">  
+   <td>
+    <table cellspacing="0" cellpadding="5" >
+     <tr><td><font face="arial, helvetica">Relevant files:</font></td></tr>
+    </table>
+   </td>
+   <td>
+     <table border="1" cellspacing="0" cellpadding="5" width = "90%" bgcolor="#C0C0C0">
+      <tr><td><font face="arial, helvetica"><i>map.mul</i></font></td></tr>
+     </table>
+   </td>
+  </tr>
+ </table>
+ <br>
+ <font face="arial, helvetica">
+  The world base level terrain is stored inside of <i>map.mul</i>. 
+  Base level is the ground, mountains, streets and the ocean.  
+  All other things like houses, bridges, etc. are static data. <br>  
+  <br>
+  This is in example the center of britain with map data only:
+  <ul>
+   <img src ="raw.png" border="no">
+  </ul>
+ </font>
+</ul>
+  <table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+   <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;Map basics</b></font></td></tr>
+   </table>
+<ul>
+ <font face="arial, helvetica">
+  One basic principle of UO almost everybody has quite certainly already noticed even during 
+  normal gameplay, is the cell division of the world. The whole world is constructed out of cells.
+  (The are almost easiest to see on stone pavor, where each stone is a cell). If a creatures does a
+  single step, it walks one cell. <br>
+  <br>
+  The whole UO-world is 6144 cells width and has an height of 4096 cells. <br>
+  <font size = -1>(To note, this quite huge! .. it are 25.165.824 cells in sum) 
+  (and it's now even likely to grow more (UO:3D))</font> <br>
+  <br>
+  <ul>
+   <img src ="world.png" border="no">
+  </ul>
+  <br>
+  The world data is grouped in blocks by 8x8.  <br> <br>
+  <ul>
+   <font size = -1>
+    I know the format seems rather curious at first sight, and in many felt pestered it, since
+    getting the correct position of a certain cell is rather complicated. 
+    However if you know how, you can use this blocking to your advantage. Arachnide in example now caches 
+    data also it's in 8x8 blocks in memory, and thus today I even find the mul files very convinient in the way
+    they are.
+   </font>
+  </ul>
+  <br>
+  Blocks are loaded top-to-bottom then left-to-right. Cells are loaded from blocks left-to-right then top-to-bottom.
+  <br>
+  However as usual a small picture says more than pages of text:
+  <br>
+  <ul>
+   <img src ="gitter.png" border="no">
+  </ul>
+  <br>
+  The small red letters are the position-ids in <i>map.mul</i> you have to search to find the cell. <br>  
+ </font>
+</ul>
+<table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+ <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;A Cell Entry (sprite)</b></font></td></tr>
+</table>
+<ul>
+ <font face="arial, helvetica">
+  Multiply the cell offset (red letters) by 3 to find it's position in the file.<br>
+  As twisted the offsets are to get as simply the cell entries are: <br>
+  <br>
+  <ul>
+   <table width="50%" border="1" cellspacing = "0">
+    <tr><td><font face="arial, helvetica">UNSIGNED INT16</font></td><td><font face="arial, helvetica">tile ID</font></td></tr>
+    <tr><td><font face="arial, helvetica">SIGNED BYTE</font></td><td><font face="arial, helvetica">height</font></td></tr>
+   </table>
+  </ul>
+  <br>
+  The tile ID matches to the ones from <i>art</i>, <i>tiledata</i>, <i>radarcolor</i> etc. <br>
+ </font>
+</ul>  
+<font face="arial, helvetica">
+<b>- finished</b>
+</font>
+  
+</body>
+
+<!-- Mirrored from arachnide.sourceforge.net/formats/map/index.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:12 GMT -->
+</html>

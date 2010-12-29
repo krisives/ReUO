@@ -1,0 +1,283 @@
+<html>
+
+<!-- Mirrored from arachnide.sourceforge.net/umelange/readme.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:16 GMT -->
+<head>
+  <title>Ultimate Melange</title>
+</head>
+<body text="#ffffff" bgcolor="#100030" link="#1A8BFF" vlink="#1A8BFF" alink="#FF0000"> 
+
+
+<font face="arial,helvetica">
+  <table width="100%">
+    <tr>      
+      <td> <div align="right"> README version 0.0.3.1 </div> </td>
+      <td> <div align="right"> 7. September 2000 </div> </td>
+    </tr>
+    <tr>   
+      <td> </td>
+      <td> <div align="right"> <a href="readme.txt"> TEXT version </a> </div> </td>
+    </tr>
+  </table>
+<hr>
+
+<!---================================================================--->
+<br><font color = "00ff00" size=+1> <li> DESCRIPTION </font> <br><br>
+<!--=================================================================--->
+<ul>
+ 
+  Ultimate Melange is a GNU-client for UO-Emulators   
+  (UOX3 is it's &quot;home&quot;-server).             <br>
+                                                      <br>
+  Primarily the project is written in java. This will allow
+  to spawn over all operating systems, which have
+  a "JAVA-JIT-VM" available. For windows and linux sun's
+  hotspot-VM is recommended.                          
+  (The Microsoft VM is no longer suppported!)         <br>
+                                                      <br>
+  However there are already parts written for windows
+  in native c++ code, but this is currently only 
+  experimental, since the last native MFC-grafics version 
+  tends to be slower than the pure-java version.
+
+</ul>                                                 
+<!---================================================================--->
+<br><font color = "00ff00" size=+1> <li> INSTALLATION </font> <br><br>
+<!--=================================================================--->
+<ul>
+
+  Copy all files from the zip-file you got into a single
+  directory. Take care to preserve internal directory
+  structure if there is one.                             <br>
+                                                         <br>
+  You will need to have the .mul and .idx files of the 
+  OSI client on your harddisk. Open the file 
+  "umelange.ini", and set the variable "UOPath" to 
+  directory where the .mul and .idx files reside.        <br>
+                                                         <br>
+  Since Ultimate Melange is written in java, it 
+  requires a virtual machine to run in. For windows
+  sun's hotspot VM is adviced, it comes with the JRE 1.3.
+  You can get the windows VM here:                       <br>
+  <a href="http://jsp2.java.sun.com/j2se/1.3/jre/download-windows.html">
+  http://jsp2.java.sun.com/j2se/1.3/jre/download-windows.html
+  </a>                                                   <br>
+                                                         <br>
+  Note: JRE/JDK 1.22 and below sre NOT recommended since they 
+  don't have a just-in-time compiler included and run
+  much too slow (1-2 frames per sec on a athlon 700, where
+  it are 40 frames with hotspot ;)
+  The microsoft VM is NOT supported. Some months of 
+  development have shown that it is unreliable and full of
+  bugs.                                                  <br>
+                                                         <br>
+  After installation of the JRE simply double-click
+  >UMelange.jar< and the program should jump up.         <br>
+                                                         <br>
+  If you want to see &quot;stdout&quot; debug output you can also
+  call                                                   <br>
+  &nbsp;&nbsp;
+    java -jar UMelange.jar                               <br>
+  in a DOS box. There, UMelange will show you what it    <br>
+  is currently doing, and failure notices will also be
+  written there.                                         <br>
+                                                         <br>
+  Next release (0.0.4) will also have a native wrapper 
+  .exe you can simply click on, but you will still need
+  to have the JRE installed! 
+ 
+</ul>
+<!---================================================================--->
+<br><font color = "00ff00" size=+1> <li> MAIN TARGETS </font> <br><br>
+<!--=================================================================--->
+<ul>
+
+  The project targets have now been written down, 
+  since this is a good idea for all GPL projects.       <br>
+  (At least i was told so. Well it doesn't hurt and
+   should give it all a little more professional touch)    <br>
+  However they are not "carved into stone", but should 
+  just give some guidelines.                               <br>
+                                                           <br>
+  <hr><!-------------------------------------------------------->
+  <font color = "ffff00">                                  <br>
+  <ul>
+    <li> 1: Allow playing on uo-emu's without the need to buy 
+         a client.                                            <br>
+                                                              <br>
+    <li> 2: Allows to play from non-windows operating systems. <br>
+                                                              <br>
+    <li> 3: Give people the opportunity to learn a new high-level
+         language in depth, which has a bright future         
+         predicted.                                           <br>
+                                                              <br>
+    <li> 4: Due to the modular concept of the project, it could 
+         support of another communication protocol.
+         (especially the "Atlas" protocol from "Worldforge")  <br>
+                                                              <br>
+  </font> </ul>
+  <hr><!-------------------------------------------------------->
+                                                                <br>
+  Some add-on explanations to the main-points:             <br> <br>
+  <ol>
+  <li> Note that the main target is allowing people to freely 
+       play on EMU's, not on official OSI shards. 
+       From myself (knoxos) I will do no efforts in implementing
+       the latest OSI encryption protocols, giving people 
+       the opportunity to login into the official UO shards.    <br>
+                                                                <br>
+       One thing that is directly derived from this point 
+       are the graphics. Currently UMelange still requires
+       the mul files, so you are still required to have the 
+       client. Due to this the OpenSkin sub-project has just started.
+       It will try to collect/draw all graphics needed to run
+       the game. The media database of WorldForge has given
+       a startup (trees), and UMelange version 0.0.4 will 
+       bring the technical implementation of the skin
+       interface.                                               <br>     
+                                                                <br>
+       Just let's pray some people might find some time to
+       draw one or another graphic. If not, everyone will 
+       always have to pay for a client, so from my point 
+       of view, it's the community itself deciding on this.     <br>
+                                                                <br>
+       I think it should be an exciting idea to actually 
+       really draw a new game, however people seem to prefer
+       to stick around with exchanging graphics of always the
+       very newest more cooler game on the market, and just don't 
+       do anything since they say it'll all be too much work...
+       As said the communtiy itself will decide if this will be 
+       posssible.                                               <br>
+                                                                <br>
+       I don't see too bright, since I somewhat know the
+       community and how lazy they all are if it 
+       comes to actual doing instead of just talking, 
+       posting and might quarrels, etc.                         <br>
+                                                                <br>
+       But <b>never</b> give up the hope!                       <br>
+                                                                <br>
+  <li> This point should be not too difficult since java will
+       automatically spawn over almost all operating systems ;) <br>
+                                                              <br>
+       However it's important to keep it on top, since 
+       version 0.0.4 of umelange will also use also the JNI
+       (Java Native Interface) to optimize some time-consuming
+       routines. Currently a development version already works 
+       with a MFC-Window instead of the java2D API (AWT), 
+       although it proved to be much slower then the AWT :(     <br>
+                                                                <br>
+       Having this as main target will ensure that there 
+       always will be a pure-java version available, standing 
+       by all native optimizations/ports.                       <br>
+                                                                <br>
+  <li> I will gladly explain any in-depths questions about 
+       java regarding UMelange,  however since my energies 
+       are limited, I rather got tired of explaining people 
+       absolute basics, like how to invoke the java-compiler, 
+       the difference between an applet and an application, 
+       where to get the hotspot-VM, ...
+       For all these things please visit:                       <br>
+       <a href="http://java.sun.com/tutorial/index.html">
+       http://java.sun.com/tutorial/index.html
+       </a>                                                     <br>
+
+       It has really good intro's and explanations, I myself 
+       learned all my java knowledge just from there.      <br>
+                                                              <br>
+  <li> This is more a far-future thought, than anything
+       particular already. Since the "reflection" concept
+       of UME (separated worlds and display) it should 
+       be possible to coexist inside the client. Future
+       will reveal how this idea turns out....
+  </ol>
+</ul>
+<!---================================================================--->
+<br><font color = "00ff00" size=+1> <li> SIDE TARGETS </font> <br><br>
+<!--=================================================================--->
+<ul>
+
+  The project structure allows much more than listed in
+  the main targets. But since the resources are limited,
+  powers are directed to realize the 4 main-targets.
+  I got a little help from some sides but in basics this is
+  still a one-man-show :(                                      <br>
+                                                               <br>
+  The side targets just list some possible things, they
+  might be realized if someone pulls himself together, and
+  says "yes, I'm gonna do it". However normally people tend 
+  to suddenly leave as soon the magic word "work" is 
+  dropped, so don't count on these points to be realized :(    <br>
+                                                               <br>
+  I personally will leave them aside to concentrate on
+  the main targets, as said energies are limited, and 
+  somedays I feel that I hit the top-limit already.            <br>
+                                                               <br>
+  <hr><!-------------------------------------------------------->
+  <ul>
+    <li> 1: Creating an ingame GameMaster-TOOL.                <br>
+    <li> 2: A WYSIWYG world/map editor.                        <br>
+    <li> 3: Create an offline world with quests etc.           <br>             
+    <li> 4: visual AD&D mode.                                  <br>
+    <li> 5: visual races.                                      <br>
+  </ul>
+    
+  <hr><!-------------------------------------------------------->
+  <br> <br> <ol>
+  <li> Having GM-tools in game would allow total
+       new possibilities like i.e. a genesis-backbag
+       where you create new items by simply dragging 
+       them out of it. A global map, teleport by 
+       clicking the destination, etc.                            <br>
+                                                                 <br>
+  <li> Well there only three groups I know so far, that
+       managed to actually draw the world: OSI, Menasoft 
+       and myself, and I'm the only one giving away source!      <br>
+                                                                 <br>
+       The world/display concept would allow to create a
+       "world" that uses the display to change the .mul
+       files.                                                    <br>
+                                                                 <br>
+  <li> Also one possibility to the world/display concept.
+       One could use the umelange display to generate
+       an offline game with quests and this stuff. There
+       are main differences to an online game, like in 
+       example monster spawns. In offline, monsters will
+       always spawn where the player doesn't see it, which
+       is not possible on an online server.                      <br>
+                                                                 <br>
+  <li> That's just an idea. It would require huge rewrites
+       in server code also, but with UMelange you could display
+       the experience-points/level in a character window, 
+       creating other common AD&D structures etc.                <br>
+                                                                 <br>
+       In basics this would be also possible with gumps, but
+       you still haven't a possibility to get rid of the
+       "normal" skill system. Also gumps are rather 
+       difficult to use, and bring a lot of crashes...           <br>
+                                                                 <br>
+  <li> The thing races were originally invented in UOX. 
+       Unfortunately it was soon found out that the client
+       wasn't capable to display them, this could change with
+       UMelange....                   
+  </ol>
+  
+</ul>
+
+<!---================================================================--->
+<br><font color = "00ff00" size=+1> <li> CONTACT </font> <br> <br>
+<!--=================================================================--->
+<ul>
+
+Mail:  <a href="mailto:knoxos@gmx.net"> knoxos@gmx.net </a>.    <br>
+                                                                <br>
+
+or IRC chit-chat:                                               <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+Server:  <font color = "00ffFF"> irc.stratics.com </font>       <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+Channel: <font color = "00ffFF"> #umelange </font>              <br>
+
+
+</body>
+
+<!-- Mirrored from arachnide.sourceforge.net/umelange/readme.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:16 GMT -->
+</html>

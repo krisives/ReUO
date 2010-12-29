@@ -1,0 +1,75 @@
+<html>
+
+<!-- Mirrored from arachnide.sourceforge.net/formats/fonts/index.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:12 GMT -->
+<head>
+  <link href="../../standard.css" rel=stylesheet type="text/css">
+</head>
+<body background="../../background/paperback.jpg">
+<br>
+<br>
+<center><font face="arial, helvetica" size="+2">Fonts</font></center>
+<br>
+<br>
+<ul>
+  <table><tr valign="top">  
+    <td><table cellspacing="0" cellpadding="5" >
+      <tr><td><font face="arial, helvetica">Relevant files:</font></td></tr>
+    </table></td>
+
+    <td>
+      <table border="1" cellspacing="0" cellpadding="5" width = "90%" bgcolor="#C0C0C0">
+        <tr><td><font face="arial, helvetica"><i>fonts.mul</i></font></td></tr>
+      </table>
+    </td></tr>
+  </table>
+  <br>
+  <font face="arial, helvetica">
+  <li><i>Fonts.mul</i> holds a collection of totalling 9 fontsets.</li>
+  <br><li>Where the fontset consists of several sprites, each representing a letter.</li>
+  <br><li>Every fontset has 224 letters, representing the ASCII code table with an offset of 32. <br>
+          (Space = 32-ASCII = letter 0, &nbsp;&nbsp;&nbsp;'!' = 33-Ascii = letter 1, ...)</li>
+  <br><li>The contents of this file may change to your localization.<br>
+         <font size=-1>(Arachnide uses only english letters, I guess the fonts file of the korean or japan version
+                        might look radical different as they have more than 224 characters... until some of you eastern
+                        guys get hack on that file, we cannot tell if Arachnide or other applications using this file
+                        will work for you....(btw. does InsideUO do?))</font></li>
+  <br><li>Characters with an ASCII-ID greater than 127 are special to your local version, <br> 
+          How the client knows which extra letters are valid and how they correspond to their UNICODE value, is unknown.
+     </li>    
+  <br><li>This file has no index file, or is otherwise indexable, meaning you can only read it's contents in a single run.</li>    
+</ul>
+  <table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+   <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;A Fontset</b></font></td></tr>
+   </table>
+  <ul>
+  <ul><table width="50%">
+    <tr><td><font face="arial, helvetica">(UN)SIGNED BYTE</font></td><td><font face="arial, helvetica">unkown (always == 1)</font></td></tr>
+    <tr><td><font face="arial, helvetica">LETTER[224]</font></td><td><font face="arial, helvetica">224 letters (see below)</font></td></tr>
+    <tr><td><font face="arial, helvetica">...</font></td><td><font face="arial, helvetica">followed by the next fontset.</font></td></tr>
+  </table></ul>
+  </ul>
+
+  <table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+   <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;A Letter (sprite)</b></font></td></tr>
+  </table>
+  <ul>
+  <ul><table width="50%">
+    <tr><td><font face="arial, helvetica">UNSIGNED BYTE</font></td><td><font face="arial, helvetica">width</font></td></tr>
+    <tr><td><font face="arial, helvetica">UNSIGNED BYTE</font></td><td><font face="arial, helvetica">height</font></td></tr>
+    <tr><td><font face="arial, helvetica">(UN)SIGNED BYTE</font></td><td><font face="arial, helvetica">unknown</font></td></tr>
+    <tr><td><font face="arial, helvetica">UNSIGNED INT16[width * height]</font></td><td><font face="arial, helvetica">the pixels</font></td></tr>
+  </table></ul>
+   <font face="arial, helvetica">
+   <br>
+   A pixel value of 0x0000 represents transparent background, every other pixel foreground (dough :o). 
+   </font>
+ </ul>
+     <b>- finished</b>, Now that wasn't much...
+</ul>    
+</font>
+ 
+</ul>
+</body>
+
+<!-- Mirrored from arachnide.sourceforge.net/formats/fonts/index.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:12 GMT -->
+</html>

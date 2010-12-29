@@ -1,0 +1,133 @@
+<html>
+
+<!-- Mirrored from arachnide.sourceforge.net/books/client_identification/main.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:14 GMT -->
+<head>
+  <link href="../../standard.css" rel=stylesheet type="text/css"> 
+</head>
+<body background="../../background/paperback.jpg">
+<br>
+<br>
+<center>
+ <b><font face="arial,helvetica" size="+1"><ul>
+  The Client Identifaction Mechanism
+ </font></b>
+<br>
+<br>
+<br>
+<br>
+<p>
+</center>
+
+<font face="arial,helvetica">
+<li> First to dash forward: this here is just a recommandation, not a mandotory or anything defined by an 'offical' institute. <br>
+     It's a system introduced by Arachnide and I hope current clients will turn over to join
+     it, and of course that all future one's will respect it.
+
+<br>
+<br>
+<p>
+<li> So what it's all about? <br>
+     Well the idea is to give the server a chance to know which clients 
+     are connecting to it. This can have several benifits:
+     <ul>
+       <li> <i>Statistik purposes.</i> <br>
+         A server admin can gain statistics about the clients which his users use.<br>
+        <br>
+       <li> <i>Protocol enhancement.</i> <br>
+            A server could possible be able to talk an enhanced protocoll
+            with 'friend' clients, which are capable to do so also. So if a 3rd party clients connects to
+            a server, it can check if it's a friend client and if there is a matching enhancement 
+            protocol. The client will realize the protocol chosen from the server in the 
+            first answer. (details have to be defined, when necessary)<br>
+            <br>
+       <li> <i>Client denial.</i> <br>
+            Well it doesn't sound too attractive for client developers in first place,
+            but it can be quite an enhancement for server administration.
+            Unsupported clients with known bugs which are a thread to server stability can
+            so simply be rejected. This can also be used to reject old client versions, 
+            if there is a newer ver. aviable, where some issues are fixed.
+     </ul>
+<br>
+<br>
+<p>
+<li> Technical <br>
+     Currently on every connection the first 4 bytes send by the client are the encryption seed.<br>
+     A server emulator-3rd party client has never an intention to encrypt data, as this is only
+     a waste on processor performance. As 3rd party talk unencrypted this seed can be used for the
+     client identification mechanism. <br><br>
+     The OSI client sends always the client IP as encryption seed. <br>
+     In example: 47.11.8.15 <br>
+     As the numbers 0 and 255 aren't legal IP adresses they can be used to seperate the OSI client from
+     3rd party clients.  <br>
+     <br>
+     <b> Third party clients send 0 as very first byte. </b><br>
+     <font size="-1"><ul>
+       <li> The numbers 1 .. 254 are used by the OSI client. <br>
+       <li> 255 can be used for future issues.<br>
+       <li> I've heared that 15 has a special meaning, don't know exactly. (15.*.*.* is the HP net, 
+       so anyone working there can't connect :o)<br>
+       <li> Some servers (sphere) also take away 32 for it's console, but thats not matter 
+       of this recommandation. 
+    </ul>
+    </font>
+    <br>
+    <b> Byte 2 identifies the client </b>
+    See the table below which numbers are associated to which clients.
+    <br>
+    <b> Byte 3 and 4 allow to identify the client version. </b><br>
+        The most self-evident and recommended is <i>MAJOR.MINOR </i>
+    <br>
+    So to summarize it up, the first four bytes are: <br> 
+    <ul><br>
+    <b> 0.CLIENT.MAJOR.MINOR</b> </br>
+    </ul>
+<br>
+<br>
+<p>
+<li> Client association <br>
+     Each client has it's identity number. These are in NO PARTICULAR ORDER. <br>
+     <br>
+     &gt;Should&lt; you develop your own client, and you are ready for first release simply send
+     an email to <a href="mailto:anshil@gmx.net">anshil@gmx.net</a> so I can reserve a number for 
+     you. <br>
+     (However we can't assign too fast, since there are 'only' 251 left :o) <br>
+     <br>
+     <br>
+     <center><table width="75%" border=1 cellpadding="2">
+     <tr>
+       <td><center>1</center></td>
+       <td><font face="arial,helvetica">Sphere client</font></center></td>
+     </tr>
+     <tr>
+       <td><center>2</center></td>
+       <td><font face="arial,helvetica">UMelange</font></center></td>
+     </tr>       
+     <tr>
+       <td><center>3</center></td>
+       <td><font face="arial,helvetica">Arachnide</font></center></td>
+     </tr>       
+     <tr>
+       <td><center>4</center></td>
+       <td><font face="arial,helvetica">UOP</font></center></td>
+     </tr>
+
+     </table></center>
+<br>
+<br>
+<p>
+ <li> That was it! <br>
+     Once again this is just a recommondation, nothing more. <br>
+     <font size = "-1">
+     Last time I checked sphere client used 0.0.0.0, but I hope in future 
+     they will also roll over to this system....  
+     </font>
+     
+
+
+
+
+
+</body>
+
+<!-- Mirrored from arachnide.sourceforge.net/books/client_identification/main.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:14 GMT -->
+</html>

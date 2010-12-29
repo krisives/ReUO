@@ -1,0 +1,173 @@
+<html>
+
+<!-- Mirrored from arachnide.sourceforge.net/formats/art/index.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:12 GMT -->
+<head>
+  <link href="../../standard.css" rel=stylesheet type="text/css">
+</head>
+<body background="../../background/paperback.jpg">
+<br>
+<br>
+<center><font face="arial, helvetica" size="+2">The Art</font></center>
+<br>
+<br>
+<ul>
+ <table><tr valign="top">  
+  <td>
+   <table cellspacing="0" cellpadding="5" >
+    <tr><td><font face="arial, helvetica">Relevant files:</font></td></tr>
+   </table>
+  </td>
+  <td>
+   <table border="1" cellspacing="0" cellpadding="5" width = "90%" bgcolor="#C0C0C0">
+    <tr><td><font face="arial, helvetica"><i>art.mul</i></font></td></tr>
+    <tr><td><font face="arial, helvetica"><i>artidx.mul</i></font></td></tr>
+   </table>
+  </td></tr>
+ </table>
+ <br>
+ <font face="arial, helvetica">
+  <li>In the art files the graphics for land and static tiles are found. <br></li>
+  <br><li><i>artidx.mul</i> holds the index offsets for <i>art.mul</i>.<br>
+      To read an art sprite, first look into the <i>artidx.mul</i> file for it's offset,
+      and then get it from <i>art.mul</i>. <i>artidx.mul</i> also contains the size of the 
+      data sprites, allowing to read the whole relevant chunk to speed IO.<br></li>
+  <br><li><i>art.mul</i> contains the art graphics.<br></li>
+ </font> 
+</ul>
+<table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+ <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;Art types</b></font></td></tr>
+</table>  
+<ul>
+ <font face="arial, helvetica">
+  There exist three different kinds of art data:<br>
+  <br>
+  <ul>
+   <li><u>Map Tiles:</u> The map tiles have an id of 0 ... 0x4000 (0 ... 16384). <br>
+          They are used to display the unstretched map data. (Textures are used for the stretched ones)
+          <font size=-1>(Well at least should be..., Arachnide currently also stretches the map art...)</font></li><br>
+      <br>
+      <li><u>Static Tiles:</u> The static tiles have an id of 0x4000 ... 0x8000 (16384 ... 32768). <br>
+          These are all the static tiles, the world is constructed of. <br>
+          The static tiles are saved in a different format than the map tiles, although they 
+          are in the same file! (see blow)
+          <br>
+          <b>NOTE:</b> To read a static tile graphic you have to add 0x4000 to it's id. This fact is bushed under
+          the carpet at the InsideUO documentation. Dozens of programmers had to refind it out this several times...<br>
+      <br>
+      <li><u>Character test:</u> Character tests have id's of &gt;= 0x8000 (&gt;= 32768). <br>
+           They are stored in the same data format as the static tiles.<br>
+           Their use and sense are completely unknown... so as usual: know &gt&gt tell
+       
+  </ul>
+  <br>
+  InsideUO used to call the tiles 'raw' and 'run'. For me it's rather confusing, so in
+  the Arachnide source and this documentation they are continuously called 'map' and 'static'
+  instead.
+ </font>
+</ul>
+
+<table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+ <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;artidx.mul</b></font></td></tr>
+</table>
+<ul>
+ <font face="arial, helvetica">
+  This file contains the indexes and to <i>art.mul</i>. <br>
+  It's structured into groups of 12 bytes.<br>
+  To load an art sprite with a specific ID, search for ID * 12 in this file, to get the correct index.<br>
+  <br>
+  Index Record (12 bytes): <br> <br>
+  <table width = "65%" border="1" cellspacing="1">
+   <tr bgcolor="white" align="center"> 
+    <td><font face="arial, helvetica">0</font></td>
+    <td><font face="arial, helvetica">1</font></td>
+    <td><font face="arial, helvetica">2</font></td>
+    <td><font face="arial, helvetica">3</font></td>
+    <td><font face="arial, helvetica">4</font></td>
+    <td><font face="arial, helvetica">5</font></td>
+    <td><font face="arial, helvetica">6</font></td>
+    <td><font face="arial, helvetica">7</font></td>
+    <td><font face="arial, helvetica">8</font></td>
+    <td><font face="arial, helvetica">9</font></td>
+    <td><font face="arial, helvetica">A</font></td>
+    <td><font face="arial, helvetica">B</font></td> 
+   </tr>
+   <tr bgcolor="#d0d0d0" align="center"> 
+    <td colspan=4 width="33%"><font face="arial, helvetica">index</font></td> 
+    <td colspan=4 width="33%"><font face="arial, helvetica">size</font></td> 
+    <td colspan=4 width="33%"><font face="arial, helvetica">unknown</font></td> 
+   </tr>
+  </table>
+ </font>
+</ul>
+
+<table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+ <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;Map tiles (art.mul)</b></font></td></tr>
+</table>
+<ul>
+ <font face="arial, helvetica">
+  All map tiles have a size of 44x44 with a diagonal square of data. <br> 
+  <br>
+  First is a 4 byte (UNSIGNED INT32) header. Alazane has made some assumptions that it determines if it's a run or raw flag. 
+  However exact meaning has still to verified. <br>
+  <font size=-1>Are there maybe possibly map tile formated entries in the static data?</font>
+  <br>
+  <br>
+  I've fired up good old paintbrush to get this a little visualized. The numeration here
+  has an offset of 0 (as it is the natural index of most programs), so the maximum value is 43.<br>
+  <br>
+  <center><img src="maptile.png" border="NO"></center>
+  <br>
+  As all map tiles have identical size and format (mask), there is no need to store this 
+  information. The foreground data is simply stored as an continuous string out of 1012 pixels. (2024 bytes)
+  <br>
+ </font>
+</ul>
+
+<table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+ <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;Static tiles (art.mul)</b></font></td></tr>
+</table>
+<ul>
+ <font face="arial, helvetica">
+  Header:
+  <ul><table width="50%">
+   <tr><td><font face="arial, helvetica">UNSIGNED INT32</font></td><td><font face="arial, helvetica">Same (unknown) header again as for map tiles</font></td></tr>
+   <tr><td><font face="arial, helvetica">UNSIGNED INT16</font></td><td><font face="arial, helvetica">Width</font></td></tr>
+   <tr><td><font face="arial, helvetica">UNSIGNED INT16</font></td><td><font face="arial, helvetica">Height</font></td></tr>
+   <tr><td><font face="arial, helvetica">UNSIGNED INT16 [Height]</font></td><td><font face="arial, helvetica">Table of offset's for each row (the read-offset in this file).</font></td></tr>
+  </table></ul>  
+  <br>
+  The data for each row starts at the end of the Header plus the offset from the table. <br>
+  A row is constructed out of one or several 'runs'. <br>
+  <br>
+  Run:
+  <ul>
+   <table width="50%">
+    <tr><td><font face="arial, helvetica">UNSIGNED INT16</font></td><td><font face="arial, helvetica">x-offset</font></td></tr>
+    <tr><td><font face="arial, helvetica">UNSIGNED INT16</font></td><td><font face="arial, helvetica">run (how many pixels to read)</font></td></tr>    
+    <tr><td><font face="arial, helvetica">UNSIGNED INT16 [run] ...</font></td><td><font face="arial, helvetica">pixels</font></td></tr>    
+   </table>
+  </ul>  
+  <br>
+  InsideUO defines all statics with an width or height &gt;= 1024 as invalid, don't know if this is correct. <br>
+  If xoffset + run are equal to zero this is the last run for this row, continue with next row. <br>
+  (Start searching the new file position from the offset table). <br>
+  <br>
+  Converse to the animation data, x-offset is here not (always) the offset to 0, but the offset to the end of the last 
+  run for this row!
+  <br>  
+  <br>  
+ </font>
+</ul>   
+<b>- finished.</b>
+<br>  
+<br>  
+<font size = -1> 
+(A side note: I've on purpose not written in pseudo-code, as I think if
+ some is interested in this, he can directly look into the Arachnide source. 
+ (it's written clearly enough :o) (and beside InsideUO is also there...)
+</font>
+ 
+</body>
+
+<!-- Mirrored from arachnide.sourceforge.net/formats/art/index.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:12 GMT -->
+</html>

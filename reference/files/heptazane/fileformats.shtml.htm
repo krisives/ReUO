@@ -1,0 +1,3225 @@
+<html><head><title>UO Stratics - Heptazane - UO File Formats</title><!-- All HTML, Images and Content © 1997 - 2006 Stratics Media Group  All rights reserved -->
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="author" content="UO Stratics Staff and various other UO fans">
+<meta name="description" content="UO Stratics is the only UO resource you'll ever need. Containing the most definitive strategy and statistics for UO anywhere, UO Stratics will provide a better playing experience to both new and longtime players alike. With daily news for all shards, a multitude of forums for players, various downloadable tools, live chats and an enormous amount of game information UO Stratics has enough to keep you entertained for months.">
+<meta name="keywords" content="uo, ultima, online, ultima online, AoS, Age of Shadows, alpha, beta, magic, spell, uoss, the UOSS, strategy, statistic, statics, fighter, mage, bard, weapon, armor, item, udic, Ultima Fans, Ultima Online Fans, Multiplayer Gamers, Internet Gamers, Roleplaying Fans, RPG, CRPG, Online RPG, ORPG, MMORPG, Massive, Multiplayer, building, castle, Xena Dragon, Xavori, evil, notoriety, The Darkside, Darkside of Ultima Online, map, atlas, help, guide, bod, powerhour, gss, plants, plantgrowing, blacksmith, smith, carpenter, tinker, PK, thief, murderer, warrior, bod, bulk order, manual, hint, Grand Atlas, Grand Atlas of Britannia, Ultimate UO Map, UOAM, newbie, house, house of commons, UOHoC, ship, PC, NPC, hunters, hunter's, guide, dragon, taming, tame, skill, stat, ability, percentage, tip, idea, screenshot, sword, halberd, shard, trainer, seer, elder, counselor, companion, OSI, origin, mondain, minax, shadowlord, third dawn, T2A, UO3D, lord, british, blackthorn, OSI, exodus, enchantress, avatar, quest, ascension, pagan, warriors, serpent, midi, guardian, the realms of ultima, realms of ultima, realms, hint, walkthrough, help, info, britannia, sosaria, guardian, ultima 1, ultima 2, ultima 3, ultima 4, ultima 5, ultima 6 ,ultima 7, ultima 8, ultima 9, underworld 1, underworld 2, i, ii, iii, iv, v, vi, vii, viii, ix, x, richard garriot, news, pictures, sounds, shard, faction, AOL Legends, Arirang, Asuka, Atlantic, Balhae, Baja, Catskills, Chesapeake, Drachenfels, Europa, Formosa, Great Lakes, Hokuto, Izumo, Lake Superior, Napa Valley, Oceania, Pacific, Sonoma, Test Center, Volunteer Shard, Wakoku, Yamato">
+<meta name="ROBOTS" content="INDEX,FOLLOW"><!--WEBSIDESTORY CODE HBX2.0 (Universal)--><!--COPYRIGHT 1997-2005 WEBSIDESTORY,INC. ALL RIGHTS RESERVED. U.S.PATENT No. 6,393,479B1. MORE INFO:http://websidestory.com/privacy-->
+
+<script language="javascript">
+var _hbEC=0,_hbE=new Array;function _hbEvent(a,b){b=_hbE[_hbEC++]=new Object();b._N=a;b._C=0;return b;}
+var hbx=_hbEvent("pv");hbx.vpc="HBX0200u";hbx.gn="ehg-globalgamingleague.hitbox.com";
+
+//BEGIN EDITABLE SECTION
+//CONFIGURATION VARIABLES
+hbx.acct="DM5606158BEM38EN3;DM5605204KAD38EN3";//ACCOUNT NUMBER(S)
+hbx.pn="PUT+PAGE+NAME+HERE";//PAGE NAME(S)
+hbx.mlc="/;/Stratics";//MULTI-LEVEL CONTENT CATEGORY
+hbx.pndef="title";//DEFAULT PAGE NAME
+hbx.ctdef="full";//DEFAULT CONTENT CATEGORY
+
+//OPTIONAL PAGE VARIABLES
+//ACTION SETTINGS
+hbx.fv="";//FORM VALIDATION MINIMUM ELEMENTS OR SUBMIT FUNCTION NAME
+hbx.lt="auto";//LINK TRACKING
+hbx.dlf="n";//DOWNLOAD FILTER
+hbx.dft="n";//DOWNLOAD FILE NAMING
+hbx.elf="n";//EXIT LINK FILTER
+
+//SEGMENTS AND FUNNELS
+hbx.seg="";//VISITOR SEGMENTATION
+hbx.fnl="";//FUNNELS
+
+//CAMPAIGNS
+hbx.cmp="";//CAMPAIGN ID
+hbx.cmpn="";//CAMPAIGN ID IN QUERY
+hbx.dcmp="";//DYNAMIC CAMPAIGN ID
+hbx.dcmpn="";//DYNAMIC CAMPAIGN ID IN QUERY
+hbx.dcmpe="";//DYNAMIC CAMPAIGN EXPIRATION
+hbx.dcmpre="";//DYNAMIC CAMPAIGN RESPONSE EXPIRATION
+hbx.hra="";//RESPONSE ATTRIBUTE
+hbx.hqsr="";//RESPONSE ATTRIBUTE IN REFERRAL QUERY
+hbx.hqsp="";//RESPONSE ATTRIBUTE IN QUERY
+hbx.hlt="";//LEAD TRACKING
+hbx.hla="";//LEAD ATTRIBUTE
+hbx.gp="";//CAMPAIGN GOAL
+hbx.gpn="";//CAMPAIGN GOAL IN QUERY
+hbx.hcn="";//CONVERSION ATTRIBUTE
+hbx.hcv="";//CONVERSION VALUE
+hbx.cp="null";//LEGACY CAMPAIGN
+hbx.cpd="";//CAMPAIGN DOMAIN
+
+//CUSTOM VARIABLES
+hbx.ci="";//CUSTOMER ID
+hbx.hc1="";//CUSTOM 1
+hbx.hc2="";//CUSTOM 2
+hbx.hc3="";//CUSTOM 3
+hbx.hc4="";//CUSTOM 4
+hbx.hrf="";//CUSTOM REFERRER
+hbx.pec="";//ERROR CODES
+
+//INSERT CUSTOM EVENTS
+
+//END EDITABLE SECTION
+
+//REQUIRED SECTION. CHANGE "YOURSERVER" TO VALID LOCATION ON YOUR WEB SERVER (HTTPS IF FROM SECURE SERVER)
+</script><script language="javascript1.1" src="fileformats.shtml_files/hbx.js"></script><!--END WEBSIDESTORY CODE-->
+
+<link rel="stylesheet" href="fileformats.shtml_files/main_ff.css" type="text/css">
+
+<script>
+<!--
+if (top.location != location) {
+  top.location.href = document.location.href ;
+}
+-->
+</script>
+<script src="fileformats.shtml_files/navmenu.js"></script>
+<meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="-1"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="-1"><meta content="no-cache" http-equiv="Pragma"><meta content="-1" http-equiv="Expires"><meta content="no-cache" http-equiv="Pragma"><meta content="-1" http-equiv="Expires"></head><body leftmargin="0" topmargin="0" alink="#0000ff" bgcolor="#a89060" link="#000033" marginheight="0" marginwidth="0" text="#000000" vlink="#000033">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr bgcolor="#000000">
+  <td align="left" bgcolor="#000000" nowrap="nowrap" valign="top">&nbsp;<a class="navTitle" href="http://www.stratics.com/" target="_parent">Stratics - The Massively Multiplayer Network</a></td>
+<!-- /www/uoss/shared/navmenu_ns.html --><td align="right" nowrap="nowrap" valign="top">
+<table align="right" bgcolor="#000000" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr align="right"> 
+<td style="" nowrap="nowrap">
+<form action="" target="_parent" class="navmenu">
+<select name="network" onchange="location=options[selectedIndex].value;">
+		<option value="">Stratics Network</option>
+		<option value="http://www.stratics.com">Stratics Central</option>
+      	<option value="http://links.stratics.com/">Stratics Links</option>
+		<option value="http://www.stratics.com/cgi-bin/databases/games/db.cgi?db=default&amp;uid=default&amp;view_records=1&amp;sb=1&amp;so=ascend&amp;Phase=Dev">Games Database</option>
+		<option value="http://www.stratics.com/cgi-bin/databases/companies/db.cgi?db=default&amp;uid=default&amp;view_records=1&amp;sb=1&amp;so=ascend&amp;ID=*">Company Database</option>
+		<option value="http://www.stratics.com/content/interviews/interviews.php">Interviews</option>
+		<option value="http://www.stratics.com/content/previews/previews.php">Previews</option>
+      	<option value="http://www.stratics.com/content/gamereviews/reviews.php">Reviews</option>
+		<option class="navSubmenuLink">-----------------------</option>
+      	<option value="http://ao.stratics.com">Anarchy Online</option>
+      	<option value="http://ac.stratics.com">Asheron´s Call</option>
+      	<option value="http://coh.stratics.com">City of Heroes</option>
+      	<option value="http://ddo.stratics.com">D&amp;D Online</option>
+      	<option value="http://eq.stratics.com">Everquest</option>
+      	<option value="http://eq2.stratics.com">Everquest II</option>
+      	<option value="http://ffxi.stratics.com">FINAL FANTASY XI</option>
+      	<option value="http://gw.stratics.com">Guild Wars</option>
+		<option value="http://hz.stratics.com">Horizons</option>
+		<option value="http://lineage2.stratics.com">Lineage 2</option>
+		<option value="http://matrix.stratics.com">Matrix Online</option>
+		<option value="http://nwn.stratics.com">Neverwinter Nights</option>
+		<option value="http://planetside.stratics.com">Planetside</option>
+      	<option value="http://sims.stratics.com">The Sims Online</option>
+		<option value="http://swg.stratics.com">Star Wars Galaxies</option>
+     	<option value="http://tr.stratics.com">Tabula Rasa</option>
+     	<option value="http://uo.stratics.com">Ultima Online</option>
+		<option value="http://wow.stratics.com">World of Warcraft</option>
+		<option value="" align="center" class="navSubmenuLink">-----------------------</option>
+      	<option value="http://chat.stratics.com">Chat/IRC</option>
+      	<option value="http://boards.stratics.com">Forums</option>    
+</select>
+</form></td><td>&nbsp;</td>
+
+<td style="" nowrap="nowrap" valign="top">
+<form class="navmenu">
+<select name="community" onchange="location=options[selectedIndex].value;">
+<option value="">Stratics Community</option>
+       	<option value="http://boards.stratics.com/php-bin/ao/ubbthreads.php">Anarchy Online</option>
+		<option value="http://boards.stratics.com/php-bin/ac/ubbthreads.php">Asheron's Call</option>
+       	<option value="http://boards.stratics.com/php-bin/coh/ubbthreads.php">City of Heroes</option>
+       	<option value="http://boards.stratics.com/php-bin/ddo/ubbthreads.php">D&amp;D Online</option>
+       	<option value="http://boards.stratics.com/php-bin/daoc/ubbthreads.php">Dark Age of Camelot</option>
+       	<option value="http://boards.stratics.com/php-bin/dnl/ubbthreads.php">Dark and Light</option>
+       	<option value="http://boards.stratics.com/php-bin/eq/ubbthreads.php">EverQuest</option>
+       	<option value="http://boards.stratics.com/php-bin/eq2/ubbthreads.php">EverQuest II</option>
+		<option value="http://boards.stratics.com/php-bin/ffxi/ubbthreads.php">FINAL FANTASY XI</option>
+		<option value="http://boards.stratics.com/php-bin/gw/ubbthreads.php">Guild Wars</option>
+       	<option value="http://boards.stratics.com/php-bin/hz/ubbthreads.php">Horizons</option>
+       	<option value="http://boards.stratics.com/php-bin/lineage2/ubbthreads.php">Lineage 2</option>
+       	<option value="http://boards.stratics.com/php-bin/mxo/ubbthreads.php">Matrix Online</option>
+       	<option value="http://boards.stratics.com/php-bin/nwn/ubbthreads.php">Neverwinter Nights</option>
+       	<option value="http://boards.stratics.com/php-bin/offtopic/ubbthreads.php">Off Topic</option>
+       	<option value="http://boards.stratics.com/php-bin/ps/ubbthreads.php">Planetside</option>
+       	<option value="http://boards.stratics.com/php-bin/sl/ubbthreads.php">Second Life</option>
+       	<option value="http://boards.stratics.com/php-bin/sims/ubbthreads.php">The Sims Online</option>
+       	<option value="http://boards.stratics.com/php-bin/swg/ubbthreads.php">Star Wars Galaxies</option>
+       	<option value="http://boards.stratics.com/php-bin/arcpub/ubbthreads.php">Stratics Archives</option>
+		<option value="http://boards.stratics.com/php-bin/tr/ubbthreads.php">Tabula Rasa</option>
+       	<option value="http://boards.stratics.com/php-bin/tt/ubbthreads.php">Toontown</option>
+       	<option value="http://boards.stratics.com/php-bin/uo/ubbthreads.php">Ultima Online</option>
+       	<option value="http://boards.stratics.com/php-bin/wow/ubbthreads.php">World of Warcraft</option>
+		<option value="" align="center" class="navSubmenuLink">-----------------------</option>
+        <option value="http://chat.stratics.com/content/java/sponsoredchat.php">IRC Chat</option>
+</select>
+</form></td><td>&nbsp;</td>
+
+<td style="" nowrap="nowrap" valign="top">
+<form class="navmenu">
+<select name="central" onchange="location=options[selectedIndex].value;">
+<option value="">Stratics Central</option>
+       	<option value="http://www.stratics.com">Stratics Central</option>
+      	<option value="http://links.stratics.com/">Stratics Links</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/ubbthreads.php">Central Forums</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/postlist.php?Cat=&amp;Board=genhelp">Help/Q&amp;A Forum</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/faq.php">Forum FAQ</option>
+		   <option value="" align="center" class="navSubmenuLink">-----------------------</option>
+       	<option value="http://al.stratics.com">Archlord</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/ubbthreads.php?Cat=9">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+       	<option value="http://aa.stratics.com">Auto Assault</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/ubbthreads.php?Cat=10">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://daoc.stratics.com">Dark Age of Camelot</option>
+       	<option value="http://boards.stratics.com/php-bin/daoc/ubbthreads.php">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://dnl.stratics.com">Dark and Light</option>
+       	<option value="http://boards.stratics.com/php-bin/dnl/ubbthreads.php">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://e3.stratics.com">E3 - 2006</option>
+		   <option value="http://entropia.stratics.com">Entropia Universe</option>
+       	<option value="http://boards.stratics.com/php-bin/entropia/ubbthreads.php">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://eve.stratics.com">Eve Online</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/ubbthreads.php?Cat=12">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://gnh.stratics.com">Gods and Heroes</option>
+       	<option value="http://boards.stratics.com/php-bin/hj/ubbthreads.php">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://hj.stratics.com">Hero's Journey</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/ubbthreads.php?Cat=14">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://khan.stratics.com">Khan</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/ubbthreads.php?Cat=15">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+<!--
+		   <option value="http://ares.stratics.com">Legend of Ares</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/ubbthreads.php?Cat=16">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+-->
+		   <option value="http://lineage.stratics.com">Lineage</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/ubbthreads.php?Cat=17">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://me.stratics.com">Lord of the Rings</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/ubbthreads.php?Cat=18">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://rfo.stratics.com">Rising Force Online</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/ubbthreads.php?Cat=21">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://sl.stratics.com">Second Life</option>
+       	<option value="http://boards.stratics.com/php-bin/sl/ubbthreads.php">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://seed.stratics.com">Seed</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/ubbthreads.php?Cat=23">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://sto.stratics.com">Star Trek Online</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/ubbthreads.php?Cat=25">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://tt.stratics.com">Toontown</option>
+       	<option value="http://boards.stratics.com/php-bin/tt/ubbthreads.php">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://vg.stratics.com">Vanguard</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/ubbthreads.php?Cat=27">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+		   <option value="http://war.stratics.com">Warhammer</option>
+       	<option value="http://boards.stratics.com/php-bin/stratics/ubbthreads.php?Cat=28">&nbsp;&nbsp;&nbsp;&nbsp;- Forums</option>
+
+</select>
+</form></td><td>&nbsp;</td>
+
+</tr>
+</tbody></table>
+</td>
+
+
+<!-- siteid=99 -->
+
+</tr>
+</tbody></table> 
+<map name="Map1"><area shape="circle" coords="57,56,48" href="http://uo.stratics.com/index.shtml" alt="UO Stratics Front Page">
+  
+</map>
+<table background="fileformats.shtml_files/uo02.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td height="115" width="605"><img src="fileformats.shtml_files/uo01.gif" usemap="#Map1" border="0" height="115" width="605"></td>
+    <td align="right" background="fileformats.shtml_files/uo02.gif"><img src="fileformats.shtml_files/uo03.gif" height="115" width="153"></td>
+  </tr>
+</tbody></table>
+<table background="fileformats.shtml_files/uo04.gif" border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td align="center" background="fileformats.shtml_files/uo04.gif" width="100%">
+
+<!-- BANNER T --><!-- ID uo --><!-- BF 0 --><!-- IN   --><!-- NS   --><!-- FN   --><!-- PT   --><!-- begin ZEDO for channel: - Ultima Online Stratics , publisher: Stratics , Ad Dimension: Super Banner - 728 x 90 -->
+<script language="JavaScript">
+var zflag_nid="462"; var zflag_cid="67/41"; var zflag_sid="0"; var zflag_width="728"; var zflag_height="90"; var zflag_sz="14"; 
+</script>
+<script language="JavaScript" src="fileformats.shtml_files/fo.js"></script>
+<!-- end ZEDO  for channel: - Ultima Online Stratics , publisher: Stratics , Ad Dimension: Super Banner - 728 x 90 -->
+
+
+</td></tr></tbody></table><table background="fileformats.shtml_files/uo06.gif" border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td height="15" width="605"><img src="fileformats.shtml_files/uo05.gif" height="15" width="605"></td><td background="fileformats.shtml_files/uo06.gif"> <div align="right"><img src="fileformats.shtml_files/uo07.gif" height="15" width="153"></div></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr> 
+    <td valign="top"> 
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr> 
+          <td background="fileformats.shtml_files/uomenubackleft.jpg" valign="top" width="150"> 
+            <table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"><font face="MS Sans Serif, Arial, Helvetica" size="1"> <b><font face="Arial, Helvetica" size="2">Stratics 
+      Plus <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" alt="Stratics Plus" align="middle" border="0" height="8" width="8"></font></b><br>
+      - <a href="http://www.stratics.com/members/" target="_parent">About Stratics Plus</a> <br>
+      - <a href="http://www.stratics.com/members/whyplus.php" target="_parent">Help Stratics</a> <br>
+      - <a href="http://www.stratics.com/members/features.php" target="_parent">Plus Features</a> <br>
+      - <a href="http://www.stratics.com/plus/faq/straticsplus_faq.php" target="_parent">Stratics Plus FAQ</a> <br>
+      - <a href="http://www.stratics.com/members/signup.html" target="_parent">Sign-up!</a> <br>
+- <a href="http://www.stratics.com/members/bugreport.php" target="_parent">Report a Plus Bug</a> <br>
+      - <a href="http://www.stratics.com/plus/faq/plustroubleshooting_faq.php" target="_parent">Troubleshooting FAQ</a> <br>
+      - <a href="mailto:plushelp@stratics.com?subject=Plus%20Feedback" target="_parent">Plus Feedback</a></font></td>
+  </tr>
+</tbody></table>
+<!--WEBSIDESTORY CODE HBX2.0 (Universal)-->
+<!--COPYRIGHT 1997-2005 WEBSIDESTORY,INC. ALL RIGHTS RESERVED. U.S.PATENT No. 6,393,479B1. MORE INFO:http://websidestory.com/privacy-->
+<script language="javascript">
+var _hbEC=0,_hbE=new Array;function _hbEvent(a,b){b=_hbE[_hbEC++]=new Object();b._N=a;b._C=0;return b;}
+var hbx=_hbEvent("pv");hbx.vpc="HBX0200u";hbx.gn="ehg-globalgamingleague.hitbox.com";
+
+//BEGIN EDITABLE SECTION
+//CONFIGURATION VARIABLES
+hbx.acct="DM5606158BEM38EN3;DM5605204KAD38EN3";//ACCOUNT NUMBER(S)
+hbx.pn="PUT+PAGE+NAME+HERE";//PAGE NAME(S)
+hbx.mlc="/;/Stratics";//MULTI-LEVEL CONTENT CATEGORY
+hbx.pndef="title";//DEFAULT PAGE NAME
+hbx.ctdef="full";//DEFAULT CONTENT CATEGORY
+
+//OPTIONAL PAGE VARIABLES
+//ACTION SETTINGS
+hbx.fv="";//FORM VALIDATION MINIMUM ELEMENTS OR SUBMIT FUNCTION NAME
+hbx.lt="auto";//LINK TRACKING
+hbx.dlf="n";//DOWNLOAD FILTER
+hbx.dft="n";//DOWNLOAD FILE NAMING
+hbx.elf="n";//EXIT LINK FILTER
+
+//SEGMENTS AND FUNNELS
+hbx.seg="";//VISITOR SEGMENTATION
+hbx.fnl="";//FUNNELS
+
+//CAMPAIGNS
+hbx.cmp="";//CAMPAIGN ID
+hbx.cmpn="";//CAMPAIGN ID IN QUERY
+hbx.dcmp="";//DYNAMIC CAMPAIGN ID
+hbx.dcmpn="";//DYNAMIC CAMPAIGN ID IN QUERY
+hbx.dcmpe="";//DYNAMIC CAMPAIGN EXPIRATION
+hbx.dcmpre="";//DYNAMIC CAMPAIGN RESPONSE EXPIRATION
+hbx.hra="";//RESPONSE ATTRIBUTE
+hbx.hqsr="";//RESPONSE ATTRIBUTE IN REFERRAL QUERY
+hbx.hqsp="";//RESPONSE ATTRIBUTE IN QUERY
+hbx.hlt="";//LEAD TRACKING
+hbx.hla="";//LEAD ATTRIBUTE
+hbx.gp="";//CAMPAIGN GOAL
+hbx.gpn="";//CAMPAIGN GOAL IN QUERY
+hbx.hcn="";//CONVERSION ATTRIBUTE
+hbx.hcv="";//CONVERSION VALUE
+hbx.cp="null";//LEGACY CAMPAIGN
+hbx.cpd="";//CAMPAIGN DOMAIN
+
+//CUSTOM VARIABLES
+hbx.ci="";//CUSTOMER ID
+hbx.hc1="";//CUSTOM 1
+hbx.hc2="";//CUSTOM 2
+hbx.hc3="";//CUSTOM 3
+hbx.hc4="";//CUSTOM 4
+hbx.hrf="";//CUSTOM REFERRER
+hbx.pec="";//ERROR CODES
+
+//INSERT CUSTOM EVENTS
+
+//END EDITABLE SECTION
+
+//REQUIRED SECTION. CHANGE "YOURSERVER" TO VALID LOCATION ON YOUR WEB SERVER (HTTPS IF FROM SECURE SERVER)
+</script><script language="javascript1.1" src="fileformats.shtml_files/hbx.js"></script>
+<!--END WEBSIDESTORY CODE--><p>
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Current Events</font></b><br>
+            - <a href="http://uo.stratics.com/index.shtml" title="Headlines from all News Sections"> News 
+      Index</a><br>
+      - <a href="http://uo.stratics.com/content/news/feed.php" title="Headlines from all News Sections on your own web site"> News 
+      Feed</a><br>
+	  - <a href="http://uo.stratics.com/podcasts/uostraticscasts.php" title="UO Stratics' Weekly Podcast Show of Official News, Community News, Developer Quotes, Stories, and Rants &amp; Raves "> UOStraticsCast Shows</a><br>
+      - <a href="http://uo.stratics.com/shard/index.shtml" title="Shard-Specific News and Events"> Shard 
+      Index</a><br>
+      - <a href="http://uo.stratics.com/news/QuestandEventNews.shtml" title="News on Cross-Shard Quests and Events">Quests &amp; Events</a><br>
+	   - <a href="http://uo.stratics.com/news/CandidCoverage.shtml" title="Humor and Funny In-Game Images"> 
+      Candid Coverage Humor</a><br>
+	  - <a href="http://uo.stratics.com/news/Editorials.shtml" title="Editorials by UO Stratics Staff"> 
+      Voices Editorials</a><br>
+	  - <a href="http://uo.stratics.com/news/NetworkNews.shtml" title="The Stratics Network Exclusives"> 
+      Network Exclusives</a><br>
+	  - <a href="http://uo.stratics.com/news/DeveloperFeedback.shtml" title="Comments Made By Developers To The Players"> 
+      Dev Feedback Archives</a><br>	  
+      - <a href="http://uo.stratics.com/content/site/submit.shtml" title="Send us your news, remarks, comments and/or information."> 
+      Submit News/Info</a> 
+            </font></td>
+  </tr>
+</tbody></table>
+
+</p><p>
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+   <form method="post" action="/search.shtml"></form>
+      <tbody><tr><td class="menu"><b><font face="MS Sans Serif, Arial, Helvetica" size="2">Search</font></b></td></tr>
+       <tr>
+         <td class="menu" align="center">
+            <font face="MS Sans Serif, Arial, Helvetica" size="1">
+      		<input name="Realm" value="Ultima Online" type="hidden">
+      		<input name="straticsid" value="uo" type="hidden">
+            <input name="Terms" class="searchText" style="width: 125px;" type="text">
+            <input name="submit" class="searchButton" value="Search" style="width: 125px;" type="submit">
+            </font>
+        </td>
+       </tr>
+   
+   <form action="http://uo.stratics.com/cgi-bin/news/viewnews.cgi?search" method="post"></form>
+       <tr>
+         <td class="menu" align="center"> <font face="MS Sans Serif, Arial, Helvetica" size="1">
+           <input name="searchstring" class="searchText" style="width: 125px;" type="text">
+           <br>
+           <input name="submit" class="searchButton" value="Search the News" style="width: 125px;" type="submit">
+           </font> 
+           </td>
+       </tr>
+   
+</tbody></table>
+</p>
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"><font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Forums</font></b><br>
+            - <a href="http://boards.stratics.com/php-bin/uo/ubbthreads.php?Cat=1" target="boards">General 
+      Forums</a><br>
+	   - <a href="http://boards.stratics.com/php-bin/uo/ubbthreads.php?Cat=2" target="boards">Roleplay 
+      Forums</a><br>
+      - <a href="http://boards.stratics.com/php-bin/uo/ubbthreads.php?Cat=3" target="boards">Profession 
+      Forums</a><br>
+      - <a href="http://boards.stratics.com/php-bin/uo/ubbthreads.php?Cat=4" target="boards">Shard 
+      Forums</a><br>
+      - <a href="http://boards.stratics.com/php-bin/uo/ubbthreads.php?Cat=5" target="boards">Trade 
+      Forums</a><br>
+      - <a href="http://boards.stratics.com/php-bin/uo/ubbthreads.php?Cat=6" target="boards">Event 
+      Calendars</a><br>
+      - <a href="http://uo.stratics.com/content/guildforms/index.shtml" target="boards">Guild 
+      Forums</a><br>
+	  - <a href="http://boards.stratics.com/php-bin/uo/STpostlistdev.php" target="boards">EA Post Links</a><br>
+      - <a href="http://uo.stratics.com/content/site/forumroc.shtml" target="boards">Forum 
+      Rules of Conduct</a><br>
+      - <a href="http://boards.stratics.com/php-bin/uo/search.php?Cat=" target="boards">Search 
+      Forums</a><br>
+      - <a href="http://boards.stratics.com/php-bin/uo/newuser.php?Cat=" target="boards">Register 
+      New User</a><br>
+      - <a href="http://uo.stratics.com/content/guildforms/guild_form.shtml" target="boards">Guild Forum 
+      Request</a><br>
+      - <a href="http://uo.stratics.com/content/irc/index.shtml" title="irc.stratics.com">UO Stratics 
+      IRC</a>
+            </font></td>
+  </tr>
+</tbody></table>
+<p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Partners &amp; Subsites</font></b><br>
+            - <a href="http://uo.stratics.com/alchemy/index.shtml" target="_top" title="Guide to All Things Alchemic"> 
+      Alchemy Guide</a><br>
+      - <a href="http://uo.stratics.com/bow" title="BOW" target="_top"> Britannia Order of Woodcrafters</a><br>
+      - <a href="http://uo.stratics.com/bsc" title="BOW" target="_top"> Britannian Society of Chefs</a><br>
+      - <a href="http://uo.stratics.com/cba/" title="Tune your lute before entering" target="_top"> 
+      Conservatory of Bardic Arts</a><br>
+      - <a href="http://uo.stratics.com/warfare/index.shtml" title="Discussion and Strategy for PvP Combat" target="_top"> 
+      Hall of Warfare</a><br>
+      - <a href="http://uo.stratics.com/content/rp101/index.shtml" title="Tips for Roleplaying Well" target="_top"> 
+      Role Playing 101</a><br>
+      - <a href="http://uo.stratics.com/news/QuestandEventNews.shtml" title="Archive of Plotline and Quest &amp; Event News" target="_top"> 
+      Stories &amp; Secrets</a><br>
+       - <a href="http://uo.stratics.com/thb/index.shtml" title="THB" target="_top"> Treasure Hunters 
+      of Britannia</a><br>
+      - <a href="http://uo.stratics.com/uocc/index.shtml" target="_top" title="Ultima Online's Funniest Moments"> 
+      UO Gets Stupid</a><br>
+      - <a href="http://uohoc.stratics.com/" title="UO House of Commons" target="_top"> 
+      UOHoC</a><br>
+	  - <a href="http://uxo.stratics.com/" title="Ultima X: Odyssey Stratics" target="_top"> 
+      UXO Stratics</a><br>
+      - <a href="http://uo.stratics.com/content/darkside/index.shtml" title="Roleplaying Evil Characters" target="_top"> 
+      Xavori's Darkside of UO</a> 
+            </font></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">EXPANSIONS</font></b><br>
+      <br>	  
+ <b>Mondain's Legacy</b><br>
+- <a href="http://uo.stratics.com/content/ml/collections.shtml" title="Mondain's Legacy Expansion: Community Collections">Community Collections</a><br>
+- <a href="http://uo.stratics.com/content/ml/crafting.shtml" title="Mondain's Legacy Expansion: Craftable Items and Resources">Craftables &amp; Resources</a><br>	 	  
+- <a href="http://uo.stratics.com/content/ml/creatures.shtml" title="Mondain's Legacy Expansion: Many New Creatures">Creature Summary</a><br>	 
+- <a href="http://uo.stratics.com/content/ml/dungeons.shtml" title="Mondain's Legacy Expansion: Nine New Dungeons">Dungeon Summary</a><br>	 
+- <a href="http://uo.stratics.com/content/ml/fiction.shtml" title="Mondain's Legacy Expansion: Fiction - The Return">Fiction: The Return</a><br>	 
+- <a href="http://uo.stratics.com/content/ml/goodies.shtml" title="Mondain's Legacy Expansion: House Pets &amp; Storage">House Pets &amp; Storage</a><br>
+- <a href="http://uo.stratics.com/content/ml/elvenhousetiles.shtml" title="Mondain's Legacy Expansion: Elven House Tiles">House Tiles: Elven</a><br>
+- <a href="http://uo.stratics.com/content/ml/mondainslegacy.shtml" title="Mondain's Legacy Expansion: Official Frequently Asked Questions">Official FAQ</a><br>
+- <a href="http://uo.stratics.com/content/ml/quests.shtml" title="Mondain's Legacy Expansion: Quest System">Quest System</a><br>	 
+- <a href="http://uo.stratics.com/content/ml/elves.shtml" title="Mondain's Legacy Expansion: The Elven Race">Races: Elven</a><br>	 
+- <a href="http://uo.stratics.com/content/ml/humans.shtml" title="Mondain's Legacy Expansion: The Human Race">Races: Human</a><br>	 
+- <a href="http://uo.stratics.com/content/ml/spellweaving.shtml" title="Mondain's Legacy Expansion: Spell Weaving">Spell Weaving</a><br>
+- <a href="http://uo.stratics.com/content/ml/wallpapers_ml.shtml" title="Mondain's Legacy Expansion: Desktop Wallpapers">Wallpapers</a><br>
+- <a href="http://uo.stratics.com/content/ml/weapons.shtml" title="Mondain's Legacy Expansion: Many New Weapons">Weapon Summary</a><br>
+	  
+	  <br>
+	  <b>Samurai Empire</b><br>
+- <a href="http://uo.stratics.com/content/se/se_pronunciation.shtml" title="JAPANESE TO ENGLISH TRANSLATION: Pronunciation Guide">Pronunciation Guide</a><br>
+	  - <a href="http://uo.stratics.com/content/se/se_map.shtml" title="TOKUNO ISLAND: Detailed Map">Tokuno Island Map</a><br>
+	   - <a href="http://uo.stratics.com/content/se/se_ninja.shtml" title="THE NINJA: Trained in Art of Ninjitsu">Class: NINJA</a><br>
+ - <a href="http://uo.stratics.com/content/se/se_samurai.shtml" title="THE SAMURAI: Trained in Art of Bushido">Class: SAMURAI</a><br>	  	  
+      - <a href="http://uo.stratics.com/content/se/se_keyfeatures.shtml" title="KEY FEATURES: What's New With The Samurai Empire Expansion"> Key Features</a><br>
+	  - <a href="http://uo.stratics.com/content/se/se_editorial.shtml" title="VOICES EDITORIAL: Adding an Asian Influence to UO with the Samurai Empire"> VOICES Editorial</a><br>
+ - <a href="http://uo.stratics.com/content/se/se_gencon2004.shtml" title="MEETUP: Meeting with the UO Developers To Discuss UO and Samurai Empire"> GenCon Meetup</a><br>
+<br>
+<b>Other Expansions</b><br>
+- <a href="http://uo.stratics.com/content/aos/ageofshadows.shtml" title="Information about the Age of Shadows expansion"> 
+      Age of Shadows</a><br>
+- <a href="http://uo.stratics.com/content/t2a/index.shtml" title="The Second Age: Strategy and Statistics">The Second Age</a><br>
+
+            </font></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Combat related</font></b><br>
+            - <a href="http://uo.stratics.com/content/skills/archery.php" title="The art of shooting arrows where you want them to go"> 
+      Archery</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/arms-armor/armor.php" title="AR, HP and STR req. of Armor &amp; Shields"> 
+      Armor</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/arms-armor/armorcalc.php" title="Calculating and Comparing the AR of different armor combinations"> 
+      Armor Calculator</a><br>
+      - <a href="http://uo.stratics.com/content/arms-armor/combat.php" title="Detailed Outline of Combat"> 
+      Combat</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+	  <!-- 
+      - <a href="/content/arms-armor/durability.shtml" title="Durability, Hit Points, Condition and Quality explained"> 
+      Durability</a><br>
+	  -->
+      - <a href="http://uo.stratics.com/content/skills/fencing.php" title="Swift on the foot and swift with the wrist"> 
+      Fencing</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/macefighting.php" title="Bashing opponents with blunt objects"> 
+      Mace Fighting</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/arms-armor/itemproperties.php" title="Definitions of Enchantments"> 
+      Magic Item Properties</a><br>
+	  - <a href="http://uo.stratics.com/content/arms-armor/damage.php" title="Calculate damage dealt and received in Person vs. Monster combat">
+	  PvM Damage Calc.</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/arms-armor/shields.shtml" title="Attributes of regular shields"> 
+      Shields</a><br>
+      - <a href="http://uo.stratics.com/content/arms-armor/slayerweapons.php" title="Weapons with monster-related bonuses"> 
+      Slayer Weapons</a><br>
+      - <a href="http://uo.stratics.com/content/arms-armor/special.shtml" title="Definitions of Enchantments"> 
+      Special Armor and Weapons</a><br>
+      - <a href="http://uo.stratics.com/content/arms-armor/specialmoves.php" title="Special Moves of Weapons explained"> 
+      Special Moves</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+	  - <a href="http://uo.stratics.com/content/arms-armor/special_moves_chart.shtml" title="Chart of Special Move combinations">
+	  Special Moves Chart</a><br> 
+      - <a href="http://uo.stratics.com/content/skills/swordsmanship.php" title="Wielding sharp iron in combat"> 
+      Swordsmanship</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/tactics.shtml" title="Tactics Value in Combat"> 
+      Tactics</a><br>
+      - <a href="http://uo.stratics.com/content/arms-armor/arms.php" title="Damage, Speed, Special Moves and STR req. of Weapons"> 
+      Weapons</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/wrestling.php" title="Details on Unarmed Combat"> 
+      Wrestling</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"> 
+            </font></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Homes &amp; Decorations</font></b><br>
+             - <a href="http://uo.stratics.com/content/aos/customhouse.shtml" title="Custom House Building">Custom House Building</a><br>
+     &nbsp; &nbsp; - <a href="http://uo.stratics.com/content/ml/elvenhousetiles.shtml" title="Mondain's Legacy Expansion: Elven House Tiles">Elven House Tiles</a><br>
+	   - <a href="http://uo.stratics.com/homes/betterhomes/bhc_intro.shtml">Placing and Trading</a><br>
+      - <a href="http://uo.stratics.com/homes/betterhomes/dd_customize.shtml">Designing and Decorating</a><br>
+      - <a href="http://uo.stratics.com/homes/betterhomes/hg_menu.shtml">Homeowner's Guide</a><br>
+      - <a href="http://uo.stratics.com/homes/designcontest/housedesign_1.shtml">UOSS House Design Contest</a><br>
+      - <a href="http://uo.stratics.com/homes/famous/index.shtml">Famous Houses of Brittannia</a><br>
+      - <a href="http://uo.stratics.com/pics/render/renderall.shtml">3D Rendered Pictures</a><br> 
+            </font></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Items</font></b><br>
+      	  <a href="http://uo.stratics.com/database/view.php?db_content=gameitem&amp;welcome=yes">- Item Catalogue</a><br>
+	  - Artifacts:<br>
+	  &nbsp; &nbsp; - <a href="http://uo.stratics.com/content/arms-armor/artifacts.php?category=2342"> 
+      Craftable</a><br>
+	  &nbsp; &nbsp; - <a href="http://uo.stratics.com/content/arms-armor/artifacts.php?category=846"> 
+      Doom Gauntlet</a><br>
+	  &nbsp; &nbsp; - <a href="http://uo.stratics.com/content/arms-armor/artifacts.php?category=847"> 
+      Doom Stealables</a><br>
+	  &nbsp; &nbsp; - <a href="http://uo.stratics.com/content/arms-armor/artifacts.php?category=769"> 
+      Minor Artifacts</a><br>
+	  &nbsp; &nbsp; - <a href="http://uo.stratics.com/content/arms-armor/artifacts.php?category=831"> 
+      Tokuno Stealables</a><br>
+	  &nbsp; &nbsp; - <a href="http://uo.stratics.com/content/arms-armor/artifacts.php?category=765"> 
+      Treasures of Tokuno</a><br>
+      - <a href="http://uo.stratics.com/content/basics/items_arms_armor.shtml" title="Armor, Shields, Weapons &amp; Ammunition"> 
+      Arms &amp; Armor</a><br>
+      - <a href="http://uo.stratics.com/content/basics/items_clothing_food.shtml" title="Clothing, Apparel, Food &amp; Drink"> 
+      Clothing &amp; Food</a><br>
+      - <a href="http://uo.stratics.com/content/basics/items_crafting_provisions.shtml" title="Crafts, Tools, Components &amp; Provisions"> 
+      Crafts &amp; Tools</a><br>
+      - <a href="http://uo.stratics.com/content/basics/items_rare_misc.shtml" title="Miscellaneous &amp; Rare Items"> 
+      Misc. &amp; Rare Items</a><br>
+      - <a href="http://uo.stratics.com/content/basics/items_holiday.shtml" title="Holiday &amp; Special Items"> 
+      Holiday &amp; Special Items</a><br>
+      - <a href="http://uo.stratics.com/content/arms-armor/special.shtml" title="Items with Special Abilities"> 
+      Items with Special Abilities</a><br> 
+      - <a href="http://uo.stratics.com/content/basics/enhancing.shtml" title="Increasing item properties using colored ingots or colored leather"> 
+      Item Enhancing</a><br>
+      - <a href="http://uo.stratics.com/content/basics/insurance.shtml" title="Insure items so that they will stay with you when you die."> 
+      Item Insurance</a><br>
+      - <a href="http://uo.stratics.com/content/arms-armor/itemproperties.php" title="A detailed list of all the different properties that can be found on magic items."> 
+      Item Properties</a><br>
+      &nbsp; &nbsp; - <a href="http://uo.stratics.com/content/aos/baseproperties.shtml" title="Base Properties of Items"> 
+      Base Properties</a><br>
+      &nbsp; &nbsp; - <a href="http://uo.stratics.com/content/aos/materialbonuses.shtml" title="Material Bonuses From Crafting"> 
+      Material Bonuses</a><br>
+      &nbsp; &nbsp; - <a href="http://uo.stratics.com/content/aos/runicbonuses.shtml" title="Runic Bonuses From Crafting"> 
+      Runic Bonuses</a><br>
+
+          </font></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Magery</font></b><br>
+            - <a href="http://uo.stratics.com/content/skills/magery.php" title="Skill req for Spell Circles and entering Wind"> 
+      Magery Skill</a><br>
+      - <a href="http://uo.stratics.com/content/guides/necromancy1.shtml" title="Detailed Descriptions of the Necromancer Spells"> 
+      Necro Spells Details</a><br>
+      - <a href="http://uo.stratics.com/content/guides/necromancy2.shtml" title="Necromancer Spells - Words of Power and Reagents Used"> 
+      Necro Spells Reagents</a><br>
+      - <a href="http://uo.stratics.com/content/guides/paladinabilities.shtml" title="Divine Powers of the Paladin"> 
+      Paladin Abilities</a><br>
+      - <a href="http://uo.stratics.com/content/skills/resisting.shtml" title="Explanation of Resist Magic vs. Evaluate Int."> 
+      Resisting Spells</a><br>
+      - <a href="http://uo.stratics.com/content/basics/spelldamage.php" title="Detailed Breakdown of Offensive Spell Damage"> 
+      Spell Damage</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/guides/magic.shtml" title="Spell Descriptions and Ratings"> 
+      Spell Descriptions</a><br>
+      - <a href="http://uo.stratics.com/content/basics/reagent.shtml" title="Detailed Analysis of Reagent Usage"> 
+      Spell Reagents</a><br>
+	  - <a href="http://uo.stratics.com/content/ml/spellweaving.shtml" title="Mondain's Legacy Expansion: Spell Weaving">Spell Weaving</a><br>	 
+      - <a href="http://uo.stratics.com/content/basics/spellbook.shtml" title="Item ID on Spellbook Analysis"> 
+      Spellbook Appraisal</a><br>
+      - <a href="http://uo.stratics.com/content/basics/spells.shtml" title="Reagent and Mana req for all Spells"> 
+      Spells, A to Z</a><br>
+      - <a href="http://uo.stratics.com/content/basics/spellsw.shtml" title="Spells Sorted by Words of Power"> 
+      Spells, Words of P.</a><br>
+      - <a href="http://uo.stratics.com/content/basics/spellsn.shtml" title="Alternate List of Spells"> 
+      Spells, Detailed</a><br>
+      - <a href="http://uo.stratics.com/content/basics/reagenttome.shtml" title="Detailed description of all known reagents"> 
+      Tome of Reagents</a><br>
+      - <a href="http://uo.stratics.com/content/basics/words.shtml" title="Words of Power Definitions"> 
+      Words of Power</a> 
+            </font></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Maps &amp; Locations</font></b><br>
+            
+	  - <a href="http://uo.stratics.com/database/view.php?db_content=atlas&amp;welcome=yes" title="Complete Guide to Every Location in Ultima Online">Atlas - Complete Guide</a><br>
+	  - <a href="http://uo.stratics.com/content/atlas/cemeteries.shtml" title="Guide to the Cemeteries of Britannia"> 
+      Cemeteries</a><br>
+      - <a href="http://uo.stratics.com/content/guides/champions/champmap.shtml" title="Where to find those Evil-in-a-Can Champions"> 
+      Champion Spawns</a><br>
+      - <a href="http://uo.stratics.com/content/atlas/cities.shtml" title="Cities and their Themes"> 
+      Cities &amp; Towns</a><br>
+      - <a href="http://uo.stratics.com/content/atlas/dungeon.php" title="Dungeons and their Themes"> 
+      Dungeons</a><br>
+      - <a href="http://uo.stratics.com/uoam/geo.shtml" title="Explanation of how those coordinates work"> 
+      Geography of UO</a><br>
+      - <a href="http://uo.stratics.com/content/atlas/ilshenar.shtml" title="Detailed map and description of Ilshenar"> 
+      Ilshenar Atlas</a><br>
+      - <a href="http://uo.stratics.com/content/guides/ilshenar/introduction.shtml" title="Detailed guide to the lands of Ilshenar"> 
+      Ilshenar Guide</a><br>
+      - <a href="http://uo.stratics.com/content/aos/malas.shtml" title="The Ancient Land of Malas"> 
+      Malas</a><br>
+      - <a href="http://uo.stratics.com/content/atlas/malassecrets.shtml" title="Secret Locations of The Ancient Land of Malas"> 
+      Malas Secret Locations</a><br>
+      - <a href="http://uo.stratics.com/hunters/spawn/spawn.shtml" title="Map of Hunting Grounds and Spawns"> 
+      Spawn Map</a><br>
+      - <a href="http://uo.stratics.com/hunters/spawn/uosmu.shtml" title="Interactive Map of Hunting Grounds and Spawns"> 
+      Spawn Map Utility</a><br>
+      - <a href="http://uo.stratics.com/content/t2a/t2acities.shtml" title="Cities in the Lost Lands of the Second Age"> 
+      T2A Cities &amp; Towns</a><br>
+      - <a href="http://uo.stratics.com/content/t2a/t2aent.shtml" title="Entrances to the Lost Lands of the Second Age"> 
+      T2A Entrances</a><br>
+      - <a href="http://uo.stratics.com/content/t2a/t2aplaces.shtml" title="Places of interest in the Lost Lands of the Second Age"> 
+      T2A Locations</a><br>
+      - <a href="http://uo.stratics.com/thb/info/maparchive/Archive1.shtml" title="Sextant Locations of all known Treasure Maps"> 
+      Treasure Maps</a><br>
+      - <a href="http://uo.stratics.com/uoam/index.shtml" target="_top" title="Belxan's Ultima Online Auto-Map utility"> 
+      UO Auto-Map</a><br>
+      - <a href="http://uo.stratics.com/content/atlas/maps/index.shtml" title="The Ultimate UO World Maps"> 
+      World Maps</a><br>
+      - <a href="http://uo.stratics.com/content/atlas/zoommap/main.php" title="The Interactive Zoomable Map"> 
+      Zoomable Map</a> 
+            </font></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Monsters</font></b><br>
+            - <a href="http://uo.stratics.com/hunters/index.shtml" target="_top" title="Complete Animal and Monster Database"> 
+      The Complete Hunter's Guide Database</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"> <br>	  
+	  - <a href="http://uo.stratics.com/content/ml/creatures.shtml" title="Mondain's Legacy Expansion: Many New Creatures">Mondain's Legacy</a><br>	 
+	  - <a href="http://uo.stratics.com/content/aos/renders.shtml" title="Creature Renders"> Age of Shadows</a><br>
+      - <a href="http://uo.stratics.com/hunters/paragon.php" target="_top" title="Stats and Skills of Paragon Creatures"> 
+      Paragon Creatures</a>  
+            </font></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Skills</font></b><br>
+            <b>Skills, General</b><br>
+      - <a href="http://uo.stratics.com/content/skills/attr.shtml" title="Effects and Relativity of Attributes"> 
+      Attributes</a><br>
+      - <a href="http://uo.stratics.com/content/basics/ggs.shtml" title="Guaranteed Gain System">Guaranteed 
+      Gain</a><br>
+      - <a href="http://uo.stratics.com/content/skills/skilllimits.shtml" title="Skill Limitations"> 
+      Limitations</a><br>
+      - <a href="http://uo.stratics.com/content/skills/skillandstatlocks.shtml" title="How to manage your skills by locking some"> 
+      Skill &amp; Stat Locks</a><br>
+      - <a href="http://uo.stratics.com/content/skills/skills.shtml" title="Ability vs Skill, Starting EQ and Titles"> 
+      Master List</a><br>
+      - <a href="http://uo.stratics.com/content/skills/skillorder.shtml" title="Skill order that determines displayed title"> 
+      Order</a><br>
+      - <a href="http://uo.stratics.com/content/skills/scrollsofpower.shtml" title="Increase your Skill and Stat limit"> 
+      Scrolls of Power</a><br>
+      - <a href="http://uo.stratics.com/content/skills/skilltitles.shtml" title="Reputation and Skill-based Titles"> 
+      Titles</a><br>
+      - <a href="http://uo.stratics.com/content/skills/skilltrain.shtml" title="Training Skills with NPCs"> 
+      Training</a><br>
+      <br>
+      <!-- STATISTICS - SKILLS DETAILED -->
+      <b>Skills, Detailed</b><br>
+      - <a href="http://uo.stratics.com/content/skills/alchemy.php" target="_top" title="Potions, their ingredients and effects"> 
+      Alchemy</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/anat.shtml" title="Anatomy Response Definitions"> 
+      Anatomy</a><br>
+      - <a href="http://uo.stratics.com/content/skills/animallore.shtml" title="Get to know the fauna of Britannia"> 
+      Animal Lore</a><br>
+      - <a href="http://uo.stratics.com/content/skills/anim.php" title="Ability req for Taming Creatures"> 
+      Animal Taming</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/archery.php" title="The art of shooting arrows where you want them to go"> 
+      Archery</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/armslore.shtml" title="Arms Lore Response Definitions"> 
+      Arms Lore</a><br>
+      - <a href="http://uo.stratics.com/content/skills/bardingdifficulty.php" title="How tough is that creature for a bard anyway ?"> 
+      Barding Difficulty</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/battlefocus.shtml" title="Battle Focus"> Battle Focus</a><br>
+      - <a href="http://uo.stratics.com/content/skills/begging.shtml" title="Begging Responses"> Begging</a><br>
+      - <a href="http://uo.stratics.com/content/skills/blacksmithing.php" title="Ingot/Skill req for Weapons &amp; Armor"> 
+      Blacksmithy</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/bowcraft.php" title="Material/Skill req for Bows &amp; Ammo"> 
+      Bowcraft/Fletching</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/bushido.php" title="Bushido, the art of the Samurai">Bushido</a><br>
+      - <a href="http://uo.stratics.com/content/skills/carpentry.php" title="Wood req for Furniture"> 
+      Carpentry</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/cartography.shtml" title="Creating maps"> 
+      Cartography</a><br>
+      - <a href="http://uo.stratics.com/content/guides/paladinabilities.shtml" title="Paladin Abilities"> 
+      Chivalry</a><br>
+      - <a href="http://uo.stratics.com/content/skills/cooking.php" title="Food Formulae for Chefs"> 
+      Cooking</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/detecthidden.shtml" title="Info on Detecting Hidden Characters and Traps"> 
+      Detect Hidden</a><br>
+      - <a href="http://uo.stratics.com/content/skills/discordance.shtml" title="Weakening creatures by using a musical instrument">Discordance</a><br>
+      - <a href="http://uo.stratics.com/content/skills/evaluateint.shtml" title="Evaluating Intelligence Response Definitions"> 
+      Evaluating INT</a><br>
+      - <a href="http://uo.stratics.com/content/skills/fencing.php" title="Swift on the foot and swift with the pulse"> 
+      Fencing</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/fishing.shtml" title="Fishing for footwear, fish and treasure"> 
+      Fishing</a><br>
+      - <a href="http://uo.stratics.com/content/skills/battlefocus.shtml" title="Battle Focus">Focus</a><br>
+      - <a href="http://uo.stratics.com/content/skills/glassblowing.shtml" title="Making of glass items"> 
+      Glassblowing</a><br>
+      - <a href="http://uo.stratics.com/content/skills/healing.php" title="Exact HP to Skill Conversions"> 
+      Healing</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/hiding.shtml" title="Info on Hiding"> Hiding</a><br>
+      - <a href="http://uo.stratics.com/content/skills/inscription.php" title="Skill req for Inscribing Spells"> 
+      Inscription</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/thb/info/lockpicking.shtml" title="How to train opening that which is locked"> 
+      Lockpicking</a><br>
+	  - <a href="http://uo.stratics.com/content/skills/lumberjacking.shtml" title="Skill vs. logs produced"> 
+      Lumberjacking</a><br>
+      - <a href="http://uo.stratics.com/content/skills/macefighting.php" title="Bashing opponents with blunt objects"> 
+      Mace Fighting</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/magery.php" title="Skill req for Spell Circles and entering Wind"> 
+      Magery</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/meditation.php" title="Mana regeneration speed"> 
+      Meditation</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/mining.php" title="Ore to Ingot Conversions"> 
+      Mining</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/musicianship.shtml" title="Play that funky music!"> 
+      Musicianship</a><br>
+      - <a href="http://uo.stratics.com/content/guides/necromancy1.shtml" title="Necromancy Spells">Necromancy</a><br>
+      - <a href="http://uo.stratics.com/content/skills/ninjitsu.php" title="Ninjitsu, the hidden arts of the Ninja">Ninjitsu</a><br>
+	  - <a href="http://uo.stratics.com/content/skills/parrying.php" title="Blocking Attacks"> 
+      Parrying</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/peacemaking.shtml" title="Make creatures and players forget about fighting for a while">Peacemaking</a><br>
+      - <a href="http://uo.stratics.com/alchemy/assassin/essays/poisoning_essay.shtml" title="Poisoning Essay">Poisoning</a><br>
+      - <a href="http://uo.stratics.com/content/skills/provocation.shtml" title="Make creatures fight each other">Provocation</a><br>
+      - <a href="http://uo.stratics.com/content/skills/remove.shtml" title="Info on Disarming Traps"> 
+      Remove Trap</a><br>
+      - <a href="http://uo.stratics.com/content/skills/resisting.shtml" title="Explanation of Resist Magic vs. Evaluate Int."> 
+      Resisting Spells</a><br>
+	  - <a href="http://uo.stratics.com/content/ml/spellweaving.shtml" title="Mondain's Legacy Skill: Spell Weaving">Spell Weaving</a><br>	 
+      - <a href="http://uo.stratics.com/content/skills/spiritspeak.shtml" title="Communicating with the Dead"> 
+      Spirit Speak</a><br>
+      - <a href="http://uo.stratics.com/content/skills/stealing.shtml" title="Stealing items"> Stealing</a><br>
+      - <a href="http://uo.stratics.com/content/skills/stealth.shtml" title="Info on Moving while Hidden"> 
+      Stealth</a><br>
+      - <a href="http://uo.stratics.com/content/skills/stonecrafting.shtml" title="Making of stone items"> 
+      Stonecrafting</a><br>
+      - <a href="http://uo.stratics.com/content/skills/swordsmanship.php" title="Wielding sharp iron in combat"> 
+      Swordsmanship</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/tactics.shtml" title="Tactics Value in Combat"> 
+      Tactics</a><br>
+      - <a href="http://uo.stratics.com/content/skills/tailoring.php" title="Material req for Clothing &amp; Armor"> 
+      Tailoring</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/tinkering.php" title="Material req for Tools &amp; Items"> 
+      Tinkering</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/skills/tracking.php" title="Tracking Players and NPCs"> 
+      Tracking</a><br>
+      - <a href="http://uo.stratics.com/content/skills/wrestling.php" title="Details on Unarmed Combat"> 
+      Wrestling</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8">
+            </font></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Virtues of Ultima</font></b><br>
+            - <a href="http://uo.stratics.com/content/virtues/gypsy.php">The Fortuneteller Test</a><br>
+	  - <a href="http://uo.stratics.com/content/virtues/talesofvirtue_overview.php">Tales of Virtue</a><br>
+	        - <a href="http://uo.stratics.com/content/virtues/book_of_virtues.shtml">The Book of Virtues</a><br>
+      - <a href="http://uo.stratics.com/content/virtues/principles.shtml">The 3 Principles</a><br>
+      - <a href="http://uo.stratics.com/content/virtues/virtues.shtml">The 8 Virtues</a><br>
+	  - <a href="http://uo.stratics.com/content/virtues/virtuesmovie.php">The Virtues Movie</a><br>
+	  - <a href="http://uo.stratics.com/content/virtues/virtuesystem.shtml">The UO Virtue System</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/content/virtues/compassion.shtml">Compassion in UO</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/content/virtues/honor.shtml">Honor in UO</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/content/virtues/justice.shtml">Justice in UO</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/content/virtues/sacrifice.shtml">Sacrifice in UO</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/content/virtues/valor.shtml">Valor in UO</a> 
+            </font></td>
+  </tr>
+</tbody></table>
+<table border="0" cellpadding="0" cellspacing="0" width="141">
+  </table>
+</p><p></p><div align="center"><a href="http://www.stratics.com/members"><img style="display: none;" src="fileformats.shtml_files/straticsflashlink_120x60.jpg" alt="Become a
+Stratics Plus Member!" border="0" height="60" width="120"></a>
+<br><a href="http://www.stratics.com/members">Remove all ads!</a></div> 
+          </td>
+          <td background="fileformats.shtml_files/parch.jpg" valign="top"> 
+             
+<center>
+  <table background="fileformats.shtml_files/parch.jpg" border="0" cellpadding="0" cellspacing="0">
+    <tbody><tr nowrap="" valign="middle"> 
+      <form class="sitemenu"></form>
+        <td class="sitemenu" nowrap="nowrap"> 
+          <select onchange="location=options[selectedIndex].value;">
+            <option selected="selected">News Sections</option>
+            <option value="/news/GeneralNews.shtml">General News</option>
+            <option value="/news/CommunityNews.shtml">Community News</option>
+			<option value="/news/DeveloperFeedback.shtml">Developer Feedback</option>
+            <option value="/news/QuestandEventNews.shtml">Quest &amp; Events</option>
+            <option value="/news/CandidCoverage.shtml">Candid Coverage</option>
+            <option value="/news/Atlantic.shtml">Atlantic</option>
+            <option value="/news/Baja.shtml">Baja</option>
+            <option value="/news/Catskills.shtml">Catskills</option>
+            <option value="/news/Chesapeake.shtml">Chesapeake</option>
+            <option value="/news/Drachenfels.shtml">Drachenfels</option>
+            <option value="/news/Europa.shtml">Europa</option>
+            <option value="/news/GreatLakes.shtml">Great Lakes</option>
+            <option value="/news/LakeAustin.shtml">Lake Austin</option>
+            <option value="/news/LakeSuperior.shtml">Lake Superior</option>
+            <option value="/news/LegendsAOL.shtml">Legends</option>
+            <option value="/news/NapaValley.shtml">Napa Valley</option>
+            <option value="/news/Oceania.shtml">Oceania</option>
+			<option value="/news/Origin.shtml">Origin</option>
+			<option value="/news/Pacific.shtml">Pacific</option>
+            <option value="/news/SiegePerilous.shtml">Siege Perilous</option>
+            <option value="/news/Sonoma.shtml">Sonoma</option>
+            <!--<option value="/news/AsianShards.shtml">Asian Shards</option>-->
+            <!--<option value="/news/TestCenter.shtml">Test Center</option>-->
+          </select>
+        </td>
+      
+      <form class="sitemenu"></form>
+        <td class="sitemenu" nowrap="nowrap"> 
+          <select onchange="location=options[selectedIndex].value;">
+            <option selected="selected">General Forums</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=devcorner">Dev Corner</option>
+			<option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=1&amp;Board=mlbeta">Mondain's Legacy</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uouhall">U.Hall</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uo3d">Latest Updates</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uoideas">Ideas Den</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uonewplayers">New Player Corner</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uotech">Tech</option>
+			
+           <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uochronicles">Events</option>
+<option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=1&amp;Board=UOQuest">Quests</option>
+
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uohomes">Homes &amp; Castles</option>
+                    <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uowarhall">WarHall</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uofactions">Factions</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uoguildhall">Guild Hall</option>
+            
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uopictures">Pictures</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uospielnrants">Spiels'n'Rants</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uovolunteer">Real Life Rendezvous</option>
+<option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=1&amp;Board=memmorial">Player Memorial</option>
+
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uouhallot">U.Hall OT</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=bugreports">Bug Reporting</option>
+		   
+		       <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uotownhall">Community Center</option>
+ <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=2&amp;Board=UOElves">Heartwood Elves</option>
+  <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=2&amp;Board=UOHumans">Human's Sanctuary</option>
+   <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=2&amp;Board=UOOrcs">Orc Fort</option>
+		   
+		   <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uowhitestaginn">White Stag Inn</option>
+		   
+			            <option value="http://boards.stratics.com/php-bin/uo/ubbthreads.php?Cat=5">Trade (All Shards)</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uoholiday">Holiday Trading</option>
+          </select>
+        </td>
+      
+      <form class="sitemenu"></form>
+        <td class="sitemenu" nowrap="nowrap"> 
+          <select onchange="location=options[selectedIndex].value;">
+            <option selected="selected">Shard Forums</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uoasia">Asia</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uoatlantic">Atlantic</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uobaja">Baja</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uocatskills">Catskills</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uochesapeake">Chesapeake</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uodrachenfels">Drachenfels</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uoeuropa">Europa</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uogreatlakes">Great Lakes</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uolakeaustin">Lake Austin</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uolakesuperior">Lake Superior</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uoaollegends">Legends</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uonapavalley">Napa Valley</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uooceania">Oceania</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=testsosaria">Origin</option>
+		    <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uopacifica">Pacific</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uosiegeperil">Siege Perilous</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uosonoma">Sonoma</option>
+                      
+            <option value="http://uo.stratics.com/content/guildforms/index.shtml">Guild Forums</option>
+          </select>
+        </td>
+      
+      <form class="sitemenu"></form>
+        <td class="sitemenu" nowrap="nowrap"> 
+          <select onchange="location=options[selectedIndex].value;">
+            <option selected="selected">Prof. Forums</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uoadventurer">Adventurer</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uoalchemist">Alchemist</option>
+			<option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=UOSpellweave">Arcanist</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uoarcher">Archer</option>
+            
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uoassassin">Assassin</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uobard">Bard</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uobeggar">Beggar</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uocarpenter">Carpenter</option>
+            
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uochef">Chef</option>
+           
+            
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uofisherman">Fisher</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uogardener">Gardener</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uohealer">Healer</option>
+            
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uomage">Mage</option>
+           <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uomerchant">Merchants</option>
+		    <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uominer">Miner</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uomurderer">Murderer</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uonecromancer">Necromancer</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uoninja">Ninja</option>
+			<option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uopaladin">Paladin</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uorares">Rares Collector</option>
+<option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uosamurai">Samurai</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uoscribe">Scribe</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uosmith">Smith</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uotailor">Tailor</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uotamer">Tamer</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uothief">Thief</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uotinker">Tinker</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uotreasurehunter">Treasure Hunter</option>
+            <option value="http://boards.stratics.com/php-bin/uo/postlist.php?Cat=&amp;Board=uowarrior">Warrior</option>
+            
+          </select>
+        </td>
+      
+    </tr>
+  </tbody></table>
+</center>
+<br>
+          <center>
+            <table align="center" border="1" cellpadding="0" cellspacing="0" width="100%">
+              <tbody><tr> 
+                <td class="top">UO FILE FORMATS</td>
+              </tr>
+            </tbody></table>
+          </center>
+
+	<p>If you have any information that you feel should be added to this 
+	document, please <a href="http://uo.stratics.com/heptazane/contact.shtml">contact</a> me or one of the 
+        fine people below.</p>
+
+	<h4>Credits</h4>
+
+	<p>
+	<em>ANIM.MUL</em>, <em>ANIM.IDX</em>,
+	<em>ART.MUL</em>, <em>ARTIDX.MUL</em>,
+	<em>PALETTE.MUL</em>, <em>TEXMAPS.MUL</em>,
+	<em>TEXIDX.MUL</em>, <em>TILEDATA.MUL</em>,
+	<em>GUMPIDX.MUL</em>, <em>GUMPART.MUL</em>,
+	<em>HUES.MUL</em> and 
+	<em>File Formats</em>
+	coalation by Alazane</p>
+
+	<p>
+	<em>MAP0</em>, <em>RADARCOL</em>,
+	<em>STAIDX0</em>, <em>STATICS0</em> and
+	<em>FAQ</em> 
+	touch-up by Tim Walters</p>
+
+	<p>
+	<em>SKILLS.IDX</em>, <em>SKILLS.MUL</em>
+	by Sir Valgriz</p>
+
+	<p>
+	<em>SOUNDIDX</em>, <em>SOUND</em>
+	by Steve Dang</p>
+
+	<p>
+	<em>VERDATA</em>
+	by Cironian</p>
+
+	<!-- CONTENTS -->
+
+	<h4><a name="Contents">Contents</a></h4>
+	<div>
+	<a href="#1.0">1.0 Miscellaneous Information</a><br>	
+		<div>
+		<a href="#1.1">1.1 Types</a><br>
+		<a href="#1.2">1.2 Colors</a><br>
+		</div>
+	<a href="#2.0">2.0 MUL files</a><br>
+	<a href="#3.0">3.0 Definitions</a><br>
+		<div>	
+		<a href="#3.1">3.1 ANIM.IDX</a><br>
+		<a href="#3.2">3.2 ANIM.MUL</a><br>
+		<a href="#3.3">3.3 ARTIDX.MUL</a><br>
+		<a href="#3.4">3.4 ART.MUL</a><br>
+		<a href="#3.5">3.5 GUMPART.MUL</a><br>
+		<a href="#3.6">3.6 GUMPIDX.MUL</a><br>
+		<a href="#3.7">3.7 HUES.MUL</a><br>
+		<a href="#3.8">3.8 MAP0.MUL</a><br>
+		<a href="#3.9">3.9 MULTI.IDX</a><br>
+		<a href="#3.10">3.10 MULTI.MUL</a><br>
+		<a href="#3.11">3.11 PALETTE.MUL</a><br>
+		<a href="#3.12">3.12 RADARCOL.MUL</a><br>
+		<a href="#3.13">3.13 SKILLS.IDX</a><br>
+		<a href="#3.14">3.14 SKILLS.MUL</a><br>
+		<a href="#3.15">3.15 SOUND.MUL</a><br>
+		<a href="#3.16">3.16 SOUNDIDX.MUL</a><br>
+		<a href="#3.17">3.17 STAIDX0.MUL</a><br>
+		<a href="#3.18">3.18 STATICS0.MUL</a><br>
+		<a href="#3.19">3.19 TILEDATA.MUL</a><br>
+		<a href="#3.20">3.20 TEXIDX.MUL</a><br>
+		<a href="#3.21">3.21 TEXMAPS.MUL</a><br>
+		<a href="#3.22">3.22 VERDATA.MUL</a><br>
+		<a href="#3.23">3.23 DIF files</a><br>
+		</div>				
+	</div>
+
+<br>
+
+<!-- Miscellaneous Information -->
+
+<h4><a name="1.0">1.0 Miscellaneous Information</a></h4>
+<h5><a name="1.1">1.1 Types</a></h5>
+
+<table border="0" width="100%">
+    <tbody><tr>
+        <td>CHAR</td>
+        <td>8 bit</td>
+        <td>unsigned character (ex. 'A', 'a', etc.)</td>
+    </tr>
+    <tr>
+        <td>BYTE</td>
+        <td>8 bit</td>
+        <td>signed value (-128..127)</td>
+    </tr>
+    <tr>
+        <td>UBYTE</td>
+        <td>8 bit</td>
+        <td>unsigned value (0..255)</td>
+    </tr>
+    <tr>
+        <td>WORD</td>
+        <td>16 bit</td>
+        <td>signed value (-32768..32767)</td>
+    </tr>
+    <tr>
+        <td>UWORD</td>
+        <td>16 bit</td>
+        <td>unsigned value (0..65535)</td>
+    </tr>
+    <tr>
+        <td>DWORD</td>
+        <td>32 bit</td>
+        <td>signed value
+        (-2147483648..2147483647)</td>
+    </tr>
+</tbody></table>
+
+<!-- Colors -->
+
+<h5><a name="1.2">1.2 Colors</a></h5>
+
+<p>Ultima is completely 16 bit based--meaning
+that each pixel is UWORD value that can be broken down as
+follows:</p>
+
+<table border="1">
+    <tbody><tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>4</td>
+        <td>3</td>
+        <td>2</td>
+        <td>1</td>
+        <td>0</td>
+        <td>9</td>
+        <td>8</td>
+        <td>7</td>
+        <td>6</td>
+        <td>5</td>
+        <td>4</td>
+        <td>3</td>
+        <td>2</td>
+        <td>1</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>U</td>
+        <td bgcolor="#ff0000"><font color="White">R</font></td>
+        <td bgcolor="#ff0000"><font color="White">R</font></td>
+        <td bgcolor="#ff0000"><font color="White">R</font></td>
+        <td bgcolor="#ff0000"><font color="White">R</font></td>
+        <td bgcolor="#ff0000"><font color="White">R</font></td>
+        <td bgcolor="#008000"><font color="White">G</font></td>
+        <td bgcolor="#008000"><font color="White">G</font></td>
+        <td bgcolor="#008000"><font color="White">G</font></td>
+        <td bgcolor="#008000"><font color="White">G</font></td>
+        <td bgcolor="#008000"><font color="White">G</font></td>
+        <td bgcolor="#0000ff"><font color="White">B</font></td>
+        <td bgcolor="#0000ff"><font color="White">B</font></td>
+        <td bgcolor="#0000ff"><font color="White">B</font></td>
+        <td bgcolor="#0000ff"><font color="White">B</font></td>
+        <td bgcolor="#0000ff"><font color="White">B</font></td>
+    </tr>
+</tbody></table>
+
+<p>Where U=Unused, R=Red, G=Green and B=Blue</p>
+
+<p>So, to convert to 32 bit:</p>
+
+<p>
+Color32 = ( (((Color16 &gt;&gt; 10) &amp; 0x1F) * 0xFF / 0x1F) |<br> 
+((((Color16 &gt;&gt; 5) &amp; 0x1F) * 0xFF / 0x1F) &lt;&lt; 8) |<br> 
+((( Color16 &amp; 0x1F) * 0xFF / 0x1F) &lt;&lt; 16));</p>
+
+<!-- MUL Files -->
+
+<h4><a name="2.0">2.0 MUL Files</a></h4>
+
+<table border="0">
+    <tbody><tr>
+        <td width="79">ANIM</td>
+        <td width="389">Animations such as monsters, people, and armor.</td>
+    </tr>
+    <tr>
+        <td width="79">ANIMDATA</td>
+    </tr>
+    <tr>
+        <td width="79">ANIMINFO</td>
+    </tr>
+    <tr>
+        <td width="79">ART</td>
+        <td width="389">Artwork such as ground, objects, etc.</td>
+    </tr>
+    <tr>
+        <td width="79">ARTIDX</td>
+        <td width="389">Index to ART</td>
+    </tr>
+    <tr>
+        <td width="79">CHARDATA</td>
+    </tr>
+    <tr>
+        <td width="79">FONTS</td>
+        <td width="389">Fixed size bitmaps style fonts.</td>
+    </tr>
+    <tr>
+        <td width="79">GUMPART</td>
+        <td width="389">Gumps.  Stationary controller bitmaps such as windows, buttons, paperdoll pieces, etc.</td>
+    </tr>
+    <tr>
+        <td width="79">GUMPIDX</td>
+        <td width="389">Index to GUMPART</td>
+    </tr>
+    <tr>
+        <td width="79">HUES</td>
+    </tr>
+    <tr>
+        <td width="79">LIGHT</td>
+    </tr>
+    <tr>
+        <td width="79">LIGHTIDX</td>
+    </tr>
+    <tr>
+        <td width="79">MAP0</td>
+        <td width="389">Terrain data</td>
+    </tr>
+    <tr>
+        <td width="79">MULTI</td>
+        <td width="389">Groups of art (houses, castles, etc)</td>		
+    </tr>
+    <tr>
+        <td width="79">PALETTE</td>
+        <td width="389">Contains an 8 bit palette (use unknown)</td>
+    </tr>
+    <tr>
+        <td width="79">RADARCOL</td>
+        <td width="389">Colors for converting the terrain data to radar view</td>
+    </tr>
+    <tr>
+        <td width="79">REGIONS</td>
+    </tr>
+    <tr>
+        <td width="79">SKILLGRP</td>
+    </tr>
+    <tr>
+        <td width="79">SKILLS</td>
+    </tr>
+    <tr>
+        <td width="79">SOUND</td>
+        <td width="389">Sampled sounds </td>
+    </tr>
+    <tr>
+        <td width="79">SOUNDIDX</td>
+        <td width="389">Index into SOUND</td>
+    </tr>
+    <tr>
+        <td width="79">STAIDX0</td>
+        <td width="389">Index into STATICS0</td>
+    </tr>
+    <tr>
+        <td width="79">STATICS0</td>
+        <td width="389">Static objects on the map</td>
+    </tr>
+    <tr>
+        <td width="79">TEXIDX</td>
+        <td width="389">Index into TEXMAPS</td>
+    </tr>
+    <tr>
+        <td width="79">TEXMAPS</td>
+        <td width="389">Texture map data (the ground).</td>
+    </tr>
+    <tr>
+        <td width="79">TILEDATA</td>
+        <td width="389">Data about tiles in ART </td>
+    </tr>
+    <tr>
+        <td width="79">VERDATA</td>
+        <td width="389">Patched overrides of data in any of the above files.</td>
+    </tr>
+</tbody></table>
+
+<!------------------------------------------------------------------------>
+
+<h4><a name="3.0">3.0 Definitions</a></h4>
+
+<!-- ANIM.IDX -->
+
+<h5><a name="3.1">3.1 ANIM.IDX</a></h5>
+
+<p>This file contains an index into ANIM.MUL.
+To load a specific group of frames from ANIM.MUL, simply seek
+BNum * 12, read in the index record and use Lookup to find the
+group within ANIM.MUL.</p>
+
+<h5>ANIM.IDX</h5>
+<h6>Index Record (12 bytes)</h6>
+<table border="1">
+	<tbody><tr>
+		<td bgcolor="#ffffff" width="20">0</td>
+		<td bgcolor="#ffffff" width="20">1</td>
+		<td bgcolor="#ffffff" width="20">2</td>
+		<td bgcolor="#ffffff" width="20">3</td>
+		<td bgcolor="#ffffff" width="20">4</td>
+		<td bgcolor="#ffffff" width="20">5</td>
+		<td bgcolor="#ffffff" width="20">6</td>
+		<td bgcolor="#ffffff" width="20">7</td>
+		<td bgcolor="#ffffff" width="20">8</td>
+		<td bgcolor="#ffffff" width="20">9</td>
+		<td bgcolor="#ffffff" width="20">A</td>
+		<td bgcolor="#ffffff" width="20">B</td>						
+	</tr>
+	<tr>
+		<td colspan="4">Lookup</td>
+		<td colspan="4">Size</td>
+		<td colspan="4">Unknown</td>				
+	</tr>
+</tbody></table>
+
+<p>
+DWORD Lookup - Is either undefined ($FFFFFFFF -1) or the file offset in ANIM.MUL<br>
+DWORD Size - Size of the art tile<br>
+DWORD Unknown - Unknown
+</p>
+
+<!-- ANIM.MUL -->
+
+<h5><a name="3.2">3.2 ANIM.MUL</a></h5>
+
+<p>This file contains the raw animation data.
+It can be accessed using ANIM.IDX.</p>
+
+<h5>ANIM.IDX</h5>
+
+<p>
+<b>AnimationGroup</b><br>
+WORD[256] Palette<br>
+DWORD FrameCount<br>
+DWORD[FrameCount] FrameOffset
+</p>
+
+<h5>Frame</h5>
+
+<p>
+Seek from the end of Palette plus FrameOffset[FrameNum] bytes to find the 
+start of Frame<br>
+
+WORD ImageCenterX<br>
+WORD ImageCenterY<br>
+WORD Width<br>
+WORD Height<br>
+...Data Stream..<br>
+</p>
+
+<h5>Data Stream</h5>
+
+<pre>// Note: Set CenterY and CenterY to the vertical and horizontal position in
+//       the bitmap at which you want the anim to be drawn.
+		
+PrevLineNum = $FF
+Y = CenterY - ImageCenterY - Height
+while not EOF
+{
+  Read UWORD RowHeader
+  Read UWORD RowOfs
+  
+  if (RowHeader = 0x7FFF) or (RowOfs = 0x7FFF) then Exit
+  
+  RunLength = RowHeader and $FFF
+  LineNum = RowHeader shr 12
+  Unknown = RowOfs and $3F
+  RowOfs = RowOfs sar 6
+  X = CenterX + RowOfs
+  if (PrevLineNum &lt;&gt; $FF) and (LineNum &lt;&gt; PrevLineNum) then Y++
+  PrevLineNum = LineNum
+  if Y &gt;= 0 then
+  {
+    if Y &gt;= MaxHeight then Exit;
+  
+    For I := 0 to RunLength-1 do 
+    {
+      Read(B, 1)
+      Row[X+I,Y] = Palette[B]
+    }
+  }
+  Seek(RunLength, FromCurrent)
+}
+</pre>
+
+<!-- ARTIDX.MUL -->
+
+<h5><a name="3.2">3.2 ARTIDX.MUL</a></h5>
+
+<p>This file contains an index into ART.MUL.
+To load a specific tile number in ART.MUL, simply seek BNum * 12,
+read in the index tile data and use Lookup to find the tile
+within ART.MUL.</p>
+
+<h5>ARTIDX.MUL</h5>
+<h6>Index Record (12 bytes)</h6>
+<table border="1">
+	<tbody><tr>
+		<td bgcolor="#ffffff" width="20">0</td>
+		<td bgcolor="#ffffff" width="20">1</td>
+		<td bgcolor="#ffffff" width="20">2</td>
+		<td bgcolor="#ffffff" width="20">3</td>
+		<td bgcolor="#ffffff" width="20">4</td>
+		<td bgcolor="#ffffff" width="20">5</td>
+		<td bgcolor="#ffffff" width="20">6</td>
+		<td bgcolor="#ffffff" width="20">7</td>
+		<td bgcolor="#ffffff" width="20">8</td>
+		<td bgcolor="#ffffff" width="20">9</td>
+		<td bgcolor="#ffffff" width="20">A</td>
+		<td bgcolor="#ffffff" width="20">B</td>						
+	</tr>
+	<tr>
+		<td colspan="4">Lookup</td>
+		<td colspan="4">Size</td>
+		<td colspan="4">Unknown</td>
+	</tr>
+</tbody></table>
+
+<p>
+DWORD Lookup - Is either undefined ($FFFFFFFF -1) or the file offset in ART.MUL<br>
+DWORD Size - Size of the art tile<br>
+DWORD Unknown - Unknown
+</p>
+
+<!-- ART.MUL -->
+
+<h5><a name="3.4">3.4 ART.MUL</a></h5>
+
+<p>This file has no header and contains tiles
+that can only be read via ARTIDX.MUL. There are two types of
+tiles, which I will call Raw and Run tiles.</p>
+
+<h5>ART.MUL</h5>
+<p>
+DWORD Flag<br>
+..DATA..<br>
+<br>
+if (Flag &gt; $FFFF or Flag == 0)<br>
+... tile is Raw ...<br>
+else<br>
+... tile is Run ...<br>
+end if
+</p>
+
+<h5>Raw Tile  <img src="fileformats.shtml_files/MMTexMaps.gif"></h5>
+<p>Raw tiles are always 44x44 pixels
+square. However, the data stored for a tile resembles a
+square block, rotated 45 degrees.&nbsp; Therefore, the
+tile is loaded from the tip, down to the widest portion,
+then down to the bottom tip as opposed to a straight
+matrix.</p>
+		
+<p>WORD Pixels, in the series:<br>
+2, 4, 6, 8, 10 ... 40, 42, 44, 44, 42, 40 ... 10, 8, 6,
+4, 2 (See 1.2 Colors for pixel info)</p>
+
+<p>The resulting top 9 lines look
+like this:</p>
+
+<table border="0" cellspacing="1">
+	<tbody><tr>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+	</tr>
+	<tr>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+	</tr>
+	<tr>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+	</tr>
+	<tr>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+	</tr>
+	<tr>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+	</tr>
+	<tr>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+	</tr>
+	<tr>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+	</tr>
+	<tr>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+	</tr>
+	<tr>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#ffffff" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+		<td bgcolor="#808080" width="10">&nbsp;</td>
+	</tr>
+</tbody></table>
+
+<h5>Run Tile  <img src="fileformats.shtml_files/Book_of_Truth.gif"></h5>
+
+<p>
+UWORD Width<br>
+UWORD Height
+</p>
+
+<pre>Read : UWORD Width
+if (Width = 0 || Width &gt;= 1024) return
+Read : UWORD Height
+if (Height = 0 || Height &gt;= 1024) return
+Read : LStart = A table of Height number of UWORD values
+DStart = Stream position
+X = 0;
+Y = 0;
+Seek : DStart + LStart[Y] * 2
+while (Y &lt; Height)
+{
+&nbsp; Read : UWORD XOffs
+&nbsp; Read : UWORD Run
+&nbsp; if (XOffs + Run &gt;= 2048) 
+&nbsp;&nbsp;&nbsp; return
+&nbsp; else if (XOffs + Run &lt;&gt; 0)
+&nbsp; {
+&nbsp;&nbsp;&nbsp; X += XOffs;
+&nbsp;&nbsp;&nbsp; Load Run number of pixels at X (See 1.2 Colors for pixel info)
+&nbsp;&nbsp;&nbsp; X += Run;
+&nbsp; }
+&nbsp; else
+&nbsp; {
+&nbsp;&nbsp;&nbsp; X = 0;
+&nbsp;&nbsp;&nbsp; Y++;
+&nbsp;&nbsp;&nbsp; Seek : DStart + LStart[Y] * 2
+&nbsp; }
+}</pre>
+
+<!-- GUMPART -->
+
+<h5><a name="3.5">3.5 GUMPART.MUL</a></h5>
+
+<h5>Loading a Gump</h5>
+
+<p>Gumps are stored in runs of pixels (badly inefficient, but is better than no compression).
+An array of pairs of Value &amp; Word are loaded for a particular row (shown below) and these can then be easily
+shoved into a bitmap.  For example, if the final bitmap was going to display one black pixel, then three white
+pixels, the stream would contain 0000 0001 FFFF 0003.  It is imperative that GUMPIDX.MUL be loaded since it 
+contains Width, Height and Size which are needed to decode the Gump.
+</p>
+
+<pre>DataStart := CurrentPosition
+
+DWORD RowLookup[GumpIdx.Height]
+
+for Y = 0 to GumpIdx.Height-1 
+{
+&nbsp;&nbsp;cf Y &lt; Height-1 then
+&nbsp;&nbsp;&nbsp;&nbsp;RunBlockCount := RowLookup[Y+1]-RowLookup[Y]
+&nbsp;&nbsp;else
+&nbsp;&nbsp;&nbsp;&nbsp;RunBlockCount := GumpIdx.Size div 4 - RowLookup[Y];
+&nbsp;
+&nbsp;&nbsp;Seek : DataStart + RowLookup[Y] * 4
+&nbsp;&nbsp;(WORD Value, WORD Run)[RunBlockCount]
+}</pre> 
+
+<!-- GUMPIDX -->
+
+<h5><a name="3.6">3.6 GUMPIDX</a></h5>
+	
+<p>This file contains an index into GUMPART.MUL.</p>
+
+<h5>GUMPIDX.MUL</h5>
+<h6>Index Record (12 bytes)</h6>
+<table border="1">
+	<tbody><tr>
+		<td bgcolor="#ffffff" width="20">0</td>
+		<td bgcolor="#ffffff" width="20">1</td>
+		<td bgcolor="#ffffff" width="20">2</td>
+		<td bgcolor="#ffffff" width="20">3</td>
+		<td bgcolor="#ffffff" width="20">4</td>
+		<td bgcolor="#ffffff" width="20">5</td>
+		<td bgcolor="#ffffff" width="20">6</td>
+		<td bgcolor="#ffffff" width="20">7</td>
+		<td bgcolor="#ffffff" width="20">8</td>
+		<td bgcolor="#ffffff" width="20">9</td>
+		<td bgcolor="#ffffff" width="20">A</td>
+		<td bgcolor="#ffffff" width="20">B</td>						
+	</tr>
+	<tr>
+		<td colspan="4">Lookup</td>
+		<td colspan="4">Size</td>
+		<td colspan="2">Height</td>
+		<td colspan="2">Width</td>						
+	</tr>
+</tbody></table>
+
+<p>
+DWORD Lookup - Is either undefined ($FFFFFFFF -1) or the file offset in GUMPART.MUL<br>
+DWORD Size - Size of the block<br>
+UWORD Height - Height (in pixels) of the block<br>
+UWORD Width - Width (in pixels) of the block
+</p>	
+
+<!-- HUES -->
+
+<h5><a name="3.7">3.7 HUES.MUL</a></h5>
+
+<p>Just read in HueGroups until you hit the end of the file.  Note that
+large chunks of this file consist of garbage--OSI admits to this (something about a bug in their old code).
+</p>
+
+<p>If you want to look at the hues, check out <a href="http://alazane.surf-va.com/uohueeditor.html">this</a>.</p>
+
+<p>Hues are applied to an image in one of two ways.  Either all gray pixels are mapped to the specified color
+range (resulting in a part of an image changed to that color) or all pixels are first mapped to grayscale and
+then the specified color range is mapped over the entire image.</p><p>
+
+</p><h5>HueEntry</h5>
+<p>
+WORD ColorTable[32];<br>
+WORD TableStart;<br>
+WORD TableEnd;<br>
+CHAR Name[20];
+</p>
+
+<h5>HueGroup</h5>
+<p>
+DWORD Header;<br>
+HueEntry Entries[8];
+</p>
+
+<!-- MAP0 -->
+
+<h5><a name="3.8">3.8 MAP0.MUL</a></h5>
+
+<p>This file holds all the base-level terrain,
+and doesn't look too pretty without the static data.</p>
+
+<p>The map is stored as a 768x512 matrix of
+blocks. A block is basically a 8x8 matrix of cells. Each
+individual cell contains data about the tile for that cell, and
+the cell's altitude.&nbsp; Therefore, the entire map is 6144x4096
+individual cells in size.</p>
+
+<p>Blocks are loaded top-to-bottom then
+left-to-right. Cells are loaded from blocks left-to-right then
+top-to-bottom.</p>
+
+<p>The formula used to locate an individual
+CELL in the file is a little complex, since you have to work out
+what block it is in...</p>
+
+<p>If you refer to the map in blocks, then
+there's 512 blocks down, by 768 blocks across.</p>
+
+<p>
+XBlock = Int(XPos/8)<br>
+YBlock = Int(YPos/8)<br>
+Block Number = (XBlock * 512) + YBlock
+</p>
+
+<h5>MAP0 (37,748,736 bytes)</h5>
+
+<p>
+393,216 [Block]s sequentially, Block = 196 bytes<br>
+DWORD header, unknown content<br>
+64 Cells<br>
+</p>
+
+<h5>Cell (3 bytes)</h5>
+<table border="1">
+	<tbody><tr>
+		<td bgcolor="#ffffff" width="20">0</td>
+		<td bgcolor="#ffffff" width="20">1</td>
+		<td bgcolor="#ffffff" width="20">2</td>
+	</tr>
+	<tr>
+		<td colspan="2">Color</td>
+		<td>Alt</td>
+	</tr>
+</tbody></table>
+
+<p>
+UWORD cell graphic (which can be looked up in RADARCOL).<br>
+BYTE Altitude (-128..127 units above/below sea level).</p>
+
+<!-- MULTI.IDX -->
+
+<h5><a name="3.9">3.9 MULTI.IDX</a></h5>
+
+<p>This file contains an index into MULTI.MUL</p>
+
+<h5>MULTI.IDX</h5>
+<h6>Index Record (12 bytes)</h6>
+<table border="1">
+	<tbody><tr>
+		<td bgcolor="#ffffff" width="20">0</td>
+		<td bgcolor="#ffffff" width="20">1</td>
+		<td bgcolor="#ffffff" width="20">2</td>
+		<td bgcolor="#ffffff" width="20">3</td>
+		<td bgcolor="#ffffff" width="20">4</td>
+		<td bgcolor="#ffffff" width="20">5</td>
+		<td bgcolor="#ffffff" width="20">6</td>
+		<td bgcolor="#ffffff" width="20">7</td>
+		<td bgcolor="#ffffff" width="20">8</td>
+		<td bgcolor="#ffffff" width="20">9</td>
+		<td bgcolor="#ffffff" width="20">A</td>
+		<td bgcolor="#ffffff" width="20">B</td>						
+	</tr>
+	<tr>
+		<td colspan="4">Start</td>
+		<td colspan="4">Length</td>
+		<td colspan="4">Unknown</td>
+	</tr>
+</tbody></table>
+
+<p>
+DWORD Lookup - Is either undefined ($FFFFFFFF -1) or the file offset in MULTI.MUL<br>
+DWORD Size - Size of the multi block<br>
+DWORD Unknown - Unknown
+</p>
+
+<!-- MULTI.MUL -->
+
+<h5><a name="3.10">3.10 MULTI.MUL</a></h5>
+
+<h5>MULTI.MUL</h5>
+
+<p>
+The Size should be loaded from MULTI.IDX and as many Multi Blocks should be 
+read as fit into this size.
+</p>
+
+<h5>Multi Block (12 bytes)</h5>
+<p>
+WORD BlockNum<br>
+WORD X<br>
+WORD Y<br>
+WORD Alt<br>
+UDWORD Flags
+</p>
+
+<p>
+Once 16384+BlockNum has been looked up in ART, the block can be drawn using 
+the following positioning:<br>
+<br>
+DrawX = LeftMostX + (MultiBlock.X - MultiBlock.Y) * 22 - (Block.Width shr 1)<br>
+DrawY = TopMostY + (MultiBlock.X + MultiBlock.Y) * 22 - Block.Height - MultiBlock.Alt * 4
+</p>
+
+<!-- PALETTE -->
+
+<h5><a name="3.11">3.11 PALETTE.MUL</a></h5>
+
+<p>Contains an 8 bit palette. Use Unknown.</p>
+
+<h5>PALETTE.MUL (768 bytes)</h5>
+<p>
+256 [Palette Entries]<br>
+
+</p><h5>Palette Entries (3 bytes)</h5>
+<table border="1">
+	<tbody><tr>
+		<td bgcolor="#ffffff" width="20">0</td>
+		<td bgcolor="#ffffff" width="20">1</td>
+		<td bgcolor="#ffffff" width="20">2</td>
+	</tr>
+	<tr>
+		<td>R</td>
+		<td>G</td>
+		<td>B</td>
+	</tr>
+</tbody></table>
+
+<p>
+UBYTE Red<br>
+UBYTE Green<br>
+UBYTE Blue
+</p>
+
+<!-- RADARCOL.MUL -->
+
+<h5><a name="3.12">3.12 RADARCOL.MUL</a></h5>
+
+<p>Use to lookup colors for tile numbers from
+MAP0 and STAIDX0/STATICS0.</p>
+
+<h5>RADARCOL.MUL (131,072 bytes)</h5>
+<p>65536 sequential UWORD color values (see 1.2 Colors for color info)</p>
+
+<!-- SKILLS.IDX -->
+
+<h5><a name="3.13">3.13 SKILLS.IDX</a></h5>
+
+<p>Contains index entries into the SKILLS.MUL file.</p>
+
+<h5>SKILLS.IDX</h5>
+<table border="1">
+	<tbody><tr>
+		<td bgcolor="#ffffff" width="20">0</td>
+		<td bgcolor="#ffffff" width="20">1</td>
+		<td bgcolor="#ffffff" width="20">2</td>
+		<td bgcolor="#ffffff" width="20">3</td>
+		<td bgcolor="#ffffff" width="20">4</td>
+		<td bgcolor="#ffffff" width="20">5</td>
+		<td bgcolor="#ffffff" width="20">6</td>
+		<td bgcolor="#ffffff" width="20">7</td>
+		<td bgcolor="#ffffff" width="20">8</td>
+		<td bgcolor="#ffffff" width="20">9</td>
+		<td bgcolor="#ffffff" width="20">A</td>
+		<td bgcolor="#ffffff" width="20">B</td>
+		<td bgcolor="#ffffff" width="20">C</td>
+		<td bgcolor="#ffffff" width="20">D</td>
+		<td bgcolor="#ffffff" width="20">E</td>
+		<td bgcolor="#ffffff" width="20">F</td>
+	</tr>
+	<tr>
+		<td bgcolor="#ffffff" width="20">00</td>
+		<td colspan="4">Start</td>
+		<td colspan="4">Length</td>
+		<td colspan="4">Unknown</td>
+	</tr>
+</tbody></table>
+
+<p>
+DWORD is the Start position for this sound<br>
+DWORD is the Length of the entire associated data segment<br>
+DWORD Unknown<br>
+</p>
+
+<!-- SKILLS.MUL -->
+
+<h5><a name="3.14">3.14 SKILLS.MUL</a></h5>
+
+<p>Contains skill names.</p>
+
+<p>
+BYTE is 1 if there is a button next to the name, 0 if there is not<br>
+CHAR Name[] is the name of the skill
+</p>
+
+<!-- SOUND.MUL -->
+
+<h5><a name="3.15">3.15 SOUND.MUL</a></h5>
+
+<p>Contains sampled sounds from the game. All 
+sounds are 16 bit mono sampled at 22050khz.</p>
+
+<h5>SOUND.MUL</h5>
+
+<table border="1">
+	<tbody><tr>
+		<td>&nbsp;</td>
+		<td bgcolor="#ffffff" width="20">		0</td>
+		<td bgcolor="#ffffff" width="20">		1</td>
+		<td bgcolor="#ffffff" width="20">		2</td>
+		<td bgcolor="#ffffff" width="20">		3</td>
+		<td bgcolor="#ffffff" width="20">		4</td>
+		<td bgcolor="#ffffff" width="20">		5</td>
+		<td bgcolor="#ffffff" width="20">		6</td>
+		<td bgcolor="#ffffff" width="20">		7</td>
+		<td bgcolor="#ffffff" width="20">		8</td>
+		<td bgcolor="#ffffff" width="20">		9</td>
+		<td bgcolor="#ffffff" width="20">		A</td>
+		<td bgcolor="#ffffff" width="20">		B</td>
+		<td bgcolor="#ffffff" width="20">		C</td>
+		<td bgcolor="#ffffff" width="20">		D</td>
+		<td bgcolor="#ffffff" width="20">		E</td>
+		<td bgcolor="#ffffff" width="20">		F</td>
+	</tr>
+	<tr>
+		<td bgcolor="#ffffff" width="20">		00</td>
+		<td colspan="16">Original filename</td>
+	</tr>
+	<tr>
+		<td bgcolor="#ffffff" width="20">		10</td>
+		<td colspan="4">Unknown</td>
+		<td colspan="4">Unknown</td>
+		<td colspan="4">Unknown</td>
+		<td colspan="4">Unknown</td>
+	</tr>
+	<tr>
+		<td bgcolor="#ffffff" width="20">		20</td>
+		<td colspan="16">Data...</td>
+	</tr>
+</tbody></table>
+
+<p>
+CHAR[16] Original filename<br>
+DWORD Unknown<br>
+DWORD Unknown<br>
+DWORD Unknown<br>
+DWORD Unknown<br>
+DATA
+</p>
+
+<!-- SOUNDIDX.MUL -->
+
+<h5><a name="3.16">3.16 SOUNDIDX.MUL</a></h5>
+
+<p>Contains index entries into the SOUND.MUL file.</p>
+
+<h5>SOUNDIDX.MUL</h5>
+<table border="1">
+	<tbody><tr>
+		<td bgcolor="#ffffff" width="20">0</td>
+		<td bgcolor="#ffffff" width="20">1</td>
+		<td bgcolor="#ffffff" width="20">2</td>
+		<td bgcolor="#ffffff" width="20">3</td>
+		<td bgcolor="#ffffff" width="20">4</td>
+		<td bgcolor="#ffffff" width="20">5</td>
+		<td bgcolor="#ffffff" width="20">6</td>
+		<td bgcolor="#ffffff" width="20">7</td>
+		<td bgcolor="#ffffff" width="20">8</td>
+		<td bgcolor="#ffffff" width="20">9</td>
+		<td bgcolor="#ffffff" width="20">A</td>
+		<td bgcolor="#ffffff" width="20">B</td>
+		<td bgcolor="#ffffff" width="20">C</td>
+		<td bgcolor="#ffffff" width="20">D</td>
+		<td bgcolor="#ffffff" width="20">E</td>
+		<td bgcolor="#ffffff" width="20">F</td>
+	</tr>
+	<tr>
+		<td bgcolor="#ffffff" width="20">00</td>
+		<td colspan="4">Start</td>
+		<td colspan="4">Length</td>
+		<td colspan="2">Index</td>
+		<td colspan="2">Reserved</td>
+	</tr>
+</tbody></table>
+
+<p>
+DWORD is the Start position for this sound<br>
+DWORD is the Length of the entire associated data segment<br>
+UWORD index<br>
+UWORD reserved
+</p>
+
+<!-- STAIDX0.MUL -->
+
+<h5><a name="3.17">3.17 STAIDX0.MUL</a></h5>
+
+<p>Contains index to entries into the
+STATICS0.MUL file. Special thanks to Mental4 from
+ultima.scorched.com for the hint to cracking this one The 12 byte
+blocks in this file match up one to one with the blocks in the
+map file, hence the file size of 768 * 512 * 12 = 4,718,592
+bytes.&nbsp; Pretty simple, easiest to read this at the same time
+as MAP0.MUL, if there's static objects, read them per block,
+doing height comparisons to see which ones to draw for radar type
+view.</p>
+
+<h5>STAIDX0.MUL (4,718,592 bytes)</h5>
+
+<p>
+393,216 [Index Block]s sequentially<br>
+
+</p><h6>Index Record (12 bytes)</h6>
+<table border="1">
+	<tbody><tr>
+		<td bgcolor="#ffffff" width="20">0</td>
+		<td bgcolor="#ffffff" width="20">1</td>
+		<td bgcolor="#ffffff" width="20">2</td>
+		<td bgcolor="#ffffff" width="20">3</td>
+		<td bgcolor="#ffffff" width="20">4</td>
+		<td bgcolor="#ffffff" width="20">5</td>
+		<td bgcolor="#ffffff" width="20">6</td>
+		<td bgcolor="#ffffff" width="20">7</td>
+		<td bgcolor="#ffffff" width="20">8</td>
+		<td bgcolor="#ffffff" width="20">9</td>
+		<td bgcolor="#ffffff" width="20">A</td>
+		<td bgcolor="#ffffff" width="20">B</td>						
+	</tr>
+	<tr>
+		<td colspan="4">Start</td>
+		<td colspan="4">Length</td>
+		<td colspan="4">Unknown</td>
+	</tr>
+</tbody></table>
+
+<p>
+DWORD is the Start position (0xFFFFFFFF if no static objects exist for this block)<br>
+DWORD is the Length of the data segment<br>
+DWORD is of unknown use
+</p>
+
+<!-- STATICS0.MUL -->
+
+<h5><a name="3.18">3.18 STATICS0.MUL</a></h5>
+
+<p>Notes: This is where all the fun stuff is,
+as a side-note, I tried playing with NO static objects for the
+purpose of item-recovery (stuff lost behind walls), the Britain
+area is duplicated server-side (could explain the extra lag
+there), same with Moonglow area, places like Buccaneer's Den,
+Trinsic and other towns worked fine... no walls, no bridges, no
+shallow water (note, server still stops you from walking through
+walls, even if you can't see them).</p>
+
+<h5>STATICS0.MUL</h5>
+
+<p>Static Data (7 bytes)</p>
+<table border="1">
+	<tbody><tr>
+		<td bgcolor="#ffffff" width="20">0</td>
+		<td bgcolor="#ffffff" width="20">1</td>
+		<td bgcolor="#ffffff" width="20">2</td>
+		<td bgcolor="#ffffff" width="20">3</td>
+		<td bgcolor="#ffffff" width="20">4</td>
+		<td bgcolor="#ffffff" width="20">5</td>
+		<td bgcolor="#ffffff" width="20">6</td>
+	</tr>
+	<tr>
+		<td colspan="2">Color</td>
+		<td>X</td>
+		<td>Y</td>
+		<td>Alt</td>
+		<td colspan="2">Unknown</td>
+	</tr>
+</tbody></table>
+
+<p>
+UWORD for the Color/Object ID (add 16384 to offset it for RADARCOL.MUL)<br>
+UBYTE X Offset in block (0..7)<br>
+UBYTE Y Offset in block (0..7)<br>
+BYTE Altitude (-128..127 units above/below sea level, like MAP0)<br>
+UWORD Unknown
+</p>
+
+<!-- TILEDATA.MUL -->
+
+<h5><a name="3.19">3.19 TILEDATA.MUL</a></h5>
+<p>Contains data about tiles in ART.MUL.</p>
+
+<h5>TILEDATA.MUL</h5>
+<p>
+512 Blocks of [Land Tile Groups]<br>
+X Blocks of [Static Tile Groups]
+</p>
+
+<h5>Land Tile Groups (836 bytes)</h5>
+<p>
+DWORD Unknown<br>
+32 Blocks of [Land Tile Data]
+</p>
+
+<h5>Land Tile Data (26 bytes)</h5>
+<table border="1">
+	<tbody><tr>
+		<td bgcolor="#ffffff" width="20">
+		</td><td bgcolor="#ffffff" width="20">0</td>
+		<td bgcolor="#ffffff" width="20">1</td>
+		<td bgcolor="#ffffff" width="20">2</td>
+		<td bgcolor="#ffffff" width="20">3</td>
+		<td bgcolor="#ffffff" width="20">4</td>
+		<td bgcolor="#ffffff" width="20">5</td>
+		<td bgcolor="#ffffff" width="20">6</td>
+		<td bgcolor="#ffffff" width="20">7</td>
+		<td bgcolor="#ffffff" width="20">8</td>
+		<td bgcolor="#ffffff" width="20">9</td>
+		<td bgcolor="#ffffff" width="20">A</td>
+		<td bgcolor="#ffffff" width="20">B</td>
+		<td bgcolor="#ffffff" width="20">C</td>
+		<td bgcolor="#ffffff" width="20">D</td>
+		<td bgcolor="#ffffff" width="20">E</td>
+		<td bgcolor="#ffffff" width="20">F</td>
+	</tr>
+	<tr>
+		<td bgcolor="#ffffff" width="20">00</td>
+		<td colspan="4">Flags</td>
+		<td colspan="2">Texture ID</td>
+		<td colspan="10">Tile Name...</td>
+	</tr>
+	<tr>
+		<td bgcolor="#ffffff" width="20">10</td>
+		<td colspan="10">...</td>
+	</tr>
+</tbody></table>
+
+<p>DWORD Flags (see below)<br>
+UWORD Texture ID (If 0, the land tile has not texture)<br>
+CHAR[20] Tile Name
+</p>
+
+<h5>Static Tile Groups (1188 bytes)</h5>
+<p>DWORD Unknown<br>
+32 Blocks of [Static Tile Data]</p>
+
+<h5>Static Tile Data (37 bytes)</h5>
+<table border="1">
+	<tbody><tr>
+		<td bgcolor="#ffffff" width="20">
+		</td><td bgcolor="#ffffff" width="20">0</td>
+		<td bgcolor="#ffffff" width="20">1</td>
+		<td bgcolor="#ffffff" width="20">2</td>
+		<td bgcolor="#ffffff" width="20">3</td>
+		<td bgcolor="#ffffff" width="20">4</td>
+		<td bgcolor="#ffffff" width="20">5</td>
+		<td bgcolor="#ffffff" width="20">6</td>
+		<td bgcolor="#ffffff" width="20">7</td>
+		<td bgcolor="#ffffff" width="20">8</td>
+		<td bgcolor="#ffffff" width="20">9</td>
+		<td bgcolor="#ffffff" width="20">A</td>
+		<td bgcolor="#ffffff" width="20">B</td>
+		<td bgcolor="#ffffff" width="20">C</td>
+		<td bgcolor="#ffffff" width="20">D</td>
+		<td bgcolor="#ffffff" width="20">E</td>
+		<td bgcolor="#ffffff" width="20">F</td>
+	</tr>
+	<tr>
+		<td bgcolor="#ffffff" width="20">00</td>
+		<td colspan="4">Flags</td>
+		<td>Weight</td>
+		<td>Quality</td>
+		<td colspan="2">Unknown</td>
+		<td>Unknown1</td>
+		<td>Quantity</td>
+		<td colspan="2">Anim ID</td>
+		<td>Unknown2</td>
+		<td>Hue</td>
+		<td colspan="2">Unknown3</td>
+	</tr>
+	<tr>
+		<td bgcolor="#ffffff" width="20">10</td>
+		<td>Height</td>
+		<td colspan="15">Tile Name...</td>
+	</tr>
+	<tr>
+		<td bgcolor="#ffffff" width="20">20</td>
+		<td colspan="5">...</td>
+	</tr>
+</tbody></table>
+
+<p>
+	DWORD Flags (see below)<br>
+	BYTE Weight (weight of the item, 255 means not movable)<br>
+	BYTE Quality (If Wearable, this is a Layer. If Light Source, this is Light ID)<br>
+	UWORD Unknown<br>
+	BYTE Unknown1<br>
+	BYTE Quantity (if Weapon, this is Weapon Class. If Armor, Armor Class)<br>
+UWORD Anim ID (The Body ID the animatation. Add 50,000 and 60,000
+respectivefully to get the two gump indicies assocaited with this tile)<br>
+	BYTE Unknown2<br>
+	BYTE Hue (perhaps colored light?)<br>
+	UWORD Unknown3<br>
+	BYTE Height (If Conatainer, this is how much the container can hold)<br>
+	CHAR[20] Tile Name<br>
+</p>
+
+<h5>Flags</h5>
+<p>
+	0x00000001 Background<br>
+	0x00000002 Weapon<br>
+	0x00000004 Transparent<br>
+	0x00000008 Translucent<br>
+	0x00000010 Wall<br>
+	0x00000020 Damaging<br>
+	0x00000040 Impassable<br>
+	0x00000080 Wet<br>
+	0x00000100 Unknown<br>
+	0x00000200 Surface<br>
+	0x00000400 Bridge<br>
+	0x00000800 Generic/Stackable<br>
+	0x00001000 Window<br>
+	0x00002000 No Shoot<br>0x00004000 Prefix A<br>
+	0x00008000 Prefix An<br>
+	0x00010000 Internal (things like hair, beards, etc)<br>
+	0x00020000 Foliage<br>
+	0x00040000 Partial Hue<br>
+	0x00080000 Unknown 1<br>
+	0x00100000 Map<br>
+	0x00200000 Container<br>
+	0x00400000 Wearable<br>
+	0x00800000 LightSource<br>
+	0x01000000 Animated<br>
+	0x02000000 No Diagonal<br>
+	0x04000000 Unknown 2<br>
+	0x08000000 Armor<br>
+	0x10000000 Roof<br>
+	0x20000000 Door<br>
+	0x40000000 StairBack<br>
+	0x80000000 StairRight<br>
+</p>
+
+<!-- TEXIDX.MUL -->
+
+<h5><a name="3.20">3.20 TEXIDX.MUL</a></h5>
+
+<h5>TEXIDX.MUL</h5>
+<h6>Index Record (12 bytes)</h6>
+<table border="1">
+	<tbody><tr>
+		<td bgcolor="#ffffff" width="20">0</td>
+		<td bgcolor="#ffffff" width="20">1</td>
+		<td bgcolor="#ffffff" width="20">2</td>
+		<td bgcolor="#ffffff" width="20">3</td>
+		<td bgcolor="#ffffff" width="20">4</td>
+		<td bgcolor="#ffffff" width="20">5</td>
+		<td bgcolor="#ffffff" width="20">6</td>
+		<td bgcolor="#ffffff" width="20">7</td>
+		<td bgcolor="#ffffff" width="20">8</td>
+		<td bgcolor="#ffffff" width="20">9</td>
+		<td bgcolor="#ffffff" width="20">A</td>
+		<td bgcolor="#ffffff" width="20">B</td>						
+	</tr>
+	<tr>
+		<td colspan="4">Start</td>
+		<td colspan="4">Length</td>
+		<td colspan="4">Unknown</td>
+	</tr>
+</tbody></table>
+
+<p>
+DWORD is the Start position<br>
+DWORD is the Length of the data segment<br>
+DWORD is of unknown use
+</p>
+
+<!-- TEXMAPS.MUL -->
+
+<h5><a name="3.21">3.21 TEXMAPS.MUL</a></h5>
+
+<p>The texture maps in general were about an afternoon 
+hack.  Since the index is the same as all the other indices and the data
+is quite straightforward, it was almost an afterthought to include it.</p>
+
+<h5>TEXMAPS.MUL</h5>
+<p>
+Raw 16-bit data, sized as follows:<br>
+If Length = 0x2000 then data = 64*64<br>
+If Length = 0x8000 then data = 128*128
+</p>
+
+<!-- VERDATA.MUL -->
+
+<h5><a name="3.22">3.22 VERDATA.MUL</a></h5>
+
+<p>VERDATA.MUL contains patch entries that override
+already existing entries in the above data files.  The use of VERDATA.MUL 
+was a recent addition to InsideUO, thanks almost completely to Cironian for
+dropping the format for it on me out of the blue.</p>
+
+<h5>VERDATA.MUL</h5>
+
+<p>First DWORD: Number of entries in index</p>
+
+<p><b>Index entry:</b><br>
+DWORD: File ID (see index below)<br>
+DWORD: Block (Item number, Gump number or whatever; like in the file)<br>
+DWORD: Position (Where to find this block in verdata.mul)<br>
+DWORD: Size (Size in Byte)<br>
+DWORD: Various (depends on the file format)
+</p>
+
+<p><b>File IDs:</b> (* means used in current verdata)<br>
+00 - map0.mul<br>
+01 - staidx0.mul<br>
+02 - statics0.mul<br>
+03 - artidx.mul<br>
+04 - art.mul*<br>
+05 - anim.idx<br>
+06 - anim.mul<br>
+07 - soundidx.mul<br>
+08 - sound.mul<br>
+09 - texidx.mul<br>
+0A - texmaps.mul<br>
+0B - gumpidx.mul<br>
+0C - gumpart.mul* - Various is WORD Height + WORD Width<br>
+0D - multi.idx<br>
+0E - multi.mul*<br>
+0F - skills.idx<br>
+10 - skills.mul<br>
+1E - tiledata.mul*<br>
+1F - animdata.mul*
+</p>
+
+<p>
+The block of data that is located and read in from VERDATA.MUL is of exactly the same
+format as the data in the source file.
+</p>
+
+<h5><a name="3.23">3.23 DIFF files</a></h5>
+<p>Stadifl#.mul,Stadifi#.mul,Stadif#.mul,Mapdifl#.mul, and 
+	Mapdif#.mul contains patch entries that override already existing entries in 
+	the above data files. The use of diff files is activiated by a packet sent to 
+	the client from the server. The 3D client, starting with LBR , no longer uses 
+	Verdata.mul. It is uknown how other data patches are done. .</p>
+<h5>Stadifl#.mul, Mapdifl#.mul
+</h5>
+<p>Until end of file, DWORDs:Block Number</p>
+<h5>Stadifi#.mul</h5>
+<p>The format of this file maps exactly to the format of 
+	StaIDX#.mul. Each entry corresponds to the blockid in the Stadifl#.mul. The 
+	offset and length of the entires are the offset into Stadif#.mul
+</p>
+<h5>Mapdif#.mul</h5>
+<p>The format of this file maps exactly to Map#.mul. Each entry 
+	corresponds to the block id in Mapdifl#.mul.</p>
+<h5>Stadifi#.mul</h5>
+<p>The format of this file maps exactly to Statics#.mul. This 
+	file is indexed by Stadifi#.mul</p>
+
+<p>Last reviewed by <a href="http://uo.stratics.com/heptazane/contact.shtml">Alazane</a> 03/23/2002</p>
+
+
+
+           <center></center>
+           </td>
+          <td align="right" background="fileformats.shtml_files/uomenubackright.jpg" valign="top" width="150"> 
+            
+
+
+
+
+
+<!-- BANNER R --><!-- ID uo --><!-- BF 0 --><!-- IN   --><!-- NS   --><!-- FN   --><!-- PT   -->
+
+
+
+<table cellpadding="0" cellspacing="0" width="141">
+  <tbody><tr> 
+    <td valign="top"> 
+      <!-- LOGIN -->
+<form method="post" name="login_form" action="http://www.flashlink.com/index.php">
+  <table align="right" border="1" bordercolor="#000000" cellpadding="2" width="141">
+    <tbody><tr> 
+      <td class="menu" valign="top"><font face="MS Sans Serif, Arial, Helvetica" size="1"><b>Stratics 
+        Plus Login</b></font><br>
+        <table border="0">
+          <tbody><tr> 
+            <td class="menu">User Name:</td>
+          </tr>
+          <tr> 
+            <td align="center">
+  <input name="p" value="login" type="hidden">
+  <input name="s" value="99" type="hidden">
+  <input name="save" value="1" type="hidden">
+              <input name="username" class="searchText" maxlength="20" style="width: 125px;" type="text">
+            </td>
+          </tr>
+          <tr> 
+            <td class="menu">Password:</td>
+          </tr>
+          <tr> 
+            <td align="center">
+              <input name="password" class="searchText" maxlength="20" style="width: 125px;" type="password">
+            </td>
+          </tr>
+          <tr> 
+            <td class="menu" align="center" valign="middle">
+              <input name="submit" value="login" class="submitButton" type="submit">
+              <!-- &nbsp;&nbsp; save
+              <input type="checkbox" name="save" value=""> -->
+			  <input name="save" value="1" type="hidden">
+            </td>
+          </tr>
+          <tr> 
+            <td><img src="fileformats.shtml_files/clear.gif" alt="" border="0" height="2" width="50"></td>
+          </tr>
+          <tr>
+            <td class="menu" align="center"><a href="http://www.flashlink.com/index.php?p=sendpass&amp;s=99">Forgot 
+              your password?</a></td>
+          </tr>
+          <tr> 
+            <td><img src="fileformats.shtml_files/clear.gif" alt="" border="0" height="2" width="50"></td>
+          </tr>
+          <tr>
+            <td class="menu" align="center">Not a member? <a href="http://www.stratics.com/members/" target="_blank">Sign-up!</a></td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </tbody></table>
+</form>
+    </td>
+  </tr>
+  
+<tr><td align="center" valign="top"><br><a href="http://www.stratics.com/network/advertising.php"><img style="display: none;" src="fileformats.shtml_files/advertisement.gif" border="0" height="10" hspace="0" vspace="0" width="120"></a><br></td></tr><tr><td align="center" valign="top"><!-- begin ZEDO for channel: - Ultima Online Stratics , publisher: Stratics , Ad Dimension: Skyscraper - 120 x 600 -->
+<script language="JavaScript">
+var zflag_nid="462"; var zflag_cid="67/41"; var zflag_sid="0"; var zflag_width="120"; var zflag_height="600"; var zflag_sz="8"; 
+</script>
+<script language="JavaScript" src="fileformats.shtml_files/fo.js"></script>
+<!-- end ZEDO  for channel: - Ultima Online Stratics , publisher: Stratics , Ad Dimension: Skyscraper - 120 x 600 -->
+</td></tr><tr><td><img src="fileformats.shtml_files/clear_002.gif" border="0" height="6" width="1"></td></tr></tbody></table><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Stratics Central</font></b><br>
+            - <a href="http://www.stratics.com/network/advertising.php" title="Interested in Advertising on Stratics?" target="_new"> 
+      Advertising</a><br>
+      - <a href="http://chat.stratics.com/" title="Stratics IRC Chat" target="_top"> 
+      Stratics Chat</a><br>
+      - <a href="http://www.stratics.com/" title="Stratics Online News and Network Hub" target="_top"> 
+      Stratics Main</a><br>
+      - <a href="http://links.stratics.com/Ultima_Online/" title="Links to all kinds of Ultima Online related websites"> 
+      UO Fansite Links</a><br>
+      - <a href="http://www.cafepress.com/stratics" title="Get your own Stratics T-Shirts, Mousepads and Mugs" target="_top"> 
+      Stratics Merchandise</a><br>
+      - <a href="http://uo.stratics.com/content/site/uossteam.php" title="It's us!"> The UO Stratics 
+      Team</a> 
+            </font></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Official UO Info</font></b><br>
+            - <a href="http://www.uo.com/" title="Official Ultima Online Website" target="_blank"> 
+      Main UO Website</a><br>
+      - <a href="http://patch.uo.com/cgi-bin/patchmsg.pl?lang=ENU" title="Current UO Patch Message" target="_blank"> 
+      Patch Message</a><br>
+      - <a href="http://my.uo.com/cgi-bin/myuo.pl" title="Customizable MyUO Website" target="_blank"> 
+      Custom MyUO Website</a><br>
+      - <a href="http://uo.stratics.com/content/myuo/myuohelp.shtml" title="How to Login to MyUO" target="_top"> 
+      How to Login to MyUO</a><br>
+      - <a href="http://www.uogamecodes.com/store/index.asp" title="The Official Gametime Codes Website" target="_blank"> 
+      Buy UO Gametime codes</a><br>
+      - <a href="http://www.uo.com/ageofshadows" title="The Official UO: Age of Shadows Website" target="_blank"> 
+      UO:AoS Website</a><br>
+      - <a href="http://www.uolbr.com/" title="The Official UO:Lord Blackthorn's Revenge Website" target="_blank"> 
+      UO:LBR Website</a><br>
+      - <a href="http://www.uoshoppes.com/uostore/official.aspx" title="Get your own UO T-Shirts, Mousepads and Mugs" target="_blank"> 
+      UO Merchandise</a><br>
+      - <a href="http://uo.stratics.com/content/interviews/meettheteam_091303.shtml" title="Meet the Ultima Online Development Team" target="_top"> 
+      Meet The Dev Team</a><br>
+      - <a href="http://uo.stratics.com/content/interviews/halloffame.shtml" title="Development Team Hall of Fame" target="_top"> 
+      Dev Hall of Fame</a><br>
+            </font></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Essays &amp; Guides</font></b><br>
+            - <a href="http://uo.stratics.com/content/guides/aquarium.php" title="How to maintain an Aquarium"> 
+      Aquariums</a><br>
+      - <a href="http://uo.stratics.com/content/guides/assassin.php" title="The Assassin's Life and Training"> 
+      Assassin Training</a><br>
+      - <a href="http://uo.stratics.com/content/guides/dread.shtml" title="How to get to highest Fame with lowest Karma"> 
+      Becoming Dread</a><br>
+      - <a href="http://uo.stratics.com/content/guide/guide.shtml" title="The Downloadable Guide to UO"> 
+      Beginner's Guide</a><br>
+      - <a href="http://uo.stratics.com/content/guides/blacksmith/blacessay.shtml" title="Blacksmithy Advice, Repairing and Item Quality"> 
+      Blacksmithy Essay</a><br>
+      - <a href="http://uo.stratics.com/content/professions/archery/archery-essays.shtml#bow" title="Knowledge concerning Bowcraft/Fletching"> 
+      Bow/Fletch Essay</a><br>
+      - <a href="http://uo.stratics.com/content/guides/champions/champguide.shtml" title="Guide to the Evil-in-a-Can Champions"> 
+      Champion Spawns</a><br>
+      - <a href="http://uo.stratics.com/content/guides/creation.shtml" title="Advice on Creating Characters"> 
+      Character Creation</a><br>
+      - <a href="http://uo.stratics.com/content/arms-armor/colorplate.shtml" title="The different types of colored plate"> 
+      Colored Plate</a><br>
+      - <a href="http://uo.stratics.com/content/basics/crystal.shtml" title="How to use Communication Crystals"> 
+      Comm Crystals</a><br>
+      - <a href="http://uo.stratics.com/content/guides/cookessay.shtml" title="Alternate Recipe Tables and Advice for Chefs"> 
+      Cooking Essay</a><br>
+      - <a href="http://uo.stratics.com/content/guides/doomtamer.shtml" title="A tamers guide to the Doom Gauntlet"> 
+      Doom Gauntlet Tamers</a><br>
+      - <a href="http://uo.stratics.com/content/atlas/doom.php" title="A beginners guide to his Doom"> 
+      Dungeon Doom</a><br>
+      - <a href="http://uo.stratics.com/content/guides/emulatorfaq.shtml" title="Frequently asked questions about UO emulators"> 
+      Emulator FAQ</a><br>
+      - <a href="http://uo.stratics.com/content/basics/enhancing.shtml" title="Increasing item properties using colored ingots or colored leather"> 
+      Enhancing Items</a><br>
+      - <a href="http://uo.stratics.com/content/guides/escorting/escort.shtml" title="How to make Gold by Escorting NPCs"> 
+      Escorting NPC's</a><br>
+      - <a href="http://uo.stratics.com/content/basics/factions1.shtml" title="Minax, Council of Mages, True Britannians and The Shadowlords"> 
+      Factions</a><br>
+      - <a href="http://uo.stratics.com/content/guides/lag.shtml" title="How to Reduce Lag while playing UO"> 
+      Fighting the Lag Monster</a><br>
+      - <a href="http://uo.stratics.com/content/basics/crops.shtml" title="Background information on crops, herbs, flowers and trees"> 
+      Flora - Crops</a><br>
+      - <a href="http://uo.stratics.com/content/basics/flowers.shtml" title="Background information on crops, herbs, flowers and trees"> 
+      Flora - Flowers</a><br>
+      - <a href="http://uo.stratics.com/content/basics/herbs.shtml" title="Background information on crops, herbs, flowers and trees"> 
+      Flora - Herbs</a><br>
+      - <a href="http://uo.stratics.com/content/basics/trees.shtml" title="Background information on crops, herbs, flowers and trees"> 
+      Flora - Trees</a><br>
+      - <a href="http://uo.stratics.com/content/guides/guild/guildguide1.shtml" title="How to run a successful guild"> 
+      Guild Leadership</a><br>
+      - <a href="http://uo.stratics.com/content/basics/guilds.shtml" title="Instructions on how to use Guildstones"> 
+      Guildstones</a><br>
+      - <a href="http://uo.stratics.com/content/guides/elftohuman.php" title="A Guide to the Elf to Human Quest"> 
+      Heritage: Elf to Human</a><br>
+      - <a href="http://uo.stratics.com/content/guides/humantoelf.php" title="A Guide to the Human to Elf Quest"> 
+      Heritage: Human to Elf</a><br>
+      - <a href="http://uo.stratics.com/content/guides/linux.shtml" title="How to play UO on a Linux system"> 
+      Linux Installation</a><br>
+      - <a href="http://uo.stratics.com/content/guides/litter.shtml" title="How to turn Waste into Money"> 
+      Litter Picking</a><br>
+      - <a href="http://uo.stratics.com/content/guides/lordlady.shtml" title="How to get to highest Fame as a Warrior"> 
+      Lord and Lady</a><br>
+      - <a href="http://uo.stratics.com/content/guides/loot.shtml" title="What is good loot and what is not"> 
+      Loot</a><br>
+      - <a href="http://uo.stratics.com/content/guides/macro.shtml" title="Manually Creating Internal UO Macros"> 
+      MACROS.TXT</a><br>
+      - <a href="http://uo.stratics.com/content/guides/magicwands.shtml" title="A Guide to Magic Wands"> 
+      Magic Wands</a><br>
+      - <a href="http://uo.stratics.com/content/guides/medguide.shtml" title="How to use the Meditation skill"> 
+      Meditation</a><br>
+      - <a href="http://uo.stratics.com/content/basics/moongate/moongate.shtml" title="Moongate Descriptions, Directions and Coordinates"> 
+      Moongates</a><br>
+      - <a href="http://uo.stratics.com/content/guides/packhorse.shtml" title="Knowing how to handle a packhorse and the limitations of a packhorse."> 
+      Packhorses</a><br>
+      - <a href="http://uo.stratics.com/content/guides/parryessay.shtml" title="Advice for shieldfighters"> 
+      Parrying Essay</a><br>
+      - <a href="http://uo.stratics.com/content/basics/plantgrowing.shtml" title="Advice for gardeners"> 
+      Plant Growing</a><br>
+      - <a href="http://uo.stratics.com/alchemy/assassin/essays/poisoning_essay.shtml" title="Advice for using and dealing with Poison"> 
+      Poisoning Essay</a><br>
+      - <a href="http://uo.stratics.com/content/guides/posess.shtml" title="Tips on Using and Keeping Possessions"> 
+      Possessions</a><br>
+      - <a href="http://uo.stratics.com/content/guides/nopvp.shtml" title="Avoiding and Surviving PvP Combat"> 
+      PvP Survival</a><br>
+      - <a href="http://uo.stratics.com/content/guides/questing.php" title="A Basic Guide to the Quest System"> 
+      Questing 101</a><br>
+      - <a href="http://uo.stratics.com/content/guides/resistance.shtml" title="Guide to Damage and Resistance types"> 
+      Resistance</a><br>
+      - <a href="http://uo.stratics.com/content/rp101/rping.shtml" title="An Introduction to Roleplaying"> 
+      Roleplaying Intro</a><br>
+      - <a href="http://uo.stratics.com/content/guides/roof.php" title="How to build a roof"> 
+      Roofing 101</a><br>
+      - <a href="http://uo.stratics.com/content/basics/ships/ships.shtml" title="Shipborne Travel and Adventure"> 
+      Ships Guide</a><br>
+      - <a href="http://uo.stratics.com/content/guides/siegelum.shtml" title="Lum's Guide to Siege Perilous"> 
+      Siege Perilous</a><br>
+      - <a href="http://uo.stratics.com/content/guides/spiritspeak.shtml" title="Becoming Grandmaster Medium"> 
+      Spirit Speak</a><br>
+      - <a href="http://uo.stratics.com/content/basics/statcap.shtml" title="A Note on the Stat Cap"> 
+      Stat Caps</a><br>
+      - <a href="http://uo.stratics.com/content/guides/taming/areas.shtml" title="Various Guides on Taming"> 
+      Taming Guides</a><br>
+      - <a href="http://uo.stratics.com/shard/taverns.shtml" title="Tavern Reviews"> Tavern Reviews</a><br>
+      - <a href="http://uo.stratics.com/content/guides/thiefproof.shtml" title="Protecting yourself against Thievery"> 
+      Thief Protection</a><br>
+      - <a href="http://uo.stratics.com/content/guides/ilshenar/faq_thirddawn.shtml" title="Everything you always wanted to know about UO Third Dawn, but were afraid to ask">Third 
+      Dawn FAQ</a><br>
+      - <a href="http://uo.stratics.com/content/guides/tinkertraps/trapessay.shtml" title="Creating and Using Traps Effectively"> 
+      Tinker Trap Essay</a><br>
+      - <a href="http://uo.stratics.com/content/basics/facets.shtml" title="The differences between the Trammel and Felucca facets"> 
+      Trammel vs. Felucca</a><br>
+      - <a href="http://uo.stratics.com/content/basics/treasure.php" title="What to do with a treasure map"> 
+      Treasure Maps</a><br>
+            </font></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Miscellaneous</font></b><br>
+            - <a href="http://uo.stratics.com/content/contests/autobiographies/autobiographies.shtml" target="_top" title="Player Written Character Autobiographies"> 
+      Autobiographies</a><br>
+	  - <a href="http://uo.stratics.com/content/contests/backpackart/backpackart.shtml" target="_top" title="Player Created Backpack Art"> 
+      Backpack Art</a><br>
+      - <a href="http://uo.stratics.com/content/misc/barkeeps.shtml" target="_top" title="The Basics of Barkeeps"> 
+      Barkeeps</a><br>
+      - <a href="http://uo.stratics.com/content/basics/bulk_orders.shtml" title="Special Delivery Orders for Crafters - with some great rewards"> 
+      Bulk Order Deeds</a><br>
+      - <a href="http://uo.stratics.com/content/misc/weight.shtml" title="The Weight and Carrying Capacity of Characters"> 
+      Character Weight</a><br>
+      - <a href="http://uo.stratics.com/content/misc/command.shtml" title="Pet, Hireling and Ship Commands"> 
+      Commands</a><br>
+      - <a href="http://uo.stratics.com/content/misc/commoditydeeds.shtml" title="Easily Transfer Large Amounts of Resources"> 
+      Commodity Deeds</a><br>
+      - <a href="http://uo.stratics.com/content/misc/contain.shtml" title="The Capacities of Containers"> 
+      Containers</a><br>
+      - <a href="http://uo.stratics.com/content/basics/datetime.shtml" title="What Date and Time is it in Britannia?"> 
+      Dates and Times</a><br>
+      - <a href="http://uo.stratics.com/content/misc/decay.shtml" title="The several stages of Decay for houses, items and corpses"> 
+      Decay</a><br>
+      - <a href="http://uo.stratics.com/content/contests/fanfiction/fanfiction.shtml" title="Fiction Written By and For the UO Fans">Fan 
+      Fiction</a><br>
+      - <a href="http://uo.stratics.com/content/basics/firehorn.php" title="Fire Horn Details">Fire Horns</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.htm" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/basics/crystal.shtml#2b" title="Recharging Communication Crystals"> 
+      Gems &amp; Crystals</a><br>
+      - <a href="http://uo.stratics.com/content/misc/hairdye.shtml" title="Coloring your Hair">Hair 
+      Dye</a><br>
+      - <a href="http://uo.stratics.com/content/basics/instruments.shtml" title="Musical instruments">Instruments</a><br>
+      - <a href="http://uo.stratics.com/content/interviews/interviews.shtml" title="Interviews">Interviews</a><br>
+      &nbsp; &nbsp; - <a href="http://uo.stratics.com/content/interviews/mcfarlane.shtml" title="Meeting Todd McFarlane"> 
+      Todd McFarlane</a><br>
+      &nbsp; &nbsp; - <a href="http://uo.stratics.com/content/interviews/andrews.shtml" title="Meeting Austen Andrews"> 
+      Austen Andrews</a><br>
+      - <a href="http://uo.stratics.com/content/misc/light/light.shtml" title="Coloring your Hair"> 
+      Light Sources</a><br>
+      - <a href="http://uo.stratics.com/content/misc/lingo.php" title="UO Phrases and Abbreviations explained"> 
+      Lingo</a><br>
+      - <a href="http://uo.stratics.com/content/basics/luck.shtml" title="How to increase your chance of getting good loot"> 
+      Luck</a><br>
+      - <a href="http://uo.stratics.com/content/misc/money.shtml" title="Everything you always wanted to know about money but were afraid to ask"> 
+      Money</a><br>
+      - <a href="http://uo.stratics.com/content/misc/moonstones.shtml" title="Mysterious Moonstones"> 
+      Moonstones</a><br>
+      - <a href="http://uo.stratics.com/content/misc/odd.shtml" title="Easter Eggs and Strange Items"> 
+      Oddities</a><br>
+      - <a href="http://uo.stratics.com/content/misc/party.shtml"> Party System</a><br>
+      - <a href="http://uo.stratics.com/alchemy/potions/potioncharts.shtml" title="Alchemical Potions and their Effects"> 
+      Potion List</a><br>
+      - <a href="http://uo.stratics.com/content/misc/powergenerator.shtml" title="Electric Spawners"> 
+      Power Generator</a><br>
+      - <a href="http://uo.stratics.com/content/misc/proxy.shtml" title="How to play UO on a second computer via a proxy"> 
+      Proxy Server</a><br>
+      - <a href="http://uo.stratics.com/content/misc/puzzle.shtml" title="How to open the Puzzle Chests in dungeon Khaldun"> 
+      Puzzle Chests</a><br>
+      - <a href="http://uo.stratics.com/content/skills/cooking.php" title="Food Formulae for Chefs"> 
+      Recipes</a><br>
+      - <a href="http://uo.stratics.com/content/misc/repairing.shtml" title="Repairing Weapons and Armor"> 
+      Repairing</a><br>
+      - <a href="http://uo.stratics.com/content/misc/servip.shtml" title="DNS and IP information"> Server 
+      Addresses</a><br>
+      - <a href="http://uo.stratics.com/content/misc/ships.shtml" title="Information on Sailing Vessels"> 
+      Ships</a><br>
+      - <a href="http://uo.stratics.com/content/basics/siege.shtml" title="Guide to the Siege Perilous shard"> 
+      Siege Perilous</a><br>
+      - <a href="http://uo.stratics.com/content/misc/tarot.shtml" title="The Ultima Online Tarot Cards"> 
+      Tarot Cards</a><br>
+      - <a href="http://uo.stratics.com/content/misc/taxidermy.shtml" title="Stuff that animal and hang it on the wall"> 
+      Taxidermy Kits</a><br>
+      - <a href="http://uo.stratics.com/content/basics/datetime.shtml" title="What Date and Time is it in Britannia?"> 
+      Dates and Times</a><br>
+      - <a href="http://uo.stratics.com/content/misc/unicode.shtml" title="Unicode character set"> Unicode</a><br>
+      - <a href="http://uo.stratics.com/content/misc/cfg.shtml" title="Optional uo.cfg lines"> UO.CFG</a><br>
+      - <a href="http://uo.stratics.com/content/misc/vendor.shtml" target="_top" title="The Basics of Vendors"> 
+      Vendors</a><br>
+      - <a href="http://uo.stratics.com/content/misc/vetrewards.shtml" title="The Veteran Rewards System explained"> 
+      Veteran Rewards</a><br>
+      - <a href="http://uo.stratics.com/content/misc/young.shtml" title="Players with [Young] status"> 
+      Young Players </a> 
+            </font></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Professions</font></b><br>
+            - <a href="http://uo.stratics.com/content/professions/adventurer.shtml" title="How to be a Successful Adventurer"> 
+      The Adventurer</a><br>
+      - <a href="http://uo.stratics.com/alchemy/alchemist/index.shtml" title="How to be a Successful Alchemist"> 
+      The Alchemist</a><br>
+      - <a href="http://uo.stratics.com/content/professions/archery/archery-overview.shtml" title="How to be a Successful Archer"> 
+      The Archer</a><br>
+      - <a href="http://uo.stratics.com/content/professions/armsman.shtml" title="How to be a Successful Mace-fighter"> 
+      The Armsman</a><br>
+      - <a href="http://uo.stratics.com/alchemy/assassin/index.shtml" title="How to be a Successful Assassin"> 
+      The Assassin</a><br>
+      - <a href="http://uo.stratics.com/content/professions/bard.shtml" title="How to become a Talented Bard"> 
+      The Bard</a><br>
+      - <a href="http://uo.stratics.com/content/professions/beggar.shtml" title="How to be a Successful Beggar"> 
+      The Beggar</a><br>
+      - <a href="http://uo.stratics.com/content/professions/archery/archery-bowcraft.shtml" title="How to be a Successful Bowyer"> 
+      The Bowyer</a><br>
+      - <a href="http://uo.stratics.com/content/professions/carpenter.shtml" title="How to become a Skilled Carpenter"> 
+      The Carpenter</a><br>
+      - <a href="http://uo.stratics.com/content/professions/cartographer.shtml" title="How to become a Skilled Cartographer"> 
+      The Cartographer</a><br>
+      - <a href="http://uo.stratics.com/content/professions/chef.shtml" title="How to be a Successful Chef"> 
+      The Chef</a><br>
+      - <a href="http://uo.stratics.com/content/professions/detective.shtml" title="How to be a Skilled Detective"> 
+      The Detective</a><br>
+      - <a href="http://uo.stratics.com/content/professions/fencer.shtml" title="How to be a Successful Fencer"> 
+      The Fencer</a><br>
+      - <a href="http://uo.stratics.com/content/professions/fisherman.shtml" title="How to be a Successful Merchant Fisherman"> 
+      The Fisherman</a><br>
+      - <a href="http://uo.stratics.com/content/professions/healing/healer.shtml" title="How to be a Successful Healer"> 
+      The Healer</a><br>
+      - <a href="http://uo.stratics.com/content/professions/looter.shtml" title="How to be a Successful Looter"> 
+      The Looter</a><br>
+      - <a href="http://uo.stratics.com/content/professions/lumberjk.shtml" title="How to be a Successful Lumberjack"> 
+      The Lumberjack</a><br>
+      - <a href="http://uo.stratics.com/content/professions/mage/mage.shtml" title="How to be a Successful Spellcaster"> 
+      The Mage</a><br>
+      - <a href="http://uo.stratics.com/content/professions/merchant/merchant0.shtml" target="_top" title="How to be a Successful Vendor-Merchant"> 
+      The Merchant</a><br>
+      - <a href="http://uo.stratics.com/content/professions/miner.shtml" title="How to be a Successful Miner"> 
+      The Miner</a><br>
+      - <a href="http://uo.stratics.com/content/aos/necromancer.shtml" title="The Necromancer Class in Age of Shadows"> 
+      The Necromancer</a><br>
+      - <a href="http://uo.stratics.com/content/aos/paladin.shtml" title="The Paladin Class in Age of Shadows"> 
+      The Paladin</a><br>
+      - <a href="http://uo.stratics.com/content/professions/ranger.shtml" title="How to be a Successful Ranger"> 
+      The Ranger</a><br>
+      - <a href="http://uo.stratics.com/content/professions/runeseller.shtml" title="How to be a Successful Rune Seller"> 
+      The Rune Seller</a><br>
+      - <a href="http://uo.stratics.com/content/professions/scribe.shtml" title="How to be a Successful Scribe"> 
+      The Scribe</a><br>
+      - <a href="http://uo.stratics.com/content/professions/smith.shtml" title="How to be a Successful Smith"> 
+      The Smith</a><br>
+      - <a href="http://uo.stratics.com/content/professions/tailor/tailor.shtml" title="How to be a Successful Tailor"> 
+      The Tailor</a><br>
+      - <a href="http://uo.stratics.com/content/professions/taming/taming-overview.shtml" title="How to be a Successful Tamer"> 
+      The Tamer</a><br>
+      - <a href="http://uo.stratics.com/content/professions/crestabernus.shtml" title="How to run a Successful Tavern"> 
+      The Tavernkeeper</a><br>
+      - <a href="http://uo.stratics.com/content/professions/rogue.shtml" title="How to be a Successful Thief"> 
+      The Thief</a><br>
+      - <a href="http://uo.stratics.com/content/professions/tinker/tinker.shtml" title="How to be a Successful Tinker"> 
+      The Tinker</a><br>
+      - <a href="http://uo.stratics.com/content/professions/treashunt.shtml" title="How to be a Successful Treasure Hunter"> 
+      The Treasure Hunter</a><br>
+      - <a href="http://uo.stratics.com/content/professions/warrior/wow.shtml" title="A Short Novel on the Britannian Warrior"> 
+      The Warrior</a><br>
+      - <a href="http://uo.stratics.com/content/professions/witchhunter.shtml" title="How to be a Successful Witch Hunter"> 
+      The Witch Hunter</a> 
+            </font></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <p><font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+                <b><font face="Arial, Helvetica" size="2">Reputation</font></b><br>
+                - <a href="http://uo.stratics.com/content/reputation/main.shtml"> Introduction</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/bards.shtml"> Bards</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/bounties.shtml"> Bounties</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/coguards.shtml"> Chaos/Order Guards</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/famekarma.shtml" title="Fame and Karma Scale / Reputation Titles"> 
+        Fame &amp; Karma Titles</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/famekarmagain.php" title="Fame and Karma Gain"> 
+        Fame &amp; Karma Gain</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/flags.shtml" title="Explanation of Criminal, Agressor, Stealing, Perma-grey, Murderer and Innocent flags"> 
+        Flags (blue, grey and red)</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/evilgood.shtml" title="Guide to the Good vs. Evil system"> 
+        Good vs. Evil system</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/town.shtml"> Guards &amp; Town</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/guilds.shtml"> Guilds</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/healers.shtml"> Healers and Shrines</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/karmalock.shtml" title="Karma Locks"> Karma 
+        lock</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/karmaloss.shtml" title="Karma Loss"> Karma 
+        loss</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/looting.shtml"> Looting</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/murder.shtml" title="How the murder system works"> 
+        Murder System</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/xfer.shtml"> Notoriety Transfer</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/npcs.shtml"> NPCs</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/pets.shtml"> Pets &amp; Summoned Creatures</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/hero_titles.shtml"> Reputation Hero Titles</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/reputation.shtml"> Reputation (Karma/Fame)</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/scenarios.shtml"> Scenarios</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/spells.shtml"> Spells</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/targeting.shtml"> Targeting</a><br>
+        - <a href="http://uo.stratics.com/content/reputation/thievery.shtml"> Thievery</a><br>
+                </font></p>
+      <p><b><font face="Arial, Helvetica" size="2">Reputation Archives</font></b> 
+        <br>
+        <font face="MS Sans Serif, Arial, Helvetica" size="1">- <a href="http://uo.stratics.com/content/reputation/trespassing.shtml"> 
+        Trespassing</a></font><br>
+      </p></td>
+  </tr>
+</tbody></table>
+</p><p> 
+<table border="1" bordercolor="#000000" cellpadding="2" width="141">
+  <tbody><tr> 
+    <td class="menu"> <font face="MS Sans Serif, Arial, Helvetica" size="1"> 
+            <b><font face="Arial, Helvetica" size="2">Tools and Downloads</font></b><br>
+            - <a href="http://uo.stratics.com/content/arms-armor/armorcalc.php" title="Calculating and Comparing the AR of different armor combinations"> 
+      Armor Calculator</a><br>
+      - <a href="http://uo.stratics.com/content/skills/bardingdifficulty.php" title="How tough is that creature for a bard anyway ?"> 
+      Barding Calculator</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/basics/bod_smithing_calc.php" title="Calculate the reward(s) for a smithing bulk order deed"> 
+      BOD Calculator Smithing</a><br>
+      - <a href="http://uo.stratics.com/content/basics/bod_tailoring_calc.php" title="Calculate the reward(s) for a tailoring bulk order deed"> 
+      BOD Calculator Tailoring</a><br>
+      - <a href="http://uo.stratics.com/php-bin/users/characterlist.php" title="Manage your in-game character's data"> 
+      Character Database</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/misc/color.shtml" title="Converting Colors in UO to their Numeric Values"> 
+      Color Charts</a><br>
+      - <a href="http://uo.stratics.com/content/tools/enhancearmor.php" title="Break and Success chances when enhancing armor"> 
+      Enhancing Armor</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/heptazane/index.shtml" title="UO Related Tools" target="_top">
+      Heptazane's Stump</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/heptazane/insideuo/index.shtml" title="Look inside the art, map, fonts, sounce etc. of UO"> 
+      InsideUO</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/heptazane/uoscr/index.shtml" title="UO Screensaver"> 
+      UOScr</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/heptazane/uohueeditor/index.shtml" title="See what hue schemes there are in UO"> 
+      UO Hue Editor</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/heptazane/characterviewer/index.shtml" title="View all character models that are used in UO"> 
+      Character Viewer</a><br>
+      - <a href="http://uo.stratics.com/uojc/index.shtml" title="Split your large journal file into several smaller ones, and more"> 
+      Journal Converter</a><br>
+      - <a href="http://uo.stratics.com/content/music/techarinmusic.shtml" target="_top" title="Techarin's Music Hall, MP3 Music for UO"> 
+      MP3 Music</a><br>
+      - <a href="http://uo.stratics.com/content/basics/plantcrossing.php" target="_top" title="Find out which 'parents' you need to grow plants"> 
+      Plant Crossing</a><br>
+      - <a href="http://uo.stratics.com/alchemy/alchemist/potioncalc.shtml" target="_top" title="Alculator, or Potion Calculator by Sie Ming"> 
+      Potion Calculator</a><br>
+      - <a href="http://uo.stratics.com/content/arms-armor/damage.php" title="Calculate damage dealt and received in Person vs. Monster combat"> 
+      PvM Damage Calc.</a> <img style="display: none;" src="fileformats.shtml_files/plus_icon.gif" height="8" width="8"><br>
+      - <a href="http://uo.stratics.com/content/tools/smithcalc.shtml" title="Calculator for Blacksmiths"> 
+      SmithCalc</a><br>
+      - <a href="http://uo.stratics.com/hunters/spawn/uosmu.shtml" title="Interactive Map of Hunting Grounds and Spawns"> 
+      Spawn Map Utility</a><br>
+      - <a href="http://uo.stratics.com/content/tools/statscalc.shtml" title="Calculate your derived attributes Health, Stamina and Mana"> 
+      Stats Calculator</a><br>
+      - <a href="http://links.stratics.com/Ultima_Online/Tools_and_Utilities/" title="Lots of links to UO related Tools"> 
+      Stratics Resources</a><br>
+      - <a href="http://uo.stratics.com/xena/UOATranslator/UOATranslator.shtml" title="Deltheena's Ultima Online Translator utility"> 
+      UOATranslator</a><br>
+      - <a href="http://uo.stratics.com/uoam/index.shtml" target="_top" title="Belxan's Ultima Online Auto-Map utility"> 
+      UO Auto-Map</a><br>
+      - <a href="http://uo.stratics.com/uovendor/index.shtml" title="UO Vendor Tool by Paul Howarth"> 
+      UO Vendor</a><br>
+      - <a href="http://uo.stratics.com/uowedding" title="Wedding Speech tool"> UO Wedding</a><br>
+      - <a href="http://uo.stratics.com/content/wallpapers/wallpapers.shtml" title="UO Wallpapers by Several Players"> 
+      Wallpapers</a><br>
+      - <a href="http://uo.stratics.com/xena/index.shtml" title="UO Magic and Curse Tools" target="_top"> 
+      Xena's UO Utilities</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/xena/uocurse.shtml" title="Curse in Britannian style and set up multiple speech macros"> 
+      UO Curse Tool</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/xena/uomagic.shtml#download" title="Text editor for your macros.txt files"> 
+      UO Macro Edit</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/xena/uomagic.shtml" title="Cast spells and manage reagents at the click of the mouse"> 
+      UO Magic Tool</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/xena/uotime.shtml" title="Compare times in multiple time zones"> 
+      UO Time</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/xena/uohome.shtml" title="Home Owner Commands. Originally by Douglas Portz"> 
+      UO Home Owner</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/xena/uorudder.shtml" title="Ship Navigation. Originally by Douglas Portz"> 
+      UO Rudder</a><br>
+      &nbsp; - <a href="http://uo.stratics.com/xena/uotamer.shtml" title="Taming Commands. Originally by Douglas Portz"> 
+      UO Tamer</a><br>
+      <b>Official UO Client</b><br>
+      &nbsp; - <a href="http://www.fileplanet.com/150525/150000/fileinfo/Ultima-Online-Gold-15-day-Trial" title="Try out UO 15 days for free" target="_blank"> 
+      UO Free Trial Version</a><br>      
+            </font></td>
+  </tr>
+</tbody></table>
+          </p></td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr> 
+    <td background="fileformats.shtml_files/uomenuback.jpg" height="60" width="150">&nbsp;</td>
+    <td background="fileformats.shtml_files/uomenuback.jpg" height="60"><br>
+      <font size="1"> 
+      <center>
+        This site best viewed in Internet Explorer.<br>
+        <a href="http://uo.stratics.com/shared/copyright_statement.shtml">©2006</a>, <a href="http://www.stratics.com/">Stratics</a>. All rights reserved. 
+        <br>
+        S1 Maintained by: <a href="http://images.stratics.com/uoss/content/site/uossteam.php">UO Stratics Staff</a>
+      </center>
+      </font></td>
+    <td background="fileformats.shtml_files/uomenuback.jpg" height="60" width="150">&nbsp;</td>
+  </tr>
+</tbody></table></body></html>

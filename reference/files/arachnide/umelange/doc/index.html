@@ -1,0 +1,400 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from arachnide.sourceforge.net/umelange/doc/index.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:18 GMT -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Axel Kittenberger">
+   <meta name="GENERATOR" content="Mozilla/4.73 [en] (Win95; I) [Netscape]">
+   <title>Ultimate Melange - Dokumenatation</title>
+</head>
+<body>
+
+<center><b><font face="Arial,Helvetica"><font size=+2><a href="../index.html">Ultimate
+Melange</a> Documentation</font></font></b></center>
+
+<p><b><font face="Arial,Helvetica"><font size=+1>TABLE OF CONTENTS</font></font></b>
+<p><u><font face="Arial,Helvetica"><a href="#1">Chapter 1 - The world of
+Ultima</a></font></u>
+<blockquote><u><font face="Arial,Helvetica"><a href="#1.1">1.1 About cells,
+blocks and the map</a></font></u>
+<br><u><font face="Arial,Helvetica"><a href="#1.2">1.2&nbsp; Static and
+Raw Tiles</a></font></u></blockquote>
+<u><font face="Arial,Helvetica"><a href="#2">Chapter 2 - Structures and
+Algorithms of UM</a></font></u>
+<blockquote><u><font face="Arial,Helvetica"><a href="#2.1">2.1 Sprites</a></font></u>
+<br><u><font face="Arial,Helvetica"><a href="#2.2">2.2 The Stretch-O-Tilt
+Algorithm</a></font></u></blockquote>
+
+<p><br>
+<hr WIDTH="100%">
+<ul>
+<li>
+<b><u><font face="Arial,Helvetica">Foreword</font></u></b></li>
+</ul>
+
+<ul><font face="Arial,Helvetica">Not all of the documentation here is my
+work, rather I try to collect all corresponding data, that may be interesting
+for Ultimate Melange.</font>
+<br><font face="Arial,Helvetica">All file formats are either from Alazene's
+UOInside or from the UOX source.</font>
+<br>&nbsp;
+<ul><i><font face="Arial,Helvetica"><font size=-1>"... and what is the
+use of a book," thought Alice, "without pictures or conversations?"</font></font></i>
+<ul>
+<ul><i><font face="Arial,Helvetica"><font size=-1>&nbsp;- Alice's Adventures
+in Wonderland</font></font></i></ul>
+</ul>
+</ul>
+
+<p><br><font face="Arial,Helvetica">However most pictures are drawn by
+myself. (All done with paintbrush, THE drawing program..(except rotating
+and the gif export were done with paint shop)</font></ul>
+
+<p><br>
+<hr WIDTH="100%">
+<p><a NAME="1"></a><b><u><font face="Arial,Helvetica"><font size=+1>Chapter
+1 - The world of Ultima</font></font></u></b>
+<ul>&nbsp;
+<br><a NAME="1.1"></a><b><u><font face="Arial,Helvetica">1.1 About cells,
+blocks and the map</font></u></b>
+<br>&nbsp;
+<ul><i><font face="Arial,Helvetica"><font size=-1>"..and yet it still moves'"</font></font></i>
+<ul>
+<ul><i><font face="Arial,Helvetica"><font size=-1>- grumbled by Galileo</font></font></i></ul>
+</ul>
+</ul>
+</ul>
+
+<center><img SRC="world.png" height=400 width=400></center>
+
+<ul><font face="Arial,Helvetica">The world is build by a single continuous
+map, divided into cells. The world is 6144 cells width and 4096 cells height,
+resulting in a total of 25.165.824 cells. (Against Galileo's theories it
+is proven the world of Ultima is flat, doesn't rotate and has no year cycle
+at all ;o)</font>
+<p><font face="Arial,Helvetica">As you can see dungeon and the second age
+are included on the right edge of it, if you "enter" a dungeon you are
+simply teleported to this spot. For the client there are no levels or different
+worlds, just this one large map. (However on OSI it's duplicated as the
+worlds of Delucia and Felluca).</font>
+<p><font face="Arial,Helvetica">The cells are grouped into blocks of 8x8
+size, out of some reason. Maybe this is done to burst up file reading,
+so the server and the client can load all interesting parts of a map at
+once, reducing the necessary. file seeks.</font>
+<p><font face="Arial,Helvetica">The blocks are loaded from up to down,
+then left to right. However the cells inside the blocks are loaded from
+left to right then from up to down.</font>
+<p><font face="Arial,Helvetica">Each block is referenced by a ID that can
+simply be calculated with: ID = X*512 + Y</font>
+<p><font face="Arial,Helvetica">Cell are located into the .mul file visualized
+by this picture:</font>
+<center>
+<p><font face="Arial,Helvetica">.</font><img SRC="gitter.png" height=480 width=567></center>
+<font face="Arial,Helvetica">Getting the block of a cell is also very easy:</font>
+<br>&nbsp;
+<ul><tt>blockX = cellX / 8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; and</tt>
+<br><tt>blockY = cellY / 8</tt></ul>
+
+<p><br><font face="Arial,Helvetica">Calculating the cell ID directly from
+it's X and Y values is somewhat complicated, and not directly necessary,
+since the block offset in the resource file is known and the relative offset
+of the cell inside it's block.</font>
+<p><font face="Arial,Helvetica">However here is the formula:</font>
+<br>&nbsp;
+<ul><tt>ID = (trunc(X / 8) * 512 + trunc(Y / 8)) * 64 + (Y % 8) * 8 + (x
+% 8)</tt></ul>
+</ul>
+
+<hr WIDTH="100%">
+<ul>&nbsp;
+<br><a NAME="1.2"></a><b><u><font face="Arial,Helvetica">1.2&nbsp; Static
+and Raw Tiles</font></u></b>
+<br>&nbsp;
+<ul><i><font face="Arial,Helvetica"><font size=-1>"Now hear the fourfold
+roots of everything:</font></font></i>
+<br><i><font face="Arial,Helvetica"><font size=-1>Enlivening Hera, Hades,
+shining Zeus</font></font></i>
+<br><i><font face="Arial,Helvetica"><font size=-1>And Nestis, moistening
+mortal springs with tears."</font></font></i>
+<ul>
+<ul><i><font face="Arial,Helvetica"><font size=-1>- Empedocles, Greek philosopher</font></font></i></ul>
+</ul>
+</ul>
+
+<p><br><font face="Arial,Helvetica">The world is build up by just two kinds
+of tiles: raw and static:</font>
+<br>&nbsp;
+<ul>
+<li>
+<font face="Arial,Helvetica">Raw tiles make up the base terrain, without
+houses, trees, swallow water etc.</font></li>
+
+<br><font face="Arial,Helvetica">They are stretched and tilted to give
+the world a 3D feeling. In fact this makes the client somewhat a 2.5d game.</font></ul>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">Static tiles build up everything else like
+houses, different stages and so on.</font></li>
+
+<br><font face="Arial,Helvetica">Sometime they are also referred as "run
+tiles" (out of Alazane's file description). However in UM source code the
+name should be replaced by static tiles, to minimize confusion.</font>
+<br><font face="Arial,Helvetica">These are not stretched or tilted.</font>
+<br><font face="Arial,Helvetica">However in contrast to raw tiles there
+may be many tiles inside a single map cell. (At different height, or even
+at the same)</font>
+<br><font face="Arial,Helvetica">In UM several static tiles in a single
+cell are called static particles</font></ul>
+
+<ul>&nbsp;</ul>
+<u><font face="Arial,Helvetica">The different tile kinds visualized:</font></u>
+<br>&nbsp;
+<table BORDER=0 CELLPADDING=3 WIDTH="100%" >
+<tr>
+<td WIDTH="1%"><img SRC="raw.png" BORDER=0 height=242 width=321></td>
+
+<td><font face="Arial,Helvetica">Britain center with raw tiles only:</font></td>
+</tr>
+
+<tr>
+<td><img SRC="static.png" height=242 width=321 align=TEXTTOP></td>
+
+<td><font face="Arial,Helvetica">&nbsp;And with static tiles only.</font></td>
+</tr>
+
+<tr>
+<td><img SRC="raw_and_static.png" BORDER=0 height=242 width=321></td>
+
+<td><font face="Arial,Helvetica">&nbsp;Together yield the screen, you are
+used to look at:</font></td>
+</tr>
+</table>
+</ul>
+
+<hr WIDTH="100%">
+<p><a NAME="2"></a><b><u><font face="Arial,Helvetica"><font size=+1>Chapter
+2 - Structures and Algorithms of UM</font></font></u></b>
+<blockquote><a NAME="2.1"></a><b><u><font face="Arial,Helvetica">2.1 Sprites</font></u></b>
+<blockquote>
+<blockquote><i><font size=-1>I wish you wouldn't keep appearing and vanishing
+so suddenly; you make one quite giddy!</font></i>
+<p><i><font size=-1>All right,” said the Cat; and this time it vanished
+quite slowly, beginning with the end of the tail, and ending with the grin,
+which remained some time after the rest of it had gone.</font></i>
+<p><i><font size=-1>Well! I've often seen a cat without a grin,” thought
+Alice; “but a grin without a cat! It's the most curious thing I ever saw
+in all my life!”</font></i>
+<blockquote>
+<blockquote><i><font face="Arial,Helvetica"><font size=-1>&nbsp;- Alice's
+Adventures in Wonderland</font></font></i></blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<font face="Arial,Helvetica">It's no secret that sprites used to draw a
+graphic on a screen,&nbsp; keeping the background intact.</font>
+<p><font face="Arial,Helvetica">Most times this is done by an AND put of
+a mask, followed by a OR put of the graphic. So the new picture is first
+stamped out of the background, and then filled in. However UM does <b>not</b>
+use this technique.</font>
+<p><font face="Arial,Helvetica">Instead pixels are drawn on screen specified
+by a "run map". Let's try to explain graphical:</font>
+<p><font face="Arial,Helvetica">For example a sprite that looks a lot like
+the avatar:</font>
+<br>&nbsp;
+<blockquote><img SRC="avatar_sprite.png" height=379 width=213 align=TEXTTOP></blockquote>
+<font face="Arial,Helvetica">The picture is divided into foreground (the
+Avatar) and background (the white spaces).</font>
+<p><font face="Arial,Helvetica">To separate foreground and background look
+at this picture:</font>
+<br>&nbsp;
+<blockquote><img SRC="avatar_run.png" height=381 width=222 align=TEXTTOP></blockquote>
+<font face="Arial,Helvetica">The picture constantly switches foreground
+and background. Now this information is stored into an array.</font>
+<br><font face="Arial,Helvetica">The first element holds the information
+how background pixels are in the beginning. The second element then tells
+how much foreground pixels are to be drawn, the third number tells again
+about how much background to jump over and so on.</font>
+<p><font face="Arial,Helvetica">What about the line feeds?</font>
+<br><font face="Arial,Helvetica">In java images are stored in one dimensional
+arrays. Yes, only <b>one</b> <b>dimension</b> not two. This has performance
+reasons. For every image you have to know the pixelscan width, that means
+how much pixels are between the lines that are stored into an array. The
+pixelscan hasn't to be exactly the width picture, it can be bigger if convenient
+(This fact is used in the graphical ring buffer algorithm.) So if the sprite
+makes a linefeed it simply has to move on by the pixel scan, in background
+level of course.</font>
+<p><font face="Arial,Helvetica">The linefeed from end to the line to start
+of next line is:</font>
+<blockquote><tt>linefeed = pixelscan - sprite.width;</tt></blockquote>
+<font face="Arial,Helvetica">In this example the first bytes of the run
+array would look like this ( lf = linefeed ):</font>
+<blockquote>&nbsp;
+<br><tt><font color="#006600">7</font>, <font color="#CC0000">6</font>,</tt>
+<br><tt><font color="#006600">14 + lf</font>, <font color="#990000">6</font>,</tt>
+<br><tt><font color="#006600">14 + lf</font>, <font color="#990000">6</font>,</tt>
+<br><tt><font color="#006600">14 + lf</font>, <font color="#990000">6</font>,</tt>
+<br><tt><font color="#006600">14 + lf</font>, <font color="#990000">6</font>,</tt>
+<br><tt><font color="#006600">14 + lf</font>, <font color="#990000">6</font>,</tt>
+<br><tt><font color="#006600">14 + lf</font>, <font color="#990000">6</font>,</tt>
+<br><tt><font color="#006600">12 + lf</font><font color="#000000">, </font><font color="#990000">10</font>,</tt>
+<br><tt><font color="#006600">7 + lf</font><font color="#000000">, </font><font color="#990000">16</font><font color="#000000">,</font></tt>
+<br><tt><font color="#006600">3 + lf</font><font color="#000000">, </font><font color="#990000">18</font><font color="#000000">,</font></tt>
+<br><tt><font color="#006600">1 + lf</font><font color="#000000">, </font><font color="#990000">20</font><font color="#000000">,</font></tt>
+<br><tt><font color="#006600">lf</font><font color="#000000">, </font><font color="#990000">20</font><font color="#000000">,</font></tt>
+<br><tt><font color="#006600">lf</font><font color="#000000">, </font><font color="#990000">20</font><font color="#000000">,</font></tt>
+<br><tt><font color="#006600">lf</font><font color="#000000">, </font><font color="#990000">20</font><font color="#000000">,</font></tt>
+<br><tt><font color="#006600">lf</font><font color="#000000">, </font><font color="#990000">20</font><font color="#000000">,</font></tt>
+<br><tt><font color="#000000">...</font></tt></blockquote>
+<font face="Arial,Helvetica">So the sprite drawing function gets the start
+position for the sprite. It then skips the amount of pixels specified by
+the first number of the "run array". Next it draws the amount of pixels
+from the "data array" specified by the second number of the run array.
+It then skips again and so on. The function ends as soon a length of 0
+is found for foreground or background run. Only exception is the very first
+element can be 0, telling the function that the sprite begins with foreground.</font>
+<p><font face="Arial,Helvetica">The graphic data itself is stored without
+background information, this also save a lot of memory:</font>
+<br><font face="Arial,Helvetica">SImple drawn the avatar would look like
+this:</font>
+<blockquote><img SRC="avatar_data.png" height=260 width=184></blockquote>
+</blockquote>
+
+<hr WIDTH="100%">
+<blockquote><a NAME="2.2"></a><b><u><font face="Arial,Helvetica">2.2 The
+Stretch-O-Tilt Algorithm</font></u></b>
+<blockquote><i><font face="Arial,Helvetica"><font size=-1>Before the mountains
+were brought forth, or ever thou hadst formed the earth and the world,
+even from everlasting to everlasting, thou art God. (Psalms 90:2)</font></font></i></blockquote>
+<font face="Arial,Helvetica">Often people say that the current client is
+2 dimensional. This not quite true, nor is it really false. In fact the
+term 2.5 dimensional would fit. It knows of height of tiles, and creates
+a 3d feeling of the world, with a fixed view of course, which is in fact
+not a bad thing itself.</font>
+<p><font face="Arial,Helvetica">A already said each raw / map cell also
+holds a height information. It's quite simple to recognize that higher
+tiles are drawn further "up" the screen, and that lower tiles are drawn
+further "down" screen.</font>
+<br><font face="Arial,Helvetica">To be exact it are 4 pixels per height
+level.</font>
+<p><font face="Arial,Helvetica">This gives in example following view of
+the world:</font>
+<p><img SRC="stretch_o_tilt1.png" height=398 width=481>
+<p><font face="Arial,Helvetica">Now what to do with the gaps that were
+created by shifting the tiles?</font>
+<br><font face="Arial,Helvetica">Since the world has no holes in it, they
+have to be filled somehow,</font>
+<br><font face="Arial,Helvetica">and this leads to the "stretch-o-tilt"
+algorithm:</font>
+<p><img SRC="stretch_o_tilt2.png" height=401 width=481>
+<br><font face="Arial,Helvetica">Looks quite nice, or?</font>
+<p><font face="Arial,Helvetica">However there some mathematics to get to
+this, first let's view the tiles in detail:</font>
+<ul>
+<li>
+<font face="Arial,Helvetica">As you can see every tile is ALWAYS 44 pixels
+width, no matter what.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Most of the tiles are still squares. (This
+fact is important for accelerating graphics)</font></li>
+
+<li>
+<font face="Arial,Helvetica">There are even some seldom cases where a tile
+isn't a quadrangle no more. You can think of it as two triangles where
+one can be stretched larger than the other.</font></li>
+
+<li>
+<font face="Arial,Helvetica">The kind in which a tile is stretched depends
+(only) on following parameters:</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">The height of the tile itself</font></li>
+
+<li>
+<font face="Arial,Helvetica">The height of the tile "south" of it</font></li>
+
+<li>
+<font face="Arial,Helvetica">The height of the tile "east" of it</font></li>
+
+<li>
+<font face="Arial,Helvetica">The height of the tile "down" of it</font></li>
+</ul>
+</ul>
+<font face="Arial,Helvetica">Let's picture a worst case stretch-o-tilted
+raw tile:</font>
+<blockquote>&nbsp;
+<table BORDER=0 WIDTH="100%" >
+<tr>
+<td ROWSPAN="4" WIDTH="10%"><img SRC="tile1.png" BORDER=0 height=230 width=259></td>
+
+<td><font face="Arial,Helvetica">&nbsp;hl ... height (stretching) of the
+left triangle.</font></td>
+</tr>
+
+<tr>
+<td><font face="Arial,Helvetica">&nbsp;stl ... tilting of the left triangle.
+(hl / 2 would be no tilting)</font></td>
+</tr>
+
+<tr>
+<td><font face="Arial,Helvetica">&nbsp;hr ... height (stretching) of the
+right triangle.</font></td>
+</tr>
+
+<tr>
+<td><font face="Arial,Helvetica">&nbsp;str ... tilting of the right triangle.
+(hl / 2 would be no tilting)</font></td>
+</tr>
+</table>
+</blockquote>
+<font face="Arial,Helvetica">Now finally the compressed knowledge,&nbsp;&nbsp;&nbsp;&nbsp;
+the formulas:</font>
+<blockquote><tt>thisTile.stl = abs(thisTile.height - southTile.height +
+22);</tt>
+<br><tt>thisTile.str = abs(thisTile.height - eastTile.height + 22);</tt>
+<p><tt>thisTile.hl = abs(thisTile.stl + southTile.str);</tt>
+<br><tt>thisTile.hr = abs(thisTile.str + eastTile.stl);</tt>
+<br>&nbsp;</blockquote>
+<font face="Arial,Helvetica">Now where is the downTile that was claimed
+to be used before?</font>
+<br><font face="Arial,Helvetica">It is hidden in the </font><tt>southTile.str</tt><font face="Arial,Helvetica">
+and in the </font><tt>eastTile.str, </tt><font face="Arial,Helvetica">since
+to calculate these you need the southTile.eastTile.height (or the eastTile.southTile.height),&nbsp;
+which is in fact in both cases the downTile.</font>
+<p><font face="Arial,Helvetica">A note about the absolute values: I'm not
+quite sure about them if they are right, I simply put them in to be sure
+to get valid sprites, and suddenly all was right.....</font>
+<p><font face="Arial,Helvetica">Another note: calculating these values
+is referred in the UMelange-code as "preparing" a block/cell.</font>
+<p><u><font face="Arial,Helvetica">Visualizing how a tile is drawn:</font></u>
+<p><font face="Arial,Helvetica">When drawing the tile it could be really
+handled as two seperate triangles, however this not done so yet. (this
+is also a point of possible improvement)</font>
+<p><font face="Arial,Helvetica">Each traingle is first stretched to the
+new height, and then this stretched triangle is tilted so the edge fits
+the value specified by stl / str.</font>
+<p><u><font face="Arial,Helvetica">And how it is really done:</font></u>
+<p><font face="Arial,Helvetica">In fact to increase perfomance, a stretched
+tile is first translated to a sprite and then draw onto screen. This has
+the advantage that the stretch-o-tilt algorithm has to be calculated only
+once for a tile.</font>
+<p><font face="Arial,Helvetica">The alorithmn doens't do a stretching and
+then a tilting, this would be to slow.</font>
+<p><font face="Arial,Helvetica">It scans the destination square (width
+* height) of the final tile, and calculates the stretch&amp;tilt equations
+backward looking which pixel of the original tile is hit. If a pixel is
+hit outside of the square, it knows that it is background.</font>
+<p><font face="Arial,Helvetica">Here is also some space for improvement,
+since the program scans all the background of the tile until it hits foreground
+again. This could be removed by directly calculating the begin of foreground
+using the normal forward equations.</font>
+<br>&nbsp;
+<br>&nbsp;</blockquote>
+
+</body>
+
+<!-- Mirrored from arachnide.sourceforge.net/umelange/doc/index.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:18 GMT -->
+</html>

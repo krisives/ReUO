@@ -1,0 +1,157 @@
+<html>
+
+<!-- Mirrored from arachnide.sourceforge.net/formats/general/index.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:11 GMT -->
+<head>
+  <link href="../../standard.css" rel=stylesheet type="text/css">
+</head>
+<body background="../../background/paperback.jpg">
+<br>
+<br>
+<center><font face="arial, helvetica" size="+2">General</font></center>
+<br>
+<br>
+<table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+  <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;Data types</b></font></td></tr>   
+</table>    
+<ul>
+ <font face = "Arial, Helvetica">
+  Well first about the data types used in this tutorial. 
+  For one I'm on purpose not using the standard windows established names.  <br>
+  <br>
+  I had different names here before, but I changed it once again. (in source and in the documentation) <br>
+  Why not call the things as they are instead of inventing words? <br>
+  <br>
+  <font size = -1>
+   (In source I use the types 'byte' and 'int8' alternative, dependant from context. 'byte' if it's a pointer to a byte-buffer, and
+   'int8' if it's a simple 8 bit integer variable. However in the documentations I'll prefer BYTE as everybody immedatly knows what is ment.) 
+  </font> <br>
+  <br>                  
+  <table width="90%" border="1" cellspacing="0" cellpadding="2">
+    <tr>
+      <td width = "33%"><font face="arial, helvetica">UNSIGNED BYTE (INT8)</font></td>
+      <td width = "33%"><font face="arial, helvetica"> unsigned &nbsp;8 bit</font></td>
+      <td align="center" width = "33%"><font face="arial, helvetica">0 ... 255</font></td>
+    </tr>
+    <tr>
+      <td><font face="arial, helvetica">UNSIGNED INT16</font></td>
+      <td><font face="arial, helvetica"> unsigned 16 bit</font></td>
+      <td align="center"><font face="arial, helvetica">0 ... 65535</font></td>
+    </tr>
+    <tr>
+      <td><font face="arial, helvetica">UNSIGNED INT32</font></td>
+      <td><font face="arial, helvetica"> unsigned 32 bit</font></td>
+      <td align="center"><font face="arial, helvetica">0 ... 4294967295</font></td>
+    </tr>
+  </table>
+  <table width="90%" border="1" cellspacing="0" cellpadding="2">
+    <tr>
+      <td width = "33%"><font face="arial, helvetica">SIGNED BYTE (INT8)</font></td>
+      <td width = "33%"><font face="arial, helvetica"> signed &nbsp;8 bit</font></td>
+      <td align="center" width = "33%"><font face="arial, helvetica">-128 ... 127</font></td>
+    </tr>
+    <tr>
+      <td><font face="arial, helvetica">SIGNED INT16</font></td>
+      <td><font face="arial, helvetica"> signed 16 bit</font></td>
+      <td align="center"><font face="arial, helvetica">-32768 ... 32767</font></td>
+    </tr>
+    <tr>
+      <td><font face="arial, helvetica">SIGNED INT32</font></td>
+      <td><font face="arial, helvetica"> signed 32 bit</font></td>
+      <td align="center"><font face="arial, helvetica">-2147483648 ... 2147483647</font></td>
+    </tr>
+  </table>
+  <br>
+  One addition I'd like to place about signed and unsigned values. 
+  There is a lot of confusion about, and tons of bugs are the results of 
+  signed/unsigned mismatches. Some languages took this enough reason (java and VB in example) 
+  to completely strike out unsigned values at all, only allowing signed ones. <br>
+  <br>
+  However if programming c(++) always use an unsigned type when an unsigned one will do.
+  (But don't use it if it won't do :o) <br><br>
+  Most important reason is that unsigned types are processed faster than signed ones. <br>
+  Another side effect, it will strike out the possibility your code suddenly behaves completely
+  different than expected just because one of the variables got negative, which you didn't expect to happen.
+ </font>
+</ul>
+
+<table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+ <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;Endian</b></font></td></tr>   
+</table>    
+<ul>
+ <font face = "Arial, Helvetica">
+  As the mul-files are optimized for Intel processors, and to direct File IO,
+  <u><b>all data is stored in little endian format</b></u>. (least significant byte first)<br>
+  <br>
+  This means if you are programming in some high level language (java in example)
+  you'll have to swap them yourself. (or if you read byte-wise)<br>
+  <br>
+  There are some exceptions where data is read in big endian in this tutorial. <br>
+  I'll expectly say so if it happens. This has major historic reasons as we didn't
+  know better and from the fact that <i> human brains think in big endian. </i> <font size = -1>(at least mine does =)</font>
+ </font>
+</ul>
+
+<table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+ <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;Colors</b></font></td></tr>   
+</table>    
+<ul>
+ <font face = "Arial, Helvetica">
+ <br>
+  All graphics are INT16 stored in the 5-5-5 format. Meaning 1 bit 
+  is unused (can be used for transparency), 5 bit red, 5 bit green and 
+  5 bit blue intensity. <br>
+  <br>
+  <table width = "65%" border="1" cellspacing="1">
+   <tr bgcolor="white" align="center"> 
+    <td><font face="arial, helvetica">F</font></td>
+    <td><font face="arial, helvetica">E</font></td>
+    <td><font face="arial, helvetica">D</font></td>
+    <td><font face="arial, helvetica">C</font></td>
+    <td><font face="arial, helvetica">B</font></td>
+    <td><font face="arial, helvetica">A</font></td>
+    <td><font face="arial, helvetica">9</font></td>
+    <td><font face="arial, helvetica">8</font></td>
+    <td><font face="arial, helvetica">7</font></td>
+    <td><font face="arial, helvetica">6</font></td>
+    <td><font face="arial, helvetica">5</font></td>
+    <td><font face="arial, helvetica">4</font></td>
+    <td><font face="arial, helvetica">3</font></td>
+    <td><font face="arial, helvetica">2</font></td>
+    <td><font face="arial, helvetica">1</font></td>
+    <td><font face="arial, helvetica">0</font></td> 
+   </tr>
+   <tr bgcolor="#d0d0d0" align="center"> 
+    <td width="6%"><font face="arial, helvetica">&nbsp</font></td> 
+    <td colspan=5 width="31%" bgcolor="red"><font face="arial, helvetica">red</font></td> 
+    <td colspan=5 width="31%" bgcolor="green"><font face="arial, helvetica">green</font></td> 
+    <td colspan=5 width="31%" bgcolor="blue"><font face="arial, helvetica">blue</font></td> 
+   </tr>
+  </table>
+  <br>
+  
+  If you have to convert to true color, you can use this cute 'little' formula: <br>
+  <font size = -1>
+   (I just noticed lately, this could also go a lot faster, without any '*' or '/' operations...
+    however I'm not publishing an untested formula... ) (Arachnide keeps the 5-5-5 either way)  
+  </font>
+  <br>
+  <ul>
+   <font face="courier new" size=-1>   
+<pre>
+Color32 = ((((Color16 &gt;&gt; 10) & 0x1F) * 0xFF / 0x1F) &lt;&lt; 16) |
+          ((((Color16 &gt;&gt; 5)  & 0x1F) * 0xFF / 0x1F) &lt;&lt; 8) |
+          ((( Color16        & 0x1F) * 0xFF / 0x1F);
+</pre>
+   </font>
+  </ul>
+ </font>
+</ul>
+
+<font face="courier new" size=-1>   
+<b>- finished</b>, Ready to hit the (mul) Road?
+</font>
+ 
+</body>
+
+<!-- Mirrored from arachnide.sourceforge.net/formats/general/index.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:11 GMT -->
+</html>

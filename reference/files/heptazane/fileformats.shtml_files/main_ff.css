@@ -1,0 +1,333 @@
+a:link, a:visited, a:active {
+	color : #330000;
+}
+
+a:hover {
+	color : Maroon;
+}
+
+BODY {
+	scrollbar-face-color: #907440;
+	scrollbar-shadow-color: #483420;
+	scrollbar-highlight-color: #E8D4B8;
+	scrollbar-3dlight-color: #DEC185;
+	scrollbar-darkshadow-color: #503C28;
+	scrollbar-track-color: #A89060;
+	scrollbar-arrow-color: #663300;
+	background : #A89060;
+	color: #000000;
+}
+
+BODY, P, BLOCKQUOTE,  TABLE, TR, TD, TH, LI, XMP {
+	font-family : "Tahoma", "Comic Sans MS", Arial, sans-serif;
+	font-size : small;
+}
+
+H1 {
+	color : #330000;
+	font-family : "Georgia", "Times New Roman", Times, serif;
+}
+
+H2, H3, H4, H5, H6 {
+	color : #330000;
+	font-family : "Tahoma", "Comic Sans MS", Arial, sans-serif;
+}
+
+H5 {
+	margin-bottom : 0;
+}
+
+TD {
+	vertical-align : top;
+	font-family : "Tahoma", "Comic Sans MS", Arial, sans-serif;
+}
+
+.bar, .bar a:active, .bar a:link, .bar a:visited, .bar a:hover {
+	border-width : 0;
+	border-style : none;
+	color : #FFFFCC;
+	background : #330000;
+	background-image: URL(http://uo.stratics.com/shared/darkbg.jpg);
+	font-weight : bold;
+	text-align : left;
+	line-height : 100%;
+}
+
+.comment {
+	background : #c0c0c0;
+	font-size : xx-small;
+}
+
+.top {
+	color : #ffffcc;
+	background :  #330000;
+	background-image: URL(http://uo.stratics.com/shared/darkbg.jpg);
+	font-weight : bold;
+	text-align : center;
+}
+
+.heading {
+	color : #000000;
+	background : #ffffcc;
+	font-weight : bold;
+	text-align : center;
+}
+
+.comment, .comment LI, .comment P {
+	color : #330000;
+	font-size : xx-small;
+}
+
+.menuSection, .menuSubSection {
+	color : #EFC229;
+	font-family : Arial, Helvetica, sans-serif;
+	background-image: URL(http://uo.stratics.com/shared/darkbg.jpg);
+	border : 1 Black;
+	font-weight : bold;
+}
+
+.menu {
+	color : #EFC229;
+	font-family : "MS Sans Serif", Arial, sans-serif;
+	background-image: URL(http://uo.stratics.com/shared/darkbg.jpg);
+	border : 1 Black;
+}
+
+.menu a:link, .menu a:visited, .menu a:active {
+	color : #FFFFCC;
+	text-decoration : none;
+	font-family : "MS Sans Serif", Arial, sans-serif;
+	font-size : xx-small;
+}
+
+.menu a:hover {
+	color : #330000;
+	font-family : "MS Sans Serif", Arial, sans-serif;
+	background-color : #EFC229;
+}
+
+.menuhead {
+	color : White;
+	font-weight : bold;
+}
+ 
+.menuline {
+	margin : 0;
+	font-family : "MS Sans Serif", Geneva, sans-serif;
+	font-size : smaller;
+	text-align : center;
+}
+
+.newsTitle {
+	color : Black;
+	font-family : "Tahoma", "Comic Sans MS", Arial, sans-serif;
+	font-size : xx-small;
+}
+.newsSubject {
+	border-width : 0;
+	border-style : none;
+	color : #FFFFCC;
+	background-color : #330000; 
+	background-image: URL(http://uo.stratics.com/shared/darkbg.jpg);
+	font-weight : bold;
+	text-align : left;
+	line-height : 100%;
+	vertical-align : middle;
+}
+.newsName {
+	background-color : #FFFFCC; 
+	font-size : xx-small;
+}
+.newsCat {
+	font-size : xx-small;
+}
+.newsText {
+}
+TD.newshot { 
+	background-color : Red;  
+}
+TD.newswarm  { 
+	background-color : Teal;  
+	}
+	
+TD.newscold  {
+	background-color : Black;
+}
+
+.td1 {
+	font : bold ;
+	color : #ffffcc;
+	background-color : #330000;
+	background-image: URL(http://uo.stratics.com/shared/darkbg.jpg);
+}
+
+ .td2 {
+	font : bold ;
+	color : #000066;
+	background : #ffffcc;
+}
+
+.td3 {
+	font : bold;
+	color : Black;
+	text-align : right;
+}
+
+.td4 {
+	color : Black;
+	text-align : left;
+}
+.td5 {
+	background : #c0c0c0;
+	background-image : url("commentback.jpg");
+}
+.td6 {
+	background-color : #330000;
+}
+.high {
+	color : #A52A2A;
+}
+.osi {
+	color : #000088;
+}
+.dark {
+	color : #330000;
+}
+.smalltext {
+	font-size: xx-small;
+}
+.network {
+	background-color: White;
+	font-size: xx-small;
+	color: Navy;
+}
+.navTitle {
+	font-weight : bold;
+	font-size : 9px;
+	color : #FEFEFE;
+	text-decoration : none;
+}
+.navTitle:link, .navTitle:visited {
+	color : #FEFEFE;
+}
+.navTitle:active {
+	color : #DAA520;
+}
+.navTitle:hover {
+	color : #DAA520;
+}
+.navMenu {
+	width : 115;
+	background-color : #000000;
+	color: #FEFEFE;
+	font-size : 10px;
+	text-align : center;
+	text-decoration : none;
+}
+.navSubmenu {
+		width : 115;
+		position : absolute;
+		background-color : #000000;
+		font-size : 10px;
+		text-align : left;
+		padding : 1px;
+}
+.navSubmenuLink {
+	color : #FEFEFE;
+	text-decoration : none;
+	width : 100%;
+}
+.navSubmenuLink:link, .navSubmenuLink:visited {
+	color : #FEFEFE;
+	width : 100%;
+}
+.navSubmenuLink:active {
+	color : #000000;
+	background : #FEFEFE;
+	width : 100%;
+}
+.navSubmenuLink:hover {
+	color : #000000;
+	background : #FEFEFE;
+	width : 100%;
+}
+.siteTitle {
+	font-weight : bold;
+	font-size : 9px;
+	color : #FEFEFE;
+	text-decoration : none;
+}
+.siteTitle:link {
+	color : #FEFEFE;
+}
+.siteTitle:active {
+	color : #DAA520;
+}
+.siteTitle:hover {
+	color : #DAA520;
+}
+.siteMenu {
+	width : 115;
+	color: #EFC229;
+	font-size : x-small;
+	text-align : center;
+	text-decoration : none;
+	font-weight : bold;
+}
+.siteSubmenu {
+		width : 115;
+		position : absolute;
+		background-color : #000000;
+		font-size : 10px;
+		text-align : left;
+		padding : 1px;
+}
+.siteSubmenuLink {
+	color : #FEFEFE;
+	text-decoration : none;
+	width : 100%;
+}
+.siteSubmenuLink:link,  .siteSubmenuLink:visited {
+	color : #FEFEFE;
+	width : 100%;
+}
+.siteSubmenuLink:active, {
+	color : #000000;
+	background : #FEFEFE;
+	width : 100%;
+}
+.siteSubmenuLink:hover {
+	color : #000000;
+	background : #FEFEFE;
+	width : 100%;
+}
+.submitButton {
+       background-color: #FFFFCC;
+       color: #000000;
+       font-size: xx-small;
+       border: 1px solid #330000;
+}
+.searchButton {
+       background-color: #FFFFCC;
+       color: #000000;
+       font-size: xx-small;
+       border: 1px solid #330000;
+}
+.searchText {
+	font-size: xx-small;
+	color: Black;
+}
+.centered {  
+	text-align: center
+}
+.huntName { 
+	 font-size: large; 
+	 font-weight: bold; 
+	 text-align: center; 
+	 vertical-align: middle
+}
+.textad, .headline, .text, .link  {
+	text-decoration : none;
+	font-family : "MS Sans Serif", Arial, sans-serif;
+	font-size : xx-small;
+}

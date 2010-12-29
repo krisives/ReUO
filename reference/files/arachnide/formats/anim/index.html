@@ -1,0 +1,288 @@
+<html>
+
+<!-- Mirrored from arachnide.sourceforge.net/formats/anim/index.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:12 GMT -->
+<head>
+  <link href="../../standard.css" rel=stylesheet type="text/css">
+</head>
+<body background="../../background/paperback.jpg">
+<br>
+<br>
+<center><font face="arial, helvetica" size="+2">Animations</font></center>
+<br>
+<br>
+<ul>
+ <table> 
+  <tr valign="top">  
+   <td><table cellspacing="0" cellpadding="5" >
+     <tr><td><font face="arial, helvetica">Relevant files:</font></td></tr>
+   </table></td>
+
+   <td>
+    <table border="1" cellspacing="0" cellpadding="5" width = "90%" bgcolor="#C0C0C0">
+     <tr><td><font face="arial, helvetica"><i>anim.mul</i></font></td></tr>
+     <tr><td><font face="arial, helvetica"><i>anim.idx</i></font></td></tr>
+     <tr><td><font face="arial, helvetica"><i>animdata.mul</i></font></td></tr>
+     <tr><td><font face="arial, helvetica"><i>animinfo.mul</i></font></td></tr>
+    </table>
+   </td>
+  </tr>
+ </table>
+ <br>
+ <font face="arial, helvetica">
+  <li>In the animations files all data regarding animated creatures are saved. <br></li>
+  <br><li><i>anim.idx</i> holds the index offests for <i>anim.mul</i> are stored.<br>
+      If you want to read an animation sequence you first look into anim.idx reading the offset and
+      then go to <i>anim.mul</i> reading the data. <i>anim.idx</i> also contains the size of the data
+      to read allowing to read in whole relevant chunk at once saving a lot of performance on file-IO.<br></li>
+  <br><li><i>anim.mul</i> contains a set of frames holding the animation sequences.<br></li>
+  <br><li>The contents of <i>animdata.mul</i> and <i>animinfo.mul</i> are completely unkown! <br>
+          If you know something about these files, please tell!<br></li>
+ </font>
+</ul>
+  
+<table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+ <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;anim.idx</b></font></td></tr>
+</table>
+<ul>
+ <font face="arial, helvetica">
+  This file contains the indexes and to <i>anim.mul</i>. <br>
+  It's structured into groups of 12 bytes.<br>
+  To load an animation sequence with a specific ID, search for ID * 12 in this file, to get the correct index.<br>
+  <br>
+  Index Record (12 bytes): <br> <br>
+  <table width = "65%" border="1" cellspacing="1">
+   <tr bgcolor="white" align="center"> 
+    <td><font face="arial, helvetica">0</font></td>
+    <td><font face="arial, helvetica">1</font></td>
+    <td><font face="arial, helvetica">2</font></td>
+    <td><font face="arial, helvetica">3</font></td>
+    <td><font face="arial, helvetica">4</font></td>
+    <td><font face="arial, helvetica">5</font></td>
+    <td><font face="arial, helvetica">6</font></td>
+    <td><font face="arial, helvetica">7</font></td>
+    <td><font face="arial, helvetica">8</font></td>
+    <td><font face="arial, helvetica">9</font></td>
+    <td><font face="arial, helvetica">A</font></td>
+    <td><font face="arial, helvetica">B</font></td> 
+   </tr>
+   <tr bgcolor="#d0d0d0" align="center"> 
+    <td colspan=4 width="33%"><font face="arial, helvetica">index</font></td> 
+    <td colspan=4 width="33%"><font face="arial, helvetica">size</font></td> 
+    <td colspan=4 width="33%"><font face="arial, helvetica">unkown</font></td> 
+   </tr>
+  </table>
+ </font>
+</ul>
+
+<table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+ <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;Finding the animation ID</b></font></td></tr>
+</table>
+<ul> 
+ <font face="arial, helvetica">
+  A thing wich is still rather in darkness is how to acquire the correct frame id for 
+  an animation sequence. <br><br>
+   
+  Well first of there are three different kinds of creatures:<br>
+  <ul>
+   <li><font face="arial, helvetica">High detail creatures (monsters)</font></li>
+   <li><font face="arial, helvetica">Low detail creatures (animals)</font></li>
+   <li><font face="arial, helvetica">Humans and their equipment.</font></li>
+  </ul>
+  <br>
+  High detail creatures and humans have 10 frames per sequence, while low detail
+  creatures have only 5.
+  <br> <br>
+  Each creature has it's creature ID like in example 0x01 for the orc. 0x3b for the beloved red dragon, or 
+  0x190 which is a man.
+  So now the get it a little clearer. 
+  <ul>
+    <li> The animations are first separated into creatures. </li> 
+    <li> Each creature is separated into it's states, like walking, standing, running, fighting etc. </li> 
+    <li> An each state has 5 directions: down, south, left, west and up. <br>
+         The missing directions north, right and east have to calculated by simply mirroring the 
+         corresponding direction. </li>
+  </ul>
+
+  So if you want to find the animation id of an id, you first have to determine it's type:<br>
+  <table width = "90%" border="1" cellspacing="0"><br>
+   <tr bgcolor="#d0d0d0">
+    <td><font face="arial, helvetica">Creature ID range (cID)</font></td>
+    <td><font face="arial, helvetica">Type</font></td>
+    <td><font face="arial, helvetica">Sequences/<br>creature</font></td>
+    <td><font face="arial, helvetica">Calculates into animation ID (aID)</font></td>
+   </tr> 
+   <tr>
+    <td><font face="arial, helvetica">0x000 - 0x0c7</font></td>
+    <td><font face="arial, helvetica">High detail</font></td>
+    <td><font face="arial, helvetica">110</font></td>
+    <td><font face="arial, helvetica">aID = cID * 110</font></td>
+   </tr>
+   <tr>
+    <td><font face="arial, helvetica">0x0c8 - 0x18F</font></td>
+    <td><font face="arial, helvetica">Low detail</font></td>
+    <td><font face="arial, helvetica">65</font></td>
+    <td><font face="arial, helvetica">aID = (cID - 0xc8) * 65 + 22000</font></td>
+   </tr>
+   <tr><td><font face="arial, helvetica">0x190 -      </font></td>
+    <td><font face="arial, helvetica">Human & Equipment</font></td>
+    <td><font face="arial, helvetica">175</font></td>
+    <td><font face="arial, helvetica">aID = (cID - 0x190) * 175 + 35000</font></td>
+   </tr>
+  </table>
+  <br>
+  After that the type multiplied by 5 is added to to aID.   <br>
+  Which types (running,walking etc.) correspond exactly to which numbers is yet unkown.  <br>
+  <br>
+  Finally add the direction to aID. (See arachnide's compass as soon I get to design it :o)<br>
+  <table width = "35%" border="1" cellspacing="0"><br>
+   <tr><td><font face="arial, helvetica">Down</font></td><td><font face="arial, helvetica">+0</font></td></tr>
+   <tr><td><font face="arial, helvetica">South</font></td><td><font face="arial, helvetica">+1</font></td></tr>
+   <tr><td><font face="arial, helvetica">Left</font></td><td><font face="arial, helvetica">+2</font></td></tr>
+   <tr><td><font face="arial, helvetica">North</font></td><td><font face="arial, helvetica">+3</font></td></tr>
+   <tr><td><font face="arial, helvetica">Up</font></td><td><font face="arial, helvetica">+4</font></td></tr>
+  </table>
+ </font>
+</ul>
+  
+<table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+ <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;anim.mul</b></font></td></tr>
+</table>
+<ul>
+ <font face="arial, helvetica">
+  So finally the animation sequence id is known, the index has been looked up in 
+  <i>anim.idx</i>, let's start to actually reading in some sprites! <br>
+  <br>
+  The sequence starts with a 512 byte palette of 256 colors. <br>
+  Not hard to guess each color in later context is an index to this palette.
+  Followed are the number of frames in this sequence, and a table of offsets for
+  each frame.<br><br>
+  Animation Squence:
+  <ul><table width="50%">
+   <tr><td><font face="arial, helvetica">UNSIGNED INT16[256]</font></td><td><font face="arial, helvetica">The palette</font></td></tr>
+   <tr><td><font face="arial, helvetica">UNSIGNED INT32</font></td><td><font face="arial, helvetica">Frame count</font></td></tr>
+   <tr><td><font face="arial, helvetica">UNSIGNED INT32[Frame count]</font></td><td><font face="arial, helvetica">Frame offsets</font></td></tr>
+   <tr><td><font face="arial, helvetica">...</font></td><td><font face="arial, helvetica">The frame data</font></td></tr>
+  </table></ul>
+  <br>
+  A Frame:<br>
+  <ul><table width="50%">
+   <tr><td colspan=2><font face="arial, helvetica">Seek from the end of the palette plus the offset from the offset table to find the start of the frame:</font></td></tr>
+   <tr><td><font face="arial, helvetica">SIGNED INT16</font></td><td><font face="arial, helvetica">Image center X</font></td></tr>
+   <tr><td><font face="arial, helvetica">SIGNED INT16</font></td><td><font face="arial, helvetica">Image center Y</font></td></tr>
+   <tr><td><font face="arial, helvetica">UNSIGNED INT16</font></td><td><font face="arial, helvetica">Width</font></td></tr>
+   <tr><td><font face="arial, helvetica">UNSIGNED INT16</font></td><td><font face="arial, helvetica">Height</font></td></tr>
+   <tr><td><font face="arial, helvetica">...</font></td><td><font face="arial, helvetica">...data..</font></td></tr>
+  </table></ul>  
+  <br>
+  The data stream:<br>
+  The data is organized into &quot;run's&quot; of pixels. <br>
+  If you have a picture, it will go from top to bottom, 
+  telling where the foreground starts and how many pixels the line extends to the
+  right, until it reaches background again. <br>
+   
+  Each pixel-run is constructed following way:
+  <ul><table width="50%">
+   <tr><td><font face="arial, helvetica">UNSIGNED INT16</font></td><td><font face="arial, helvetica">RowHeader</font></td></tr>
+   <tr><td><font face="arial, helvetica">SIGNED INT16</font></td><td><font face="arial, helvetica">RowOffset</font></td></tr>
+   <tr><td><font face="arial, helvetica">...</font></td><td><font face="arial, helvetica">...data..</font></td></tr>
+  </table></ul>  
+  If either RowHeader ir RowOffset equals 0x7FFF it is the end of the data stream, and
+  the picture is complete. <br>
+  RowHeader and RowOffset are both bit-mapped: <br>
+  <br>
+  RowHeader:
+  <ul>
+   <table width = "65%" border="1" cellspacing="1">
+    <tr bgcolor="white" align="center"> 
+     <td><font face="arial, helvetica">0</font></td>
+     <td><font face="arial, helvetica">1</font></td>
+     <td><font face="arial, helvetica">2</font></td>
+     <td><font face="arial, helvetica">3</font></td>
+     <td><font face="arial, helvetica">4</font></td>
+     <td><font face="arial, helvetica">5</font></td>
+     <td><font face="arial, helvetica">6</font></td>
+     <td><font face="arial, helvetica">7</font></td>
+     <td><font face="arial, helvetica">8</font></td>
+     <td><font face="arial, helvetica">9</font></td>
+     <td><font face="arial, helvetica">A</font></td>
+     <td><font face="arial, helvetica">B</font></td>
+     <td><font face="arial, helvetica">C</font></td>
+     <td><font face="arial, helvetica">D</font></td>
+     <td><font face="arial, helvetica">E</font></td>
+     <td><font face="arial, helvetica">F</font></td> 
+    </tr>
+    <tr bgcolor="#d0d0d0" align="center"> 
+     <td colspan=4  width="25%"><font face="arial, helvetica">line number</font></td> 
+     <td colspan=12 width="75%"><font face="arial, helvetica">runby</font></td> 
+    </tr>
+   </table>
+  </ul>
+  
+  RowOffset:
+  <ul>
+   <table width = "65%" border="1" cellspacing="1">
+    <tr bgcolor="white" align="center"> 
+     <td><font face="arial, helvetica">0</font></td>
+     <td><font face="arial, helvetica">1</font></td>
+     <td><font face="arial, helvetica">2</font></td>
+     <td><font face="arial, helvetica">3</font></td>
+     <td><font face="arial, helvetica">4</font></td>
+     <td><font face="arial, helvetica">5</font></td>
+     <td><font face="arial, helvetica">6</font></td>
+     <td><font face="arial, helvetica">7</font></td>
+     <td><font face="arial, helvetica">8</font></td>
+     <td><font face="arial, helvetica">9</font></td>
+     <td><font face="arial, helvetica">A</font></td>
+     <td><font face="arial, helvetica">B</font></td>
+     <td><font face="arial, helvetica">C</font></td>
+     <td><font face="arial, helvetica">D</font></td>
+     <td><font face="arial, helvetica">E</font></td>
+     <td><font face="arial, helvetica">F</font></td> 
+    </tr>
+    <tr bgcolor="#d0d0d0" align="center"> 
+     <td width="7%" bgcolor="red"><font face="arial, helvetica">+/-</font></td> 
+     <td colspan=9 width="56%"><font face="arial, helvetica">x-offset</font></td> 
+     <td colspan=6 width="37%" bgcolor="#A0A0A0"><font face="arial, helvetica">unkown</font></td> 
+    </tr>
+   </table>
+  </ul>
+  <br> 
+  <b>ATTENTION:</b> to get the x-offset of the pixel-run you'll have to to shift right by 6. 
+     However you have to respect to sign! Either do it with the inline assembler
+     command shr like Alazane did. (shift right/respect sign), or write it out like 
+     Arachnide prefers to:<br>
+  <ul> 
+   <br>
+   <font face="courier new" size="-1">
+    &lt;Arachnide code snippet&gt;
+<pre>int xoffs = (rowOffset) &gt;&gt; 6;
+if (rowOffset & 0x8000) {
+  xoffs += centerx - 1024;
+} else {
+  xoffs += centerx;
+}</pre>
+   </font>
+  </ul>    
+  <br>
+  <li> Add center X to x-offset (already happened in above code snippet).</li><br>
+  <br>
+  <li> Okay now linenumber, offset and how many pixels read in are known.
+       Nobody is gonna stop now! <br>
+       Read in runby number of bytes, look them up in the palette, and put
+       them at the position (linenumber) / (offset + x) in the sprite. <br>
+       <ul>
+        <font size=-1>
+         (How the sprite is constructed is implementation dependant,<br>
+         Arachnide in example uses bitmasks for this,<br>
+         but one can also use the spare 16th bit, if he prefers to, or something else)
+        </font>
+       </ul>
+       <br>
+     <b>- finished</b>, Hope I got it all clear!
+ </font>
+</ul>    
+ 
+</body>
+
+<!-- Mirrored from arachnide.sourceforge.net/formats/anim/index.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:12 GMT -->
+</html>

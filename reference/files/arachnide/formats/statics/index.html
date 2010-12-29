@@ -1,0 +1,92 @@
+<html>
+
+<!-- Mirrored from arachnide.sourceforge.net/formats/statics/index.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:13 GMT -->
+<head>
+  <link href="../../standard.css" rel=stylesheet type="text/css">
+</head>
+<body background="../../background/paperback.jpg">
+<br>
+<br>
+<center><font face="arial, helvetica" size="+2">Statics</font></center>
+<br>
+<br>
+<ul>
+ <table>
+  <tr valign="top">  
+   <td>
+    <table cellspacing="0" cellpadding="5" >
+     <tr><td><font face="arial, helvetica">Relevant files:</font></td></tr>
+    </table>
+   </td>
+   <td>
+     <table border="1" cellspacing="0" cellpadding="5" width = "90%" bgcolor="#C0C0C0">
+      <tr><td><font face="arial, helvetica"><i>staidx0.mul</i></font></td></tr>
+      <tr><td><font face="arial, helvetica"><i>statics0.mul</i></font></td></tr>
+     </table>
+   </td>
+  </tr>
+ </table>
+ <br>
+ <font face="arial, helvetica">
+  <li> All static elements which are not part of the base level map are stored in the statics file. </li> <br>
+  <li> <i>staidx0.mul</i> is the index file to <i>statics0.mul</i> which stored the tiles.</li> <br>
+  <li> Best see the <a href="../map/index.html">map chapter</a> first, for some general information on construction of the world. </li> <br>
+  <br>
+  
+  This is in example the center of britain with static data only:
+  <ul>
+   <img src="static.png" border="no">
+  </ul>
+ </font>
+</ul>
+  <table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+   <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;staidx0.mul</b></font></td></tr>
+   </table>
+<ul>
+ <font face="arial, helvetica">
+  The blocks inside of <i>staidx0.mul</i> have exactly the some formatation as from <a href="../map/index.html">map0.mul</a>, 
+  expect each entry consists of 12 bytes. (8x8 grouping, sorted from top to down, then left ot right). <br> 
+  To read a static block set the filepointer to blockID * 12 and get the offset and length for statidx0.mul.<br>
+  <br>
+  <table width="50%" border="1" cellspacing = "0">
+   <tr><td><font face="arial, helvetica">UNSIGNED INT16</font></td><td><font face="arial, helvetica">Start</font></td></tr>
+   <tr><td><font face="arial, helvetica">UNSIGNED INT16</font></td><td><font face="arial, helvetica">Length</font></td></tr>
+   <tr><td><font face="arial, helvetica">UNSIGNED INT16</font></td><td><font face="arial, helvetica">unkown</font></td></tr>
+  </table>
+  <br>
+  If start has a value of 0xFFFFFFFF the are no static tiles for this cell.
+  <br>
+  NOTE: Due the format of this file one is really forced this time to read it block-wise...
+ </font>
+</ul>
+<table cellspacing="0" cellpadding="2" width = "100%" bgcolor="#C0C0C0">
+ <tr><td><font face="arial, helvetica"><b>&nbsp;&nbsp;&nbsp;statics0.mul</b></font></td></tr>
+</table>
+<ul>
+ <font face="arial, helvetica">
+  The block has Length (from above) divided by 7 entries of following format: <br>
+  <br>
+  <table width="50%" border="1" cellspacing = "0">
+   <tr><td><font face="arial, helvetica">UNSIGNED INT16</font></td><td><font face="arial, helvetica">Tile ID</font></td></tr>
+   <tr><td><font face="arial, helvetica">UNSIGNED INT8</font></td><td><font face="arial, helvetica">X</font></td></tr>
+   <tr><td><font face="arial, helvetica">UNSIGNED INT8</font></td><td><font face="arial, helvetica">Y</font></td></tr>
+   <tr><td><font face="arial, helvetica">SIGNED INT8</font></td><td><font face="arial, helvetica">Z</font></td></tr>
+   <tr><td><font face="arial, helvetica">UNSIGNED INT16</font></td><td><font face="arial, helvetica">unknown</font></td></tr>
+  </table>
+  <br>
+  Tile-ID are this time static tile id's, meaning you have to add 0x4000 to find them in <a href="../art/index.html">art.mul</a>.<br>
+  X and Y are the cell coordinates inside this block. <br>
+  Z is the height of the tile.<br>
+  <br>
+  Note: I've no idea how the tiles are ordered in a block, if they are ordered at all, and if it has an order about it's meaning... <br>
+  <font size=-1>(Arachnide currently doesn't rely on any tile-order in a block)</font>
+ </font>
+</ul>  
+<font face="arial, helvetica">
+<b>- finished</b>
+</font>
+  
+</body>
+
+<!-- Mirrored from arachnide.sourceforge.net/formats/statics/index.html by HTTrack Website Copier/3.x [XR&CO'2005], Thu, 25 Jan 2007 04:00:13 GMT -->
+</html>
